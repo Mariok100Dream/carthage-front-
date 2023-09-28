@@ -1,0 +1,35 @@
+.bodyTranslation1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4% !important;
+    background-color: #fff;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .spinner {
+    display: grid;
+    grid-template-columns: repeat(3, 20px);
+    grid-template-rows: repeat(3, 20px);
+    grid-gap: 5px;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .square {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+    animation: scaleInOut 1s infinite;
+  }
+  
+  @keyframes scaleInOut {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.7);
+    }
+  }

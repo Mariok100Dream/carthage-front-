@@ -1,0 +1,172 @@
+
+
+.rocket {
+    width: 500px;
+    height: 100vh;
+    position: absolute;
+    left: calc(50% - 250px);
+  }
+  .rocket .rocket_body {
+    width: 100px;
+    position: absolute;
+    left: 110%;
+    bottom: 50%;
+
+  }
+  .rocket .rocket_body .body {
+    height: 220px;
+    background-color: #f2f2f2;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+  .rocket .rocket_body .body::before {
+    content: "";
+    position: absolute;
+    top: calc(100% - 15px);
+    left: calc(50% - 30px);
+    background-color: #2e0000;
+    height: 30px;
+    width: 60px;
+    z-index: -101;
+    border-radius: 15px;
+  }
+  .rocket .rocket_body .window {
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    border: 5px solid #E60000;
+    background-color: #c0ddf1;
+  }
+  .rocket .rocket_body .window.small {
+    height: 30px;
+    width: 30px;
+    top: 43%;
+  }
+  .rocket .rocket_body .wing {
+    position: absolute;
+    background-color: #E60000;
+    height: 70px;
+    width: 65px;
+    z-index: -100;
+    top: calc(100% - 70px);
+  }
+  .rocket .rocket_body .wing-left {
+    border-top-left-radius: 70%;
+    border-bottom-left-radius: 20%;
+    left: -30px;
+  }
+  .rocket .rocket_body .wing-right {
+    border-top-right-radius: 70%;
+    border-bottom-right-radius: 20%;
+    right: -30px;
+  }
+  .rocket .rocket_body .wing-center {
+    height: 70px;
+    width: 10px;
+    z-index: 100;
+    left: calc(50% - 5px);
+  }
+  .rocket .rocket_body .fire_body {
+    opacity: 0;
+    position: absolute;
+    left: calc(50% - 50px);
+    bottom: -115px;
+    z-index: 100;
+    transition: all ease 0.3s;
+  }
+  .rocket .rocket_body .fire_body .fire_red {
+    width: 100px;
+    height: 100px;
+    border-radius: 0px 100% 100% 100%;
+    background-color: #ea3d19;
+    transform: rotate(-135deg);
+  }
+  .rocket .rocket_body .fire_body .fire_red .fire_yellow {
+    position: absolute;
+    top: calc(100% - 75px);
+    left: calc(100% - 75px);
+    width: 50px;
+    height: 50px;
+    border-radius: 0px 100% 100% 100%;
+    background-color: #eeb01a;
+  }
+  .rocket .launched_animation {
+    animation: move 2s forwards;
+    animation-timing-function: cubic-bezier(0.88, 0.01, 0.88, 0.46);
+    animation-play-state: paused;
+  }
+  .rocket .fire_animation {
+    animation: fire 1s forwards;
+    animation-play-state: paused;
+  }
+  .rocket .float_animation {
+    animation: float 5s infinite;
+    animation-play-state: paused;
+  }
+  .rocket .base {
+    left: calc(50% - 125px);
+    bottom: 0;
+    height: 60px;
+    width: 250px;
+    background-color: #5e5e5e;
+    position: absolute;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  }
+  
+  @keyframes fire {
+    0% {
+      transform: scale(0.5);
+    }
+    25% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(0.6);
+    }
+    75% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes move {
+    0% {
+      bottom: 75px;
+    }
+    33% {
+      bottom: 300px;
+    }
+    66% {
+      bottom: 250px;
+    }
+    100% {
+      bottom: 1200px;
+    }
+  }
+  @keyframes float {
+    0% {
+      bottom: 75px;
+    }
+    25% {
+      bottom: 300px;
+    }
+    50% {
+      bottom: 280px;
+    }
+    75% {
+      bottom: 300px;
+    }
+    100% {
+      bottom: 100px;
+    }
+  }
+
+
+  

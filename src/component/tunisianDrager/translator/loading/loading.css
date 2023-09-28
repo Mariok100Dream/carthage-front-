@@ -1,0 +1,141 @@
+
+.circle, #birdTunisiaDevLoadinTranslating .eyeTunisiaDevLoadinTranslating, .quarter, #birdTunisiaDevLoadinTranslating .lowerLipTunisiaDevLoadinTranslating, #birdTunisiaDevLoadinTranslating .upperLipTunisiaDevLoadinTranslating, #birdTunisiaDevLoadinTranslating .cheekTunisiaDevLoadinTranslating, .half, #birdTunisiaDevLoadinTranslating .faceTunisiaDevLoadinTranslating, #birdTunisiaDevLoadinTranslating .crestTunisiaDevLoadinTranslating {
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  
+  .half, #birdTunisiaDevLoadinTranslating .faceTunisiaDevLoadinTranslating, #birdTunisiaDevLoadinTranslating .crestTunisiaDevLoadinTranslating {
+    background-size: 50% 100%;
+  }
+  
+  .quarter, #birdTunisiaDevLoadinTranslating .lowerLipTunisiaDevLoadinTranslating, #birdTunisiaDevLoadinTranslating .upperLipTunisiaDevLoadinTranslating, #birdTunisiaDevLoadinTranslating .cheekTunisiaDevLoadinTranslating {
+    background-size: 50% 50%;
+  }
+  
+  .bodyTunisiaDevLoadinTranslating {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #18233e;
+  }
+  
+  #birdTunisiaDevLoadinTranslating {
+    width: 20em;
+    height: 20em;
+    overflow: hidden;
+    position: relative;
+    transition: opacity 1s;
+  }
+  #birdTunisiaDevLoadinTranslating > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  #birdTunisiaDevLoadinTranslating .crestTunisiaDevLoadinTranslating {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #a12a15, #a12a15);
+    animation: crestTunisiaDevLoadinTranslating 2000ms infinite linear;
+  }
+  @keyframes crestTunisiaDevLoadinTranslating {
+    0% {
+      transform: rotate(0deg);
+    }
+    25%, 50% {
+      transform: rotate(180deg);
+    }
+    75%, 100% {
+      transform: rotate(360deg);
+    }
+  }
+  #birdTunisiaDevLoadinTranslating .faceTunisiaDevLoadinTranslating {
+    width: 65%;
+    height: 65%;
+    background-image: linear-gradient(to right, #FFF2FF, #FFF2FF);
+    animation: faceTunisiaDevLoadinTranslating 2000ms infinite linear;
+  }
+  @keyframes faceTunisiaDevLoadinTranslating {
+    0% {
+      transform: rotate(0deg);
+    }
+    25%, 50% {
+      transform: rotate(-180deg);
+    }
+    75%, 100% {
+      transform: rotate(-360deg);
+    }
+  }
+  #birdTunisiaDevLoadinTranslating .cheekTunisiaDevLoadinTranslating {
+    width: 65%;
+    height: 65%;
+    background-image: linear-gradient(to right, #E7E7E7, #E7E7E7);
+    animation: cheekTunisiaDevLoadinTranslating 2000ms infinite linear;
+  }
+  @keyframes cheekTunisiaDevLoadinTranslating {
+    0% {
+      transform: rotate(-90deg);
+    }
+    25%, 50% {
+      transform: rotate(-180deg);
+    }
+    75%, 100% {
+      transform: rotate(-450deg);
+    }
+  }
+  #birdTunisiaDevLoadinTranslating .upperLipTunisiaDevLoadinTranslating {
+    width: 65%;
+    height: 65%;
+    background-image: linear-gradient(to right, #F7CE42, #F7CE42);
+    animation: upperLipTunisiaDevLoadinTranslating 2000ms infinite linear;
+  }
+  @keyframes upperLipTunisiaDevLoadinTranslating {
+    0% {
+      transform: rotate(90deg);
+    }
+    25%, 50% {
+      transform: rotate(0deg);
+    }
+    75%, 100% {
+      transform: rotate(90deg);
+    }
+  }
+  #birdTunisiaDevLoadinTranslating .lowerLipTunisiaDevLoadinTranslating {
+    width: 35%;
+    height: 35%;
+    background-image: linear-gradient(to right, #F7A500, #F7A500);
+    animation: lowerLipTunisiaDevLoadinTranslating 2000ms infinite linear;
+  }
+  @keyframes lowerLipTunisiaDevLoadinTranslating {
+    0% {
+      transform: rotate(180deg);
+    }
+    25%, 50% {
+      transform: rotate(270deg);
+    }
+    75%, 100% {
+      transform: rotate(180deg);
+    }
+  }
+  #birdTunisiaDevLoadinTranslating .eyeTunisiaDevLoadinTranslating {
+    width: 15%;
+    height: 15%;
+    background-color: #18233e;
+    transform: translate(-60%, -60%);
+    animation: eyeTunisiaDevLoadinTranslating 2000ms infinite linear;
+  }
+  @keyframes eyeTunisiaDevLoadinTranslating {
+    0% {
+      transform: translate(-60%, -60%);
+    }
+    25%, 50% {
+      transform: translate(60%, -60%);
+    }
+    75%, 100% {
+      transform: translate(-60%, -60%);
+    }
+  }

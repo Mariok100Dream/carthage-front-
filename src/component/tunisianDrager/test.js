@@ -1,0 +1,10 @@
+
+//padding
+
+
+//margin 
+
+
+
+//text align 
+
