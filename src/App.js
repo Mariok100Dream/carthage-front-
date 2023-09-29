@@ -21,7 +21,7 @@ const ViewComponent = React.lazy(() => import('./component/tunisianDrager/view c
 function App() {
 
   useEffect(()=>{
-    ReactGA.initialize("G-87Z37BJ7TL");
+    ReactGA.initialize("G-KGB38DBCSB");
     ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   })
 
