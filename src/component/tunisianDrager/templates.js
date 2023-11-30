@@ -12957,7 +12957,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Facebook", url: "https://www.facebook.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -12971,7 +12971,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Instagram", url: "https://Instagram.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -12988,7 +12988,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Behance", url: "https://Behance.com/?lang=fr",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13085,7 +13085,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Facebook", url: "https://www.facebook.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13099,7 +13099,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Instagram", url: "https://Instagram.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13116,7 +13116,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Behance", url: "https://Behance.com/?lang=fr",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13212,7 +13212,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Facebook", url: "https://www.facebook.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13226,7 +13226,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Twitter", url: "https://twitter.com/?lang=fr",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13240,7 +13240,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Instagram", url: "https://www.instagram.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13330,7 +13330,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Facebook", url: "https://www.facebook.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13345,7 +13345,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
                 name: "Twitter", url: "https://twitter.com/?lang=fr",
 
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13359,7 +13359,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
               {
                 name: "Instagram", url: "https://www.instagram.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "36px",
+                font_size_icon: "25px",
                 color_icon: "#ffffff",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -13618,7 +13618,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
     mouseDrag: true,
     history: [],
     title: {
-      text: " Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      text: "Lorem ipsum dolo ",
       color: "#070f4d",
       hover_color: "#070f4d",
       font_family: "'Poppins', sans-serif",
@@ -13636,7 +13636,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
       lang: "en",
     },
     description: {
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto .",
+      text: "sit amet consectetur ",
       color: "#75799b",
       hover_color: "#75799b",
       font_family: "'Poppins', sans-serif",
@@ -13658,7 +13658,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
     title_html:
       `
         <h2 
-        class="h2TeatType1"
+        class="h2Team4"
         dir='ltr'
         style="color:{color_title};font-family:{font_family};
         font-size:{font_size};padding-top:{padding_top};
@@ -13670,11 +13670,13 @@ style="font-size:{font_size_icon};color:{color_icon};"
         onmouseout='this.style.color="{color_title}"'
         >
         {text}
-        </h2>
+       
+      
         `,
     description_html: `
-        <p 
-        class="pTeatType1"
+
+        <span 
+        class="spanTeam4" 
         dir='ltr'
         style="color:{color_title};font-family:{font_family};
         font-size:{font_size};padding-top:{padding_top};
@@ -13684,9 +13686,8 @@ style="font-size:{font_size_icon};color:{color_icon};"
         margin-right:{margin_right};text-align:{text_align}"
         onmouseover='this.style.color="{color_title_hover}"'
         onmouseout='this.style.color="{color_title}"'
-        >
-        {text}
-        </p>
+         > {text} </span>
+         </h2>
         `,
     old_css: cssTeamType4,
     type: "Team",

@@ -31,8 +31,7 @@ style="margin-top:{container_margin_top};margin-bottom:{container_margin_bottom}
                 onmouseover='this.style.color="#070f4d"'
                 onmouseout='this.style.color="#070f4d"'
                 >
-                Lorem ipsum dolo <br />
-                sit amet consectetur  
+                Lorem ipsum dolo 
                 <!-- End Title -->
                 <!-- Begin Description -->
                 <span 
