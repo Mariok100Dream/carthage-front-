@@ -9600,7 +9600,7 @@ export const Templates = [
               {
                 name: "Facebook", url: "https://www.facebook.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9613,7 +9613,7 @@ export const Templates = [
               {
                 name: "Twitter", url: "https://Twitter.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9627,7 +9627,7 @@ export const Templates = [
               {
                 name: "Instagram", url: "https://Instagram.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9645,7 +9645,7 @@ export const Templates = [
                 name: "LinkedIn", url: "https://LinkedIn.com/?lang=fr",
 
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9742,7 +9742,7 @@ export const Templates = [
               {
                 name: "Facebook", url: "https://www.facebook.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9755,7 +9755,7 @@ export const Templates = [
               {
                 name: "Twitter", url: "https://Twitter.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9769,7 +9769,7 @@ export const Templates = [
               {
                 name: "Instagram", url: "https://Instagram.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9786,7 +9786,7 @@ export const Templates = [
               {
                 name: "LinkedIn", url: "https://LinkedIn.com/?lang=fr",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9882,7 +9882,7 @@ export const Templates = [
               {
                 name: "Facebook", url: "https://www.facebook.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9895,7 +9895,7 @@ export const Templates = [
               {
                 name: "Twitter", url: "https://Twitter.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9909,7 +9909,7 @@ export const Templates = [
               {
                 name: "Instagram", url: "https://Instagram.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -9926,7 +9926,7 @@ export const Templates = [
               {
                 name: "LinkedIn", url: "https://LinkedIn.com/?lang=fr",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -10017,7 +10017,7 @@ export const Templates = [
               {
                 name: "Facebook", url: "https://www.facebook.com/",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -10030,7 +10030,7 @@ export const Templates = [
               {
                 name: "Twitter", url: "https://Twitter.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -10044,7 +10044,7 @@ export const Templates = [
               {
                 name: "Instagram", url: "https://Instagram.com",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -10061,7 +10061,7 @@ export const Templates = [
               {
                 name: "LinkedIn", url: "https://LinkedIn.com/?lang=fr",
                 font_size_container_icon: "15px",
-                font_size_icon: "30px",
+                font_size_icon: "20px",
                 color_icon: "black",
                 color_icon_hover: "white",
                 borderRadiusTopLeft: "0%",
@@ -10315,7 +10315,7 @@ responsive: {
     mouseDrag: true,
     history: [],
     title: {
-      text: " Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      text: " TEAM MEMBER",
       color: "#070f4d",
       hover_color: "#070f4d",
       font_family: "'Poppins', sans-serif",
@@ -10333,11 +10333,11 @@ responsive: {
       lang: "en",
     },
     description: {
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto .",
-      color: "#75799b",
-      hover_color: "#75799b",
+      text: "Team",
+      color: "#0060ff",
+      hover_color: "#0060ff",
       font_family: "'Poppins', sans-serif",
-      font_size: "13px",
+      font_size: "30px",
       padding_top: "0px",
       padding_bottom: "0px",
       padding_left: "0px",
@@ -10354,8 +10354,7 @@ responsive: {
     },
     title_html:
       `
-        <h2 
-        class="h2TeatType1"
+        <span class="sub-titleTeamType5 spanTeamType5"
         dir='ltr'
         style="color:{color_title};font-family:{font_family};
         font-size:{font_size};padding-top:{padding_top};
@@ -10365,13 +10364,12 @@ responsive: {
         margin-right:{margin_right};text-align:{text_align}"
         onmouseover='this.style.color="{color_title_hover}"'
         onmouseout='this.style.color="{color_title}"'
+          >{text}</span
         >
-        {text}
-        </h2>
         `,
     description_html: `
-        <p 
-        class="pTeatType1"
+        <h2 class="sec-titleTeamType5 h2TeamType5 mt-3" >
+        <span class="text-themeTeamType5 spanTeamType5"
         dir='ltr'
         style="color:{color_title};font-family:{font_family};
         font-size:{font_size};padding-top:{padding_top};
@@ -10381,9 +10379,8 @@ responsive: {
         margin-right:{margin_right};text-align:{text_align}"
         onmouseover='this.style.color="{color_title_hover}"'
         onmouseout='this.style.color="{color_title}"'
-        >
-        {text}
-        </p>
+        > {text}</span>
+        </h2>
         `,
     video_url: "https://res.cloudinary.com/dbou9rqjw/video/upload/v1674930439/navbartype2_cxgvbg.wmv",
     type: "Team",

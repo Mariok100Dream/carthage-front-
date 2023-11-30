@@ -36,16 +36,12 @@ style="margin-top:{container_margin_top};margin-bottom:{container_margin_bottom}
             margin-right:0px;text-align:center"
             onmouseover='this.style.color="#070f4d"'
             onmouseout='this.style.color="#070f4d"'
-              ><img
-              class="imgTeamType5"
-                src="https://res.cloudinary.com/dbou9rqjw/image/upload/v1676546049/title_shape_1_peo07u.svg"
-                alt="shape"
-              />TEAM MEMBER</span
+              >TEAM MEMBER</span
             >
               <!-- End Title -->
               <!-- Begin Description -->
-            <h2 class="sec-titleTeamType5 h2TeamType5">
-              See Our Skilled Expert <span class="text-themeTeamType5 spanTeamType5">Team</span>
+            <h2 class="sec-titleTeamType5 h2TeamType5 mt-3" >
+            <span class="text-themeTeamType5 spanTeamType5">Team</span>
             </h2>
              <!-- End Description -->
           </div>
