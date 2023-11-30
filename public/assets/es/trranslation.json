@@ -1,5 +1,5 @@
 {
-    "translate": "Traducir Fr",
+    "translate": "Traducir ",
     "uploaderVersion": "versión de la herramienta 1.1/5",
     "html": "html",
     "selectLanguage": "Seleccionar Idioma",
@@ -249,6 +249,9 @@
         "italian": "Italiano",
         "espanish": "Español",
         "arabic": "Árabe",
+  
+        "japanese": "japonés",
+  "chinese": "chino",
         "translateSectionTo": "Sección traducida a",
         "selectedLanguageIs": "El idioma seleccionado es",
         "doneTranslating": "Traducción completa",
@@ -276,7 +279,9 @@
         "shareProject": "Compartir proyecto",
         "videoDemonstartion": "Video de demostración",
         "readMe": "Leerme",
-        "ruleInConverter": "Para cada sección, escribe @Begin NombreDelComponente @; al final, escribe @End NombreDelComponente @, como ejemplo"
+        "ruleInConverter": "Para cada sección, escribe @Begin NombreDelComponente @; al final, escribe @End NombreDelComponente @, como ejemplo",
+        "youreawesome": "Eres increíble",
+        "haveANiceDay": "Que tengas un buen día"
     
     
 }

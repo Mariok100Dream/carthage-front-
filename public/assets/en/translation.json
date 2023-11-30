@@ -249,6 +249,8 @@
     "italian":"Italian",
     "espanish":"Espanish",
     "arabic":"Arabic",
+    "japanese":"japanese",
+        "chinese":"chinese",
     "translateSectionTo":"Translated section To ",
     "selectedLanguageIs":"selected language is",
     "doneTranslating":"Done Translating",
@@ -276,6 +278,8 @@
     "shareProject":"Share Project",
     "videoDemonstartion":"Video Demonstration",
     "readMe":"Read me",
-    "ruleInConverter":"For evrey Section write @Begin NameofComponent @ in the end write @End NameofComponent @ as an exemple"
+    "ruleInConverter":"For evrey Section write @Begin NameofComponent @ in the end write @End NameofComponent @ as an exemple",
+    "youreawsome":"You're awesome",
+    "haveANiceDay":"Have a nice Day"
     
 }

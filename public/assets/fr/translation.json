@@ -249,6 +249,8 @@
         "italian": "Italien",
         "espanish": "Espagnol",
         "arabic": "Arabe",
+        "japanese":"japonais",
+        "chinese":"chinois",
         "translateSectionTo": "Section traduite en",
         "selectedLanguageIs": "La langue sélectionnée est",
         "doneTranslating": "Traduction terminée",
@@ -276,7 +278,8 @@
         "shareProject": "Partager le projet",
         "videoDemonstartion": "Vidéo de démonstration",
         "readMe": "Lisez-moi",
-        "ruleInConverter": "Pour chaque section, écrivez @Begin NomDuComposant @ à la fin, écrivez @End NomDuComposant @ comme exemple"
-      
+        "ruleInConverter": "Pour chaque section, écrivez @Begin NomDuComposant @ à la fin, écrivez @End NomDuComposant @ comme exemple",
+        "youreawesome": "Tu es génial",
+        "haveANiceDay": "Bonne journée"
       
 }

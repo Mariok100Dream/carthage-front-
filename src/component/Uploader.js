@@ -304,16 +304,38 @@ let [files_names_all,setFilesNames] = useState([])
 
 
 
-  const options = [
-    { label: "Arabic", value: "ar" },
-    { label: "English", value: "en" },
-    { label: " French", value: "fr" },
-    { label: "Spanish", value: "es" },
-    { label: "Italian", value: "it" },
+  const options =  [
+    {
+      value: 'fr',
+      label: t("frensh"),
+    },
+    {
+      value: 'en',
+      label: t("english"),
+    },
+    {
+      value: 'jp',
+      label: t("japanese"),
+    },
+    {
+      value: 'ch',
+      label: t("chinese"),
+    },
+    {
+      value: 'it',
+      label: t("italian"),
+    },
+    {
+      value: 'es',
+      label: t("spanish"),
+    },
+    {
+      value: 'ar',
+      label: t("arabic"),
+    },
   ];
   
  
-
 
   let  steps = [
     {
@@ -780,9 +802,10 @@ let [files_names_all,setFilesNames] = useState([])
 
   return (
     <>
-    <Navbar firstText="You're awesome" secondText="Have a nice Day "/>
+    <Navbar firstText={t("youreawesome")} secondText={t("haveANiceDay")} />
     <div className="App" id="ALl">
        
+    
    {showErrorPage 
    && <ErrorLoader allErrorsFound={allErrorsFound}/>
    }

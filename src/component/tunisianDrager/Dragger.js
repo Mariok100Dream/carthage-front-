@@ -1324,8 +1324,9 @@ if(type==="description"){
 
 
   }
-
+  console.log("type = ",type)
   if(type==="image"){
+    console.log(logo_content)
     if(logo_content !==""){
       searcher.children[2]["text"] = logo_content
      
@@ -5454,7 +5455,17 @@ setApplied(historyMaker.length -1)
       const links = Array.from(document.getElementsByClassName('filepond--credits'));
       links.forEach(link => link.remove());
   })
-
+  const blobToBase64 = (blob) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  };
+  
 
   let handleFormSubmit = (value,field) =>{
     if(field ==="title_font_size"){
@@ -6993,7 +7004,9 @@ id={task.id}
         allowReorder={true}
         onupdatefiles={setFiles}
         onpreparefile={async(file, output) => {
-        
+       
+          setLogoContent(await blobToBase64(output))
+         
           // const img = document.createElement("img");
           // img.src = await blobToDataUrl(output);
           // document.body.appendChild(img);

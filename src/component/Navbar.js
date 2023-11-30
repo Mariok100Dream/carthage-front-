@@ -32,8 +32,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const drawerWidth = 240;
-const navItems = ['traduction'];
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: -3,
@@ -44,29 +45,52 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 function DrawerAppBar(props) {
+
   const { window,firstText,secondText } = props;
+  const { t } = useTranslation()
+  const navItems = [  
+    {value:t('translate'),to:"/"},
+    {value:t("converter"),to:"/Converter"},
+    {value: t("htmlCssCombiner"),to:"/CssExtractor"},
+    {value:t("carthage"),to:"/Drager"}];
   const languages = [
     {
       code: 'fr',
-      name: 'Français',
+      name: t("frensh"),
       country_code: 'fr',
     },
     {
       code: 'en',
-      name: 'English',
+      name: t("english"),
       country_code: 'gb',
     },
+    {
+      code: 'jp',
+      name: t("japanese"),
+      country_code: 'jp',
+    },
+    {
+      code: 'ch',
+      name: t("chinese"),
+      country_code: 'ch',
+    },
+    {
+      code: 'it',
+      name: t("italian"),
+      country_code: 'it',
+    },
+   
     // {
     //   code: 'ar',
     //   name: 'العربية',
     //   dir: 'rtl',
     //   country_code: 'sa',
     // },
-  ]
+  ];
   const currentLanguageCode = cookies.get('i18next') || 'en'
   const currentLanguage = languages.find((l) => l.code === currentLanguageCode)
-  const { t } = useTranslation()
-
+  
+  
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -90,11 +114,14 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <Link to={item.to}>
+           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.value} />
             </ListItemButton>
           </ListItem>
+          </Link>
+         
         ))}
       </List>
     </Box>
@@ -141,13 +168,13 @@ function DrawerAppBar(props) {
             sx={{ flexGrow: 0.5, display: { xs: 'none', sm: 'block' } }}
           >
             <div >
-                      < a href="https://www.facebook.com/profile.php?id=100087120832456" target="_blank" rel="noopener noreferrer"            
+                      < a href="https://www.facebook.com/profile.php?id=61550978855239" target="_blank" rel="noopener noreferrer"            
 
             style={{marginRight:"2%",textDecoration:"none",color:"white"}}
          >
              <FacebookIcon />
             </a>
-           < a href="https://twitter.com/shadowk19527226" target="_blank" rel="noopener noreferrer"            
+           < a href="https://twitter.com/shadow100Dream" target="_blank" rel="noopener noreferrer"            
        
               style={{marginRight:"2%",textDecoration:"none",color:"white"}}
             >
@@ -157,6 +184,11 @@ function DrawerAppBar(props) {
               style={{marginRight:"2%",textDecoration:"none",color:"white"}}
             >
             <YouTubeIcon />
+            </a>
+            < a href="https://www.linkedin.com/in/marwen-selmi-6586a0295/" target="_blank" rel="noopener noreferrer"
+              style={{marginRight:"2%",textDecoration:"none",color:"white"}}
+            >
+            <LinkedInIcon />
             </a>
             <Link to="/" style={{textDecoration:"none",color:"white"
           

@@ -249,6 +249,8 @@
                 "italian": "Italiano",
                 "espanish": "Spagnolo",
                 "arabic": "Arabo",
+        "japanese": "giapponese",
+        "chinese": "cinese",
                 "translateSectionTo": "Sezione tradotta in",
                 "selectedLanguageIs": "Lingua selezionata:",
                 "doneTranslating": "Traduzione completata",
@@ -276,5 +278,7 @@
                 "shareProject": "Condividi progetto",
                 "videoDemonstartion": "Dimostrazione video",
                 "readMe": "Leggimi",
-                "ruleInConverter": "Per ogni sezione scrivi @Inizio NomeComponente @ alla fine scrivi @Fine NomeComponente @ come esempio"
+                "ruleInConverter": "Per ogni sezione scrivi @Inizio NomeComponente @ alla fine scrivi @Fine NomeComponente @ come esempio",
+                "youreawesome": "Sei fantastico/a",
+                "haveANiceDay": "Buona giornata"
 }

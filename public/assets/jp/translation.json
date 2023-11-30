@@ -250,6 +250,8 @@
             "italian": "イタリア語",
             "espanish": "スペイン語",
             "arabic": "アラビア語",
+            "japanese": "日本語",
+            "chinese": "中国語",
             "translateSectionTo": "セクションを翻訳する言語",
             "selectedLanguageIs": "選択した言語は",
             "doneTranslating": "翻訳完了",
@@ -277,7 +279,9 @@
             "shareProject": "プロジェクトを共有",
             "videoDemonstartion": "ビデオデモンストレーション",
             "readMe": "README",
-            "ruleInConverter": "各セクションに対して、@Begin NameofComponent @で始め、@End NameofComponent @で終わるように書いてください"
+            "ruleInConverter": "各セクションに対して、@Begin NameofComponent @で始め、@End NameofComponent @で終わるように書いてください",
+            "youreawesome": "すごいですね",
+  "haveANiceDay": "良い一日を"
           
           
     

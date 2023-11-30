@@ -249,6 +249,8 @@
         "italian": "意大利语",
         "espanish": "西班牙语",
         "arabic": "阿拉伯语",
+        "japanese": "日语",
+        "chinese": "中文",
         "translateSectionTo": "翻译部分为",
         "selectedLanguageIs": "选择的语言是",
         "doneTranslating": "翻译完成",
@@ -276,5 +278,7 @@
         "shareProject": "分享项目",
         "videoDemonstartion": "视频演示",
         "readMe": "阅读我",
-        "ruleInConverter": "对于每个部分，请在开始时写上 @Begin NameofComponent @，在结束时写上 @End NameofComponent @ 作为示例"
+        "ruleInConverter": "对于每个部分，请在开始时写上 @Begin NameofComponent @，在结束时写上 @End NameofComponent @ 作为示例",
+        "youreawesome": "你真棒",
+  "haveANiceDay": "祝你有个美好的一天"
 }
