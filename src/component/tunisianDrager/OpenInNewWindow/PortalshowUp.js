@@ -22,7 +22,7 @@ class PopupWindow extends React.Component {
    
   }
   componentWillUnmount() {
-    console.log('Cleaned up Popup Window')
+
     this.externalWindow.close()
   }
   render() {

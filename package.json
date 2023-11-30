@@ -29,7 +29,11 @@
     "filepond-plugin-image-transform": "^3.8.7",
     "html-to-jsx": "^0.0.4",
     "html2canvas": "^1.4.1",
+    "i18next": "^23.5.1",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "i18next-http-backend": "^2.2.2",
     "js-beautify": "^1.14.7",
+    "js-cookie": "^3.0.5",
     "js-file-downloader": "^1.1.25",
     "jszip": "^3.10.1",
     "moment": "^2.29.4",
@@ -46,8 +50,10 @@
     "react-frame-component": "^5.2.6",
     "react-full-screen": "^1.1.1",
     "react-ga4": "^2.1.0",
+    "react-i18next": "^13.2.2",
     "react-images-uploading": "^3.1.7",
     "react-multi-select-component": "^4.3.4",
+    "react-pdf": "^7.5.1",
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
     "react-share": "^4.4.1",
@@ -82,7 +88,7 @@
     ]
   },
   "devDependencies": {
-    "assert": "^2.0.0",
+    "assert": "^2.1.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "devextreme-themebuilder": "^22.2.3",
@@ -92,6 +98,6 @@
     "react-app-rewired": "^2.2.1",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
-    "url": "^0.11.0"
+    "url": "^0.11.3"
   }
 }

@@ -56,7 +56,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
-
+import { useTranslation } from 'react-i18next'
 //table of search of evrey section 
 import Sucess from "./Success"
 
@@ -110,7 +110,7 @@ export default function StepperCodeError(props) {
     all_sections_names_in_begin_toadd_file
   } = props
 
- 
+  const {t} = useTranslation()
 
 
   const [value, setValue] = React.useState(0);
@@ -178,7 +178,7 @@ export default function StepperCodeError(props) {
     let ch_css_used 
     let all_css_in_file_rule = all_html.match(/(?<==")[a-zA-Z0-9.=\-,\/ ]+/gm)
     let files_css= all_css_in_file_rule.filter(el => el.includes(".css"))
-    console.log(files_css)
+   
     let ch_css = ""
     for(let coriginal=0;coriginal<files_css.length;coriginal++){
      if(css_toAdd.length!=0){
@@ -247,7 +247,7 @@ if(fi.length!=0){
 
 }
 
-console.log(class_without_media_tag)
+
       //now we have all css used in that section simply
 
       let final_ch = class_without_media_tag
@@ -270,7 +270,7 @@ console.log(class_without_media_tag)
     let ch_css_used =""
     let all_css_in_file_rule = all_html.match(/(?<==")[a-zA-Z0-9.=\-,\/ ]+/gm)
     let files_css= all_css_in_file_rule.filter(el => el.includes(".css"))
-    console.log(files_css)
+    
     let ch_css = ""
     for(let coriginal=0;coriginal<files_css.length;coriginal++){
      if(css_toAdd.length!=0){
@@ -406,7 +406,7 @@ return ch_css_used
           file_name:htmls_toAds[to].file_name,
           file_data:htmls_toAds[to].file_data,
           file_css :ch_css,
-          error_name:"no tags at all ",
+          error_name:t("noTagsAtAll"),
           home:"to Adds Files"
         })
       }
@@ -416,7 +416,7 @@ return ch_css_used
             file_name:html_toadd[to].file_name,
             file_data:html_toadd[to].file_data,
             file_css :ch_css,
-            error_name:"tags missing",
+            error_name:t("tagsMissing"),
             home:"to Adds Files"
           })
       }
@@ -486,7 +486,7 @@ return ch_css_used
         errors_orginals.push({
           file_name:htmls_orginal[o].file_name,
           file_data:htmls_orginal[o].file_data,
-          error_name:"no section in to add file has called",
+          error_name:t("noSectionInToADDFilesHasCalled"),
           css_original:ch_css,
           home:"Orginal files"
         })
@@ -500,7 +500,7 @@ return ch_css_used
         errors_orginals.push({
           file_name:htmls_orginal[o].file_name,
           file_data:htmls_orginal[o].file_data,
-          error_name:"no tags at all",
+          error_name:t("noTagsAtAll"),
           css_original:ch_css,
           home:"Orginal files"
         })
@@ -510,7 +510,7 @@ return ch_css_used
         errors_orginals.push({
           file_name:htmls_orginal[o].file_name,
           file_data:htmls_orginal[o].file_data,
-          error_name:"tags missing",
+          error_name:t("tagsMissing"),
           css_original:ch_css,
           home:"Orginal files"
         })
@@ -667,7 +667,7 @@ let orignal_begin = htmls_orginal[o].file_data.match(/\@Begin.+?\@/g) || []
           html_toadd[a].file_data.lastIndexOf(orignal_begin[ob]) + 1, 
           html_toadd[a].file_data.lastIndexOf(original_end[ob])
       );
-      console.log("String : ",mySubString)
+     
        //class name 
        let m;
        let class_name = []
@@ -701,7 +701,7 @@ let orignal_begin = htmls_orginal[o].file_data.match(/\@Begin.+?\@/g) || []
     unique = unique.filter(el => el!="")
 
     all_unique_css_to_add.push(unique)
-     console.log("unique",unique)
+   
 
 // all_classes_to_add_by_section
 
@@ -751,7 +751,7 @@ const intersection = classes_original.filter(element => all_unique_css_to_add.in
 
   let global_css = ""
 
-  console.log("global css",css_orginals)
+  
 
   for(let g=0;g<css_orginals.length;g++){
     global_css+=css_orginals[g].file_data
@@ -772,7 +772,7 @@ const intersection = classes_original.filter(element => all_unique_css_to_add.in
     let ch = "."+all_unique_css_to_add[r]
 
     if(global_css.includes(ch)){
-      console.log("includes")
+      
       result.push({
         id:uuidv4(),
         firstName:all_unique_css_to_add[r],
@@ -785,7 +785,7 @@ const intersection = classes_original.filter(element => all_unique_css_to_add.in
     [item["firstName"], item])).values()];
   setRows(arrayUniqueByKey)
   setToAddSectionClasses(all_classes_to_add_by_section)
-  console.log("array duplicated",arrayUniqueByKey)
+
 
   //go to final step directely
   if(arrayUniqueByKey.length==0){
@@ -811,7 +811,7 @@ const intersection = classes_original.filter(element => all_unique_css_to_add.in
 
 
     }
-    console.log("final :",result_by_section_name_html_part)
+
 
     let final_result = []
     for(let o=0;o<html_originals.length;o++){
@@ -921,7 +921,7 @@ final_result.push({
   return (
     <>
     {showStepper && <>
-      <Navbar  firstText="don't have a nice day" secondText="have a great day"/>
+      <Navbar  firstText={t("dontHaveANiceDay")} secondText={t("haveAGreatDay")}/>
 
     <div class="container" >
    <div class="wrapper">
@@ -930,11 +930,11 @@ final_result.push({
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
          
         {errorsOriginals.length != 0 && 
-          <Tab label="Orginal files"  />
+          <Tab label={t("orginalFiles")}  />
         }
         {errorToAdds.length != 0 && 
         
-        <Tab label="to Adds Files"  />
+        <Tab label={t("toAddFiles")}  />
         }
         
         </Tabs>
@@ -993,7 +993,7 @@ final_result.push({
  
         <React.Fragment >
           <Button onClick={toggleDrawer('right', true)}>
-          <Tooltip title="all sections names in to adds files">
+          <Tooltip title={t("allSectionNamesToAddsFiles")}>
           <IconButton>
           <DatasetIcon style={{color:"#3949ab"}} />
           </IconButton>
@@ -1010,7 +1010,7 @@ final_result.push({
       role="presentation"
     >
 
-       <ListItemText primary={"Sections names in to adds files \n click to copy"} />
+       <ListItemText primary={t("sectionNamesToAddsFiles")} />
 
        <Paper
       component="form"
@@ -1037,7 +1037,7 @@ final_result.push({
       {all_sections_names
       
       .filter((el) =>{
-        console.log("search name",el,search_name)
+   
         if(search_name==""){
           return el
         }else if(el.toLowerCase().includes(search_name.toLowerCase())
@@ -1049,7 +1049,7 @@ final_result.push({
           <ListItem disablePadding>
             <ListItemButton>
             <CopyToClipboard text={el}
-             onCopy={() => toast.success("text copyed to u re clipboard ")}
+             onCopy={() => toast.success(t("textCopyedClipboard"))}
             
             >
             <ListItemText primary={el.replace("@Begin","").split("@")[0]} 

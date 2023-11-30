@@ -15,6 +15,8 @@ import HtmlToReactDocs from "./Documentation/HtmlToReactDocs"
 import TranslatorDocs from "./Documentation/TranslatorDocs"
 import CombinerTools from "./Documentation/CombinerDocs"
 import Phenix from "./Documentation/phenix"
+import { useTranslation } from 'react-i18next'
+
 export default function Documentation(props) {
 
   const [state, setState] = React.useState({
@@ -67,7 +69,7 @@ export default function Documentation(props) {
     </Box>
   );
   let {type} = props
-
+  const { t } = useTranslation()
   return (
     <div>
       {['bottom'].map((anchor) => (
@@ -80,7 +82,7 @@ export default function Documentation(props) {
         onClick={toggleDrawer(anchor, true)}
           
         variant="outlined"  >
-      <strong>create a new project!</strong>
+      <strong>{t("createNewProject")}</strong>
         </div>
         
           <Drawer

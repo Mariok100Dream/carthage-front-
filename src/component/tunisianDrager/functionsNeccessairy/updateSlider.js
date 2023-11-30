@@ -701,7 +701,7 @@ export let updateSliderForHistory = (
     ch2 = ch2.substring(0,ch2.indexOf("<!-- owl carousel functionality-->"))
 
     if(hasSlider){
-      console.log("entering script ")
+      
       //already exist then change some functionality  
       if(ch2.includes("<!-- owl carousel functionality-->")){
         //all controls goes here 
@@ -716,7 +716,7 @@ export let updateSliderForHistory = (
       }
   
     }else{
-      console.log(hasSlider)
+   
       ch2 += "<!-- owl carousel functionality-->"
     }
 

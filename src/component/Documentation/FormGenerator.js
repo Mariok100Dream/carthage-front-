@@ -43,7 +43,7 @@ import {
     generateRows,
     globalSalesValues,
   } from './data/generator';
-  
+  import { useTranslation } from 'react-i18next'
   const PREFIX = 'Demo';
   const classes = {
     lookupEditCell: `${PREFIX}-lookupEditCell`,

@@ -79,6 +79,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { useTranslation } from 'react-i18next'
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -260,14 +262,14 @@ const [orginals_html,setOriginalsHtml] = useState([])
 const structureData = (data) =>{
   let result = []
   
-  console.log(data,orginalFiles)
+
   var merged = data.flat()
 
   if(selected.length == 2) {
     
 
     for(let i=0;i<orginalFiles.length;i++){
-      console.log(orginalFiles[i])
+   
       let res = merged.filter(el => el.file == String(orginalFiles[i].name))
      
       let  half = Math.ceil(res.length / orginalFiles.length);
@@ -335,20 +337,20 @@ let [files_names_all,setFilesNames] = useState([])
   let  steps = [
     {
       selector: '#ALl',
-      content: "Hi this Shadow knight and let's make a tour into the website",
+      content: t("pres1Text"),
     },
     {
       selector: '#SelectLanguageChooser',
-      content: 'From here You can choose the languages apllicate to translate thoose files',
+      content: t("pres2Text"),
     },
     
     {
       selector: '#fileUploader',
-      content: 'From here You can Upload One or multiple File',
+      content: t("pres3Text"),
     },
     {
       selector: '#Submit',
-      content: 'And finaly submit ',
+      content: t("pres4Text"),
     },
    
    
@@ -619,7 +621,7 @@ let [files_names_all,setFilesNames] = useState([])
     let changedRows;
     
     if (changed) {
-        console.log("changes")
+
       changedRows = data_all.map(row => (changed[row.id] ? { ...row, ...changed[row.id] } : row));
     }
     if (deleted) {
@@ -661,7 +663,7 @@ let [files_names_all,setFilesNames] = useState([])
     if(changed_value.includes("translated_text")){
       setRule(event.target.value);
     }else{
-      return toast.error("tag translated_text cannot changed")
+      return toast.error(t("tagTranslatedText"))
     }
   };
 
@@ -679,7 +681,7 @@ let [files_names_all,setFilesNames] = useState([])
 
  }
 
-
+ const { t } = useTranslation()
   return (
     <>
     <Navbar />
@@ -752,7 +754,7 @@ let [files_names_all,setFilesNames] = useState([])
         cursor:"pointer"
         }}
         variant="outlined" onClick={() => console.log("advanced")} >
-          <strong>Advenced Options!</strong>
+          <strong>{t("advancedOptions")}</strong>
        
       </div>
  <div    id="SelectLanguageChooser">
@@ -763,7 +765,7 @@ let [files_names_all,setFilesNames] = useState([])
       <Button variant="contained"
       id="Submit"
       onClick={() => translateThoseFiles()}
-      >Extract</Button>
+      >{t("extract")}</Button>
         </div>
 
 
@@ -823,7 +825,7 @@ let [files_names_all,setFilesNames] = useState([])
     <Button
  
     variant="outlined" onClick={handleClickOpen}>
-    Dev Option
+      {t("devOption")}
       </Button>
       
       <Dialog
@@ -836,7 +838,7 @@ let [files_names_all,setFilesNames] = useState([])
         <DialogTitle>{"Format ure input"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description"   style={{paddingTop:"13%"}}>
-          <p>Applicate a Roule</p>
+          <p>{t("applicateARule")}</p>
           <TextField
            
           id="filled-multiline-flexible"
@@ -853,17 +855,17 @@ let [files_names_all,setFilesNames] = useState([])
         </DialogContent>
         <DialogActions>
            <CopyToClipboard text={CopyHtml()}
-        onCopy={() => toast.success("html file Copied")}
+        onCopy={() => toast.success(t("htmlFileCopied"))}
          >   
-         <Button >Copy html</Button>
+         <Button >{t("copyHtml")}</Button>
          
 
          </CopyToClipboard>
 
          <CopyToClipboard text={JSON.stringify(data_all) }
-        onCopy={() => toast.success("html file Copied")}
+        onCopy={() => toast.success(t("htmlFileCopied"))}
          >   
-         <Button >Copy data</Button>
+         <Button >{t("copyData")}</Button>
 
          </CopyToClipboard>
        

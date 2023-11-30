@@ -14,7 +14,7 @@ const Encrypt = (salt, text) => {
   };
   
   const decrypt = (salt, encoded) => {
-    console.log(salt)
+   
     const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
     const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
     return encoded.match(/.{1,2}/g).map((hex) => parseInt(hex, 16)).map(applySaltToChar).map((charCode) => String.fromCharCode(charCode)).join("");
@@ -34,11 +34,10 @@ export const tunisiaDevsString = (data,password,component_name) =>{
     //Cipher it with password 
 
     let encryption_with_password = Encrypt(password,encrypted)
-    console.log("encryption password ",encryption_with_password.length)
+   
 
     let compresse_string = LZString.compressToUTF16(encryption_with_password)
-    console.log("encrytion password after cimpressing it",compresse_string.length)
-    console.log("password length",newPassword.length)
+   
     let final_compressed = newPassword + compresse_string
  
 
@@ -51,7 +50,7 @@ export const tunisiaDevsString = (data,password,component_name) =>{
 //60
 
 export const checkIfPasswordIsCorrect =async (passwordReserved,passwordEntered) =>{
-    console.log("passwprd",passwordReserved,passwordEntered)
+
     var checker_password = await  bcrypt.compareSync(passwordEntered,passwordReserved);
 
     return checker_password
@@ -59,7 +58,7 @@ export const checkIfPasswordIsCorrect =async (passwordReserved,passwordEntered) 
 }
 
 export const decryptString =  (string,password)=>{
-    console.log(string,password)
+  
     //decompress the string 
     let compresse_string =  LZString.decompressFromUTF16(string)
     //decipher first Step 

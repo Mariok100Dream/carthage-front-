@@ -55,6 +55,8 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next'
+
   const PREFIX = 'Demo';
   const classes = {
     lookupEditCell: `${PREFIX}-lookupEditCell`,
@@ -228,6 +230,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const CodeGenerator = () =>{
+  const {t} = useTranslation()
     const [columns] = useState([
       { name: 'saleDate', title: 'Label Name' },
         { name: 'product', title: 'Label Type' },
@@ -293,7 +296,6 @@ const CodeGenerator = () =>{
 
       let [panel_name,setPanelName] = useState("")
       const handleChangePanel = (panel) => (event, isExpanded) => {
-        console.log("panel opened",panel)
         setPanelName(panel)
         let data =global_data.filter(el => el.row_name == panel)
 
@@ -306,7 +308,7 @@ const CodeGenerator = () =>{
       const addRow = () =>{
             //verify if row and type of row selected 
             //then we add according with a delete button
-            console.log("row name",row_name,"row type",row_type)
+        
             if(row_name == ""){
               return toast.error("Row name is required")
             }
@@ -329,7 +331,7 @@ setRowName("")
         });
         setGlobalData(result_index)
         setGlobalAll(result_index)
-        console.log("deleted Row Name",row_name,result_index)
+    
       }
       const changeAddedRows = value => setAddedRows(
         value.map(row => (Object.keys(row).length ? row : {
@@ -380,11 +382,11 @@ setRowName("")
         setGlobalAll(now_file)
        
         // setGlobalData(data)
-        console.log(data,changedRows)
+       
       };
 
       const generateCode = () =>{
-          console.log("code generated",global_all)
+         
       }
 
     

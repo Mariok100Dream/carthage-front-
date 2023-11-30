@@ -5,11 +5,11 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import "./ErrorLoader.css"
-
+import { useTranslation } from 'react-i18next'
 
 const ErrorLoader = (props) =>{
     let {allErrorsFound} = props
-    
+    const { t } = useTranslation()
     return (
         <>
             <Card sx={{ minWidth: 275 }}>
@@ -75,7 +75,7 @@ const ErrorLoader = (props) =>{
        
       </CardContent>
       <CardActions >
-      <Button size="small">Return to Home Page</Button>
+      <Button size="small">{t("returnTohomePage")}</Button>
       
     
       </CardActions>

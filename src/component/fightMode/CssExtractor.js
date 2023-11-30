@@ -38,7 +38,7 @@ import Slide from '@mui/material/Slide';
 import { useTheme } from '@mui/material/styles';
 import SendIcon from '@mui/icons-material/Send';
 import Documentation from "../DocumenTation";
-
+import { useTranslation } from 'react-i18next'
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -71,32 +71,18 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const CssExtractor = () =>{
-
+  const {t} = useTranslation()
   //multiple select
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState(["React"]);
-
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    console.log(value,personName)
-      if(personName.filter(el => el == value[0]).length != 0){
-        setPersonName(
-          // On autofill we get a stringified value.
-          typeof value === 'string' ? value.split(',') : value,
-        );
-      }
-     
-    
-   
-  };
+  const [personName, setPersonName] = React.useState([t("react")]);
 
 
 
 
 
-  const fileTypes = ["HTML","CSS"];
+
+
+  const fileTypes = [t("html"),t("css")];
   const [orginalFiles,setOriginalFiles] = useState([])
 const [originalValues,setOrignalValues] = useState([])
 
@@ -422,7 +408,7 @@ let getAllcssUsedInspecificHtmlCode = (all_html,html_code) =>{
   let ch_css_used 
   let all_css_in_file_rule = all_html.match(/(?<==")[a-zA-Z0-9.=\-,\/ ]+/gm)
   let files_css= all_css_in_file_rule.filter(el => el.includes(".css"))
-  console.log(files_css)
+
   let ch_css = ""
   for(let coriginal=0;coriginal<files_css.length;coriginal++){
    if(css_toAdd.length!=0){
@@ -491,7 +477,7 @@ if(fi.filter(el => el.includes("@media")).length==0){
 
 }
 
-console.log(class_without_media_tag)
+
     //now we have all css used in that section simply
 
     let final_ch = class_without_media_tag
@@ -514,7 +500,7 @@ let CssAdder = (all_html,all_css) =>{
   let ch_css_used =""
   let all_css_in_file_rule = all_html.match(/(?<==")[a-zA-Z0-9.=\-,\/ ]+/gm)
   let files_css= all_css_in_file_rule.filter(el => el.includes(".css"))
-  console.log(files_css)
+ 
   let ch_css = ""
   for(let coriginal=0;coriginal<files_css.length;coriginal++){
    if(css_toAdd.length!=0){
@@ -606,18 +592,16 @@ let[final_step,setFinalStep] = useState([])
 let [show_final_step,setShowFinalStep] = useState(false)
 let [showDuplicated,setShowDuplicated] = useState(false)
 const letsgo = () =>{
-  console.log("orignal",html_originals,css_orginals)
 
-  console.log("to Add",htmls_toAds,css_toAdd)
 
     //begin by error 
 
     //simple no file added 
     if(html_originals.length == 0){
-      return toast.error("no html original")
+      return toast.error(t("noOriginalHtml"))
     }
     if(htmls_toAds.length == 0){
-      return toast.error("no html To ADD files")
+      return toast.error(t("noHtmlToADDFiles"))
     }
 
     //the to add files 
@@ -654,7 +638,7 @@ const letsgo = () =>{
           file_name:htmls_toAds[to].file_name,
           file_data:htmls_toAds[to].file_data,
           file_css :ch_css,
-          error_name:"no tags at all ",
+          error_name:t("noTagsAtAll"),
           home:"to Adds Files"
         })
       }
@@ -666,7 +650,7 @@ const letsgo = () =>{
             file_name:htmls_toAds[to].file_name,
             file_data:htmls_toAds[to].file_data,
             file_css :ch_css,
-            error_name:"tags missing",
+            error_name:t("tagsMissing"),
             home:"to Adds Files"
           })
       }
@@ -751,7 +735,7 @@ const letsgo = () =>{
         errors_orginals.push({
           file_name:html_originals[o].file_name,
           file_data:html_originals[o].file_data,
-          error_name:"no section in to add file has called",
+          error_name:t("noSectionInToADDFilesHasCalled"),
           css_original:ch_css,
           home:"Orginal files"
         })
@@ -765,7 +749,7 @@ const letsgo = () =>{
         errors_orginals.push({
           file_name:html_originals[o].file_name,
           file_data:html_originals[o].file_data,
-          error_name:"no tags at all",
+          error_name:t("noTagsAtAll"),
           css_original:ch_css,
           home:"Orginal files"
         })
@@ -775,7 +759,7 @@ const letsgo = () =>{
         errors_orginals.push({
           file_name:html_originals[o].file_name,
           file_data:html_originals[o].file_data,
-          error_name:"tags missing",
+          error_name:t("tagsMissing"),
           css_original:ch_css,
           home:"Orginal files"
         })
@@ -806,7 +790,7 @@ const letsgo = () =>{
       let  arrayUniqueByKeyToAdd = [...new Map(errors_to_adds.map(item =>
         [item["file_name"], item])).values()];
 
-        console.log("to add files : ",arrayUniqueByKeyToAdd)
+      
       //error table tha have the two arrat 
     let total_error = []
    
@@ -913,7 +897,7 @@ let orignal_begin = html_originals[o].file_data.match(/\@Begin.+?\@/g) || []
           htmls_toAds[a].file_data.lastIndexOf(orignal_begin[ob]) + 1, 
           htmls_toAds[a].file_data.lastIndexOf(original_end[ob])
       );
-      console.log("String : ",mySubString)
+    
        //class name 
        let m;
        let class_name = []
@@ -947,7 +931,7 @@ let orignal_begin = html_originals[o].file_data.match(/\@Begin.+?\@/g) || []
     unique = unique.filter(el => el!="")
 
     all_unique_css_to_add.push(unique)
-     console.log("unique",unique)
+  
 
 // all_classes_to_add_by_section
 
@@ -997,7 +981,7 @@ const intersection = classes_original.filter(element => all_unique_css_to_add.in
 
   let global_css = ""
 
-  console.log("global css",css_orginals)
+
 
   for(let g=0;g<css_orginals.length;g++){
     global_css+=css_orginals[g].file_data
@@ -1018,7 +1002,7 @@ const intersection = classes_original.filter(element => all_unique_css_to_add.in
     let ch = "."+all_unique_css_to_add[r]
 
     if(global_css.includes(ch)){
-      console.log("includes")
+      
       result.push({
         id:uuidv4(),
         firstName:all_unique_css_to_add[r],
@@ -1031,7 +1015,7 @@ const intersection = classes_original.filter(element => all_unique_css_to_add.in
     [item["firstName"], item])).values()];
   setRows(arrayUniqueByKey)
   setToAddSectionClasses(all_classes_to_add_by_section)
-  console.log("array duplicated",arrayUniqueByKey)
+  
 
   //go to final step directely
   if(arrayUniqueByKey.length==0){
@@ -1058,7 +1042,7 @@ const intersection = classes_original.filter(element => all_unique_css_to_add.in
 
 
     }
-    console.log("final :",result_by_section_name_html_part)
+
 
     let final_result = []
     for(let o=0;o<html_originals.length;o++){
@@ -1139,7 +1123,7 @@ final_result.push({
 
     return (
         <>
-        <Navbar  firstText="don't have a nice day" secondText="have a great day"/>
+        <Navbar  firstText={t("dontHaveANiceDay")} secondText={t("haveAGreatDay")}/>
         <div className="" id="ALl">
      
    
@@ -1147,7 +1131,7 @@ final_result.push({
 {mainView && <>
   <div class="container" >
    <div class="wrapper">
-   tool version 0.6/5
+   {t("cssExtractorVersion")}
 
 
 
@@ -1179,7 +1163,7 @@ final_result.push({
      style={{display:"flex",justifyContent:"space-between"}}
      id="fileUploader">
       <div>
-      <h3>Orginal Files</h3>
+      <h3>{t("orginalFiles")}</h3>
      <FileUploader handleChange={onChangeOriginalFile}  
        multiple={true}
      types={fileTypes}
@@ -1188,7 +1172,7 @@ final_result.push({
      />
       </div>
       <div>
-      <h3>To Add  Files</h3>
+      <h3>{t("toAddFiles")}</h3>
      <FileUploader handleChange={onChangeToAddFile}  
        multiple={true}
      types={fileTypes}
@@ -1211,7 +1195,7 @@ final_result.push({
      onClick={() => letsgo()}
      
      >
-        let's do it
+        {t("letsDoIt")}
       </Button>
 
      </div>

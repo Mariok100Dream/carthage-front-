@@ -46,6 +46,7 @@ import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import Documentation from "./DocumenTation";
+import { useTranslation } from 'react-i18next'
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -58,11 +59,6 @@ const MenuProps = {
 };
 
 
-const names = [
-  'React',
-  'Angular',
-  
-];
 
 function getStyles(name, personName, theme) {
   return {
@@ -77,16 +73,21 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const HtmlToReact = () =>{
-
+  const { t } = useTranslation()
   //multiple select
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState(["React"]);
-
+  const [personName, setPersonName] = React.useState([t("react")]);
+  const names = [
+    t("react"),
+    t("angular")
+    
+  ];
+  
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
-    console.log(value,personName)
+   
       if(personName.filter(el => el == value[0]).length != 0){
         setPersonName(
           // On autofill we get a stringified value.
@@ -102,7 +103,7 @@ const HtmlToReact = () =>{
 
 
 
-  const fileTypes = ["HTML","CSS"];
+  const fileTypes = [t("html"),t("css")];
   const [orginalFiles,setOriginalFiles] = useState([])
 const [originalValues,setOrignalValues] = useState([])
 
@@ -153,18 +154,16 @@ let [all_errors_captured,setAllErrorsCaptured] = useState(["hello"])
         Array.from(files_list).filter( function(s,i){ 
           if(s.type.includes("text/html")) html_indexes.push(i)
       })
-      console.log(values)
+   
       let result_html=[]
     
   
         for(let i=0;i<html_names.length;i++){
-        
-         
-        console.log(values[1])
+
           result_html.push(values[html_indexes[i]])
         }
        
-        console.log("html",result_html)
+
 
 
 
@@ -192,10 +191,7 @@ let [all_errors_captured,setAllErrorsCaptured] = useState(["hello"])
       
         result.push(f)
       }
-     
-   
-       console.log("all values readed",values.splice(0,values.length))
-
+ 
         setOriginalFiles(Array.from(files_list).filter( function(s){ 
           return s.type.includes("text/html") ;
       }))
@@ -231,7 +227,7 @@ let [all_errors_captured,setAllErrorsCaptured] = useState(["hello"])
     let errors= []
     //basic error
     if(originalValues.length == 0){
-      return toast.error("No files Uploader")
+      return toast.error(t("noFileUploaded"))
     }
 
 
@@ -254,7 +250,7 @@ let [all_errors_captured,setAllErrorsCaptured] = useState(["hello"])
       let unique_links = [...new Set(expression_links_css)]
  
       //set Data of links for evrey style with it name 
-      console.log("links",expression_links_css,orginalFiles[e] )
+      
       if(unique_links.length !=0){
         for(let l=0;l<unique_links.length;l++){
         let file_name = orginalFiles[l]?.name
@@ -270,7 +266,7 @@ let [all_errors_captured,setAllErrorsCaptured] = useState(["hello"])
       //style attribute 
       let stylesThinks = originalValues[e].match(/<style>(.*?)</gs) || [] ;
       //don' t forget to remove <style> and <
-      console.log("styles thinks",stylesThinks)
+   
       if(stylesThinks.length !=0){
         for(let st = 0;st<stylesThinks.length;st++){
           let stylo = {
@@ -280,8 +276,6 @@ let [all_errors_captured,setAllErrorsCaptured] = useState(["hello"])
           style_data.push(stylo)
         }
       }
-
-      console.log("style link ",style_data)
 
 
 
@@ -329,12 +323,12 @@ let [all_errors_captured,setAllErrorsCaptured] = useState(["hello"])
     //forma of autosaving in conveter
     //key project ID {file_one_ok:"",""}
     let final_data = []
-    console.log("css",css)
+    
     final_data.push(css)
 
     final_data.push(links_data)
     final_data.push(style_data)
-    console.log(final_data)
+   
     localStorage.setItem(`CSS${projectCode}`,JSON.stringify(final_data))
     for (let j= 0;j<orginalFiles.length;j++){
           if(errors.filter(el => el.file !=orginalFiles[j].name  ).length !=0){
@@ -9845,7 +9839,7 @@ describe('AppComponent', () => {
       for(let my = 0;my<myArrayFinal.length;my++){
         specific_css+= saveDatacss.filter(el => el.file_name ==myArrayFinal[my])[0].file_data != undefined && saveDatacss.filter(el => el.file_name ==myArrayFinal[my])[0].file_data
       }
-      console.log("unique css",myArray,myArrayFinal)
+  
 
 
 
@@ -9965,7 +9959,6 @@ it('should create', () => {
 
       if(personName.filter(el => el == "React").length !=0){
         for(let cf=0;cf<components_data.length;cf++){
-          console.log("ok",htmlToJsx(components_data[cf].conmponent_value))
           let templateReact = `
           import react from "react"
           const ${components_data[cf].component_name} = () =>{
@@ -10176,7 +10169,7 @@ it('should create', () => {
 
        
         declaration_component = [...new Set(declaration_component)]
-        console.log("declaration componenet",declaration_component)
+     
         for(let j=0;j<declaration_component.length;j++){
             begin_module += `import {${declaration_component[j]}} from "./components/${declaration_component[j]}/${declaration_component[j]}.component";`+"\n"
             declaration+=declaration_component[j] + ","
@@ -10209,10 +10202,10 @@ it('should create', () => {
 
 
     }else{
-      console.log("with error",data)
+  
       for(let e = 0;e<data.length;e++){
    
-        console.log(data[e])
+        
         let begin_body
         if(data[e].file_value.includes("</head>")){
         begin_body = data[e].file_value.split("</head>")[1]
@@ -10711,10 +10704,10 @@ let [file_updated,setFile] = useState("")
 const handleClickOpen = (file) => {
   setOpen(true);
   let result = all_errors_captured.filter(el => el.file == file)[0]
-  console.log(all_errors_captured)
+  
   setError(result.erroe)
   setCode(result.original_code)
-  console.log("result",result)
+
   setFile(result.file)
 
 };
@@ -10742,7 +10735,7 @@ const onChangeCode = React.useCallback((file_updated,value) => {
     setError(errors[0])
   }
   if(component_original_end_names .length>component_original_begin_names.length){
-    console.log("missing begin")
+   
     for(let i=0;i<component_original_end_names.length;i++){
       if(component_original_begin_names.filter(el => el ==component_original_end_names[i] ).length==0){
           errors.push(`missing Begin of ${component_original_end_names[i]}`)
@@ -10768,7 +10761,7 @@ const onChangeCode = React.useCallback((file_updated,value) => {
             file_converted:""
           }
           status.push(f)
-          console.log("file transformed",f)
+         
           localStorage.setItem(projectCode,JSON.stringify(status))
           setFine(file_updated)
        
@@ -10790,11 +10783,11 @@ const onChangeCode = React.useCallback((file_updated,value) => {
 }, []);
 
 const handleClose = () => {
-  console.log("Fine",fine)
+
 
   let itemToBeRemoved = all_errors_captured.filter(e => e.file == fine)[0]
   let newError =  all_errors_captured.splice(all_errors_captured.findIndex(a => a.file === itemToBeRemoved.file) , 1)
-  console.log("unhandeled Error",newError)
+  
   setOpen(false);
   
 };
@@ -10806,7 +10799,7 @@ const handleClose = () => {
 
     return (
         <>
-        <Navbar  firstText="Happy Fight" secondText="do not forget to smile"/>
+        <Navbar  firstText={t("happyFight")} secondText={t("dontForgetToSmile")}/>
         <div className="" id="ALl">
      
    
@@ -10814,7 +10807,7 @@ const handleClose = () => {
 
 <div class="container" >
    <div class="wrapper">
-   tool version 0.7/5
+   {t("converterVersion")}
 
 
 
@@ -10822,7 +10815,7 @@ const handleClose = () => {
 <>
 <div  
 >
-  <p>Project Code :</p>
+  <p>{t("projectCode")}</p>
   <p> {projectCode}</p>
 
 <Box
@@ -10852,14 +10845,14 @@ const handleClose = () => {
      />
       <Documentation type="htmlToOthers" />
   <FormControl fullWidth style={{marginTop:"3%"}}>
-        <InputLabel id="demo-multiple-chip-label">To Programming Language</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">{t("toProgrammingLanguage")}</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="To Programming Language" />}
+          input={<OutlinedInput id="select-multiple-chip" label={t("toProgrammingLanguage")} />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (

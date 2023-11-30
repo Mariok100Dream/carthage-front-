@@ -27,14 +27,15 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import axios from "axios"
 import Loading from "../loading/loading"
+import { useTranslation } from 'react-i18next'
 const getRowIdTranslation = row => row.id;
 
 const  CardDescriptionTranslator = (props) => {
-
+  const {t}=useTranslation()
   const [Loader,setLoader] = useState(false)
   const [columnsTranslation] = useState([
-    { name: 'from', title: 'From' },
-    { name: 'to', title: 'To' },
+    { name: 'from', title: t("from") },
+    { name: 'to', title: t("to") },
   ]);
   const [rowsTranslation, setRowsTranslation] = useState([
    
@@ -70,18 +71,19 @@ const  CardDescriptionTranslator = (props) => {
 
   },[])
   let language_array = [
-    {name:"none",key:"none"},
-    {name:"Frensh",key:"fr"},
-    {name:"English",key:"en"},
-    {name:"Italian",key:"it"},
-    {name:"Espanish",key:"es"},
-    {name:"Arabic",key:"ar"},
+    {name:t("none"),key:"none"},
+    {name:t("frensh"),key:"fr"},
+    {name:t("english"),key:"en"},
+    {name:t("italian"),key:"it"},
+    {name:t("espanish"),key:"es"},
+    {name:t("arabic"),key:"ar"},
    ]
   let [translation_language,setTranslatedLanguage] = useState(
     language_array
             .filter(el => el.key !=props.data[0].children[1].lang )[0].key
   )
   let [disabled_button,setDisabledButton] = useState(true)
+
   let handleChangeLanguage = async(value) =>{
    
     if(value!=="none"){
@@ -103,7 +105,7 @@ const  CardDescriptionTranslator = (props) => {
         }catch(err){
           response_data = ""
         }
-        console.log("response_data = ",response_data)
+        
         let f= {
           id:rowsTranslation[i].id,
           from:rowsTranslation[i].from,
@@ -116,7 +118,6 @@ const  CardDescriptionTranslator = (props) => {
       setRowsTranslation(result)
       //when we return we return a team 
       for(let i=0;i<props.data.length;i++){
-        console.log(props.data[i].children[0].text,result[i].to)
         props.data[i].children[1].text = result[i].to
         props.data[i].children[1].lang  = translation_language
       } 
@@ -140,10 +141,10 @@ const  CardDescriptionTranslator = (props) => {
 {!Loader ?
  <>
  {/* Select language */}
- <h4>selected language is { props.data[0].children[1].lang }</h4>
+ <h4>{t("selectedLanguageIs")} { props.data[0].children[1].lang }</h4>
  <Box sx={{ minWidth: 120 }} style={{marginTop:"2%"}}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Translated section To </InputLabel>
+        <InputLabel id="demo-simple-select-label">{t("translateSectionTo")}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -204,7 +205,7 @@ disabled={disabled_button}
 onClick={() => handleTranslate()}
 >
   
-  Done Translating 
+  {t("doneTranslating")} 
   
 </Button>
 </div>

@@ -15,7 +15,7 @@ export let handleupdateResponsiveStyle = (data_global,object_to_modify) =>{
     if(object_to_modify.show_mobile == "false"){
         responsiveMobile = "none"
     }
-    console.log("data_global",data_global)
+
     let ch1_css = data_global.old_css.substring(
      0, 
      data_global.old_css.lastIndexOf("/*Begin Responsive Checker */")

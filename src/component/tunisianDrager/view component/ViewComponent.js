@@ -18,8 +18,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import {checkIfPasswordIsCorrect,decryptString} from "../Exportoption/tunisiaDev/exportTunisiaDevsFunction"
 import {handlerHistory} from "./handlerHistory"
 import FrameToShow from "./frame/frameToShow" 
+import { useTranslation } from 'react-i18next'
+
 const ViewComponent = () =>{
-    const fileTypes = ["txt"];
+  const {t} = useTranslation()
+    const fileTypes = [t("txt")];
     let [password,setPassword] = useState("")
     function readFileAsText(file){
         return new Promise(function(resolve,reject){
@@ -82,12 +85,12 @@ const ViewComponent = () =>{
   let [jsData,setJsData] = useState("")
   let handleSubmit =async () =>{
     if(fileData=="")
-    return toast.error("please insert a file")
+    return toast.error(t("pleaseInsertFile"))
     if(password=="")
-    return toast.error("please write your password")
+    return toast.error(t("pleaseWritePassword"))
     if(!await checkIfPasswordIsCorrect(fileData.slice(0,
         60) ,password))
-    return toast.error("uncorrect password")    
+    return toast.error(t("uncorrectPassword"))    
     let history_array = await decryptString(fileData.slice(60,
         fileData.length) ,password)
     let data_history = history_array.filter(el => el.actual == true) [0]   
@@ -133,7 +136,7 @@ const ViewComponent = () =>{
           </Typography>
           <Typography variant="h5" component="div">
           <FormControl fullWidth variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+            <InputLabel htmlFor="outlined-adornment-password">{t("password")}</InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
               name="password"
@@ -161,7 +164,7 @@ const ViewComponent = () =>{
           <Button size="small" 
           style={{marginLeft:"40%"}}
           onClick={() => handleSubmit()}
-          >Go to Interface</Button>
+          >{t("goToInterface")}</Button>
         </CardActions>
       </Card>
           </div>

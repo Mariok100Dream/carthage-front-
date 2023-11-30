@@ -45,8 +45,9 @@ import PropTypes from 'prop-types';
 
 import Typography from '@mui/material/Typography';
 import Documentation from "./DocumenTation"
-
-
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import { useTranslation } from 'react-i18next'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -73,6 +74,26 @@ TabPanel.propTypes = {
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
 };
+
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
 
 function a11yProps(index) {
   return {
@@ -103,11 +124,14 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 
 function Uploader() {
+  const { t } = useTranslation()
+
 
   const [text, setText] = useState();
   
   
   const fileTypes = ["HTML"];
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -294,23 +318,20 @@ let [files_names_all,setFilesNames] = useState([])
   let  steps = [
     {
       selector: '#ALl',
-      content: "Hi this Shadow knight and let's make a tour into the website",
+      content: t("pres1"),
     },
     {
       selector: '#SelectLanguageChooser',
-      content: 'From here You can choose the languages apllicate to translate thoose files',
+      content: t("pres2") ,
     },
-    
     {
       selector: '#fileUploader',
-      content: 'From here You can Upload One or multiple File',
+      content: t("pres3"),
     },
     {
       selector: '#Submit',
-      content: 'And finaly submit ',
+      content: t("pres4"),
     },
-   
-   
   ]
 
 
@@ -339,9 +360,7 @@ let [files_names_all,setFilesNames] = useState([])
         result.push(localStorage.key(i))
 
       }
-  
-
-      
+   
     }
    
     setReservedCode(result)
@@ -441,10 +460,10 @@ let [files_names_all,setFilesNames] = useState([])
 
     //basic error
     if(originalValues.length == 0){
-      return toast.error("No files Uploader")
+      return toast.error(t("noFileUploaded"))
     }
     if(originalValues.length >7){
-      return toast.error("will You depapace the the maximum file uploaded witch  is 7")
+      return toast.error(t("passed7files"))
     }
     if(originalValues.length >3){
       setValueAffect(true)
@@ -452,10 +471,10 @@ let [files_names_all,setFilesNames] = useState([])
 
 
     if(selected.length == 0){
-      return toast.error("No language selected")
+      return toast.error(t("noLanguageSelected"))
     }
     if(selected.length > 2){
-      return toast.error("2 language as maximum")
+      return toast.error(t("twoLanguagesAsMaximum"))
     }
 
 
@@ -744,7 +763,13 @@ let [files_names_all,setFilesNames] = useState([])
   }
 
 
- 
+ //add json 
+ const [valueTap, setValueTap] = React.useState(0);
+
+ const handleChangeTap = (event, newValue) => {
+  setValueTap(newValue);
+ };  
+
 
 
 
@@ -807,8 +832,16 @@ firstContent &&
         }}
       >
         <div>
-        tool version 1.1/5
-        <div        id="fileUploader">
+        {t('uploaderVersion')}
+        <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={valueTap} onChange={handleChangeTap} aria-label="basic tabs example">
+          <Tab label={t("html")} {...a11yProps(0)} />
+     
+        </Tabs>
+      </Box>
+      <CustomTabPanel value={valueTap} index={0}>
+      <div        id="fileUploader">
         <FileUploader handleChange={onChange}  
           multiple={true}
         types={fileTypes}
@@ -821,8 +854,9 @@ firstContent &&
          
           <li className="exchange"><i className="fas fa-exchange-alt"></i></li>
           <li className="options">
-          Select Language
           
+          {t("selectLanguage")}
+
           </li>
         </ul>
         <div
@@ -848,7 +882,14 @@ firstContent &&
       <Button variant="contained"
       id="Submit"
       onClick={() => translateThoseFiles()}
-      >Translate</Button>
+      >
+       {t("translateButton")}
+      </Button>
+      </CustomTabPanel>
+    
+       
+    </Box>
+      
         </div>
 {/* {isThereAnyProject && <>
 
@@ -925,7 +966,7 @@ onClick={() => handleGoingForward()}
    
       </>
       }
-      <Footer version={"v1" }/>   
+      <Footer version={t("v1") }/>   
     </div>
     <BorderLinearProgress variant="determinate" value={1} 
     

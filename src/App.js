@@ -16,14 +16,15 @@ import FormGenerator from "./component/CodeGenerator"
 import CssExtractor from "./component/fightMode/CssExtractor"
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
+import TranslatePdf from "./component/translatePdf"
 const Drager = React.lazy(() => import('./component/tunisianDrager/Dragger'));
 const ViewComponent = React.lazy(() => import('./component/tunisianDrager/view component/ViewComponent'));
 function App() {
 
-  useEffect(()=>{
-    ReactGA.initialize("G-KGB38DBCSB");
-    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
-  })
+  // useEffect(()=>{
+  //   ReactGA.initialize("G-KGB38DBCSB");
+  //   ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+  // })
 
   useEffect(()=>{
     localStorage.clear()
@@ -40,6 +41,9 @@ function App() {
 <Route path="/CssExtractor" element={<CssExtractor/>} />
 <Route path="/Drager" element={<Drager/>} />
 <Route path="/view_project" element ={<ViewComponent />}/>
+<Route path="/translate-pdf" element ={<TranslatePdf />}/>
+
+
 </Routes>
    </Suspense>
  {/* <Uploader /> */}

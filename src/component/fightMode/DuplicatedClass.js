@@ -35,7 +35,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Sucess from "./Success"
 
-
+import { useTranslation } from 'react-i18next'
 
 
 // we pass in success all the file html & css after combining them 
@@ -113,6 +113,7 @@ const columns = [
 const getRowId = row => row.id;
 
 export default function DuplicatedClass(props) {
+  const {t} = useTranslation()
   let {rows_data,orginal_classes,to_add_section_classes,final_css,
 
     
@@ -573,7 +574,7 @@ return ch_css_used
   return (
     <>
     {showTable ? <>
-      <Navbar  firstText="don't have a nice day" secondText="have a great day"/>
+      <Navbar  firstText={t("dontHaveANiceDay")} secondText={t("haveAGreatDay")}/>
 
     <div class="container" >
   <div class="wrapper">
@@ -581,7 +582,7 @@ return ch_css_used
   disabled={enable_human_button}
   onClick={() => generateHumanClassesBasedOnComponentName()}
   
-  >auto generate human classes names</Button>
+  >{t("autoGenerateHumanClassesNames")}</Button>
   <div style={{display:"flex",justifyContent:"end"}}>
   <Paper
       component="form"
@@ -659,7 +660,7 @@ return ch_css_used
 
     <Button 
     onClick={() => gotTofinalStep()}
-    disabled={enable_button}>Go to final step</Button>
+    disabled={enable_button}>{t("goFinalStep")}</Button>
     <Footer version={"v3" }/> 
   </div>
     </div>

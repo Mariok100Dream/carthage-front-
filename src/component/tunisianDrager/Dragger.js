@@ -192,6 +192,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import FreeBreakfastIcon from '@mui/icons-material/FreeBreakfast';
 import {logo} from "../../logo/logoDrager"
+import FullScreenCodeResultDialog from "./Models/getCodeResultFullPopup"
+import { useTranslation } from 'react-i18next'
 
 function LinearProgressWithLabel(props) {
   return (
@@ -360,7 +362,7 @@ BootstrapDialogTitle.propTypes = {
 
 
 export default function ClippedDrawer() {
-
+  const {t} = useTranslation()
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       e.preventDefault();
@@ -527,7 +529,7 @@ export default function ClippedDrawer() {
     setType(typo)
     setId(ido)
     setGlobalStyle(global)
-    console.log("id = ",ido)
+  
     setSectionId(ido)
     //history navigator
 
@@ -559,7 +561,7 @@ export default function ClippedDrawer() {
 
   //content controller 
  
-  const fileTypesFromTunisiaDevs = ["TXT"]
+  const fileTypesFromTunisiaDevs = [t("txt")]
   let [logo_content,setLogoContent] = useState("")
 
   const [expandedParent, setExpandedParent] = React.useState(false);
@@ -2949,7 +2951,7 @@ setApplied(historyMaker.length -1)
    }
 
     let {final_html,ch_css} = updateSlider(characters,section_id,searcher,hasSlider,itemsData)
-   console.log("final_html",final_html)
+   
     if(hasSlider){
       data.section_css = ch_css 
      
@@ -5810,14 +5812,14 @@ let deleteFromOrders = (data) =>{
       onClick={e => setPublicTunisiaDev(e.target.checked)}
       label="public"
         />
-        {publictunisiadev ? <h3>Public (No need to enter password)</h3> : <h3>Not Public (you need to enter password)</h3> }
+        {publictunisiadev ? <h3>{t("publicNoNeedToEnterPassword")}</h3> : <h3>{t("noPublic")}</h3> }
 
         </div>
           {!publictunisiadev &&
            <>
   <div style={{display:"flex",justifyContent:"center"}}>
             <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">{t("password")}</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -5840,9 +5842,7 @@ let deleteFromOrders = (data) =>{
           />
                  <FormHelperText id="filled-weight-helper-text"
            >
-            Password Must have at least one lowercase letter
-            , one uppercase letter , one digit, one special character
-            , and is at least eight characters long
+           {t("passwordRule")}
            </FormHelperText>
         </FormControl>
            
@@ -5854,7 +5854,7 @@ let deleteFromOrders = (data) =>{
                 
             <Button variant="text"
             onClick={() => handleAddFromTunisiaDevs()}
-            >Add</Button>
+            >{t("add")}</Button>
           </div>
           <ToastContainer />   
           </Typography>
@@ -5879,24 +5879,23 @@ let deleteFromOrders = (data) =>{
        
 <Typography variant="h6" noWrap component="div">
 <img src={logo} width={70} height={50}/>
-𐤒𐤓𐤕𐤟𐤇𐤃𐤔𐤕
-
+{t("carthage")}
           </Typography>
 
      
 <div>
-             <Tooltip title="Get code of the page">
-             <IconButton>
-             <CodeIcon style={{color:"white"}}/>
-            </IconButton>
-             </Tooltip>
+  <div style={{display:"flex",justifyContent:"space-between"}}>
+  <FullScreenCodeResultDialog />
+           
     
-             <Tooltip title="Share Page with client or devs as you want ">
-             <IconButton>
-             <ShareIcon  style={{marginLeft:14,color:"white"}}/>
-             </IconButton>
-             </Tooltip>
-            
+           <Tooltip title={t("sharePageWithClient")}>
+           <IconButton>
+           <ShareIcon  style={{marginLeft:14,color:"white"}}/>
+           </IconButton>
+           </Tooltip>
+          
+  </div>
+
          
           </div>
 
@@ -5918,11 +5917,10 @@ let deleteFromOrders = (data) =>{
         <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={widget} onChange={handleChangewidget} aria-label="basic tabs example">
-          <Tab label="Sections" {...a11yProps(0)} />
+          <Tab label={t("sections")} {...a11yProps(0)} />
   
-          <Tab label="Global" {...a11yProps(1)} />
-          <Tab label="
-favorites" {...a11yProps(2)} />
+          <Tab label={t("global")} {...a11yProps(1)} />
+          <Tab label={t("favorites")} {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={widget} index={0}>
@@ -5939,7 +5937,7 @@ favorites" {...a11yProps(2)} />
             <div className="">
               <div className="drag_column">
                 <div className="drag_row">
-                  <h4>Sections</h4>
+                  <h4>{t("sections")}</h4>
                   <Paper
       component="form"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 210 }}
@@ -5994,7 +5992,7 @@ favorites" {...a11yProps(2)} />
                           <p>{task.lastUpdate}</p>
                          <Button onClick={() =>handleOpenVideo(task.video_url,
                           task.section_name
-                          )}>Watch Video</Button>              
+                          )}>{t("watchVideos")}</Button>              
                        </CardContent>
                      </CardActionArea>
                    </Card>
@@ -6110,7 +6108,7 @@ favorites" {...a11yProps(2)} />
             >
               <div className="drag_column">
                 <div className="drag_row">
-                  <h4>Drag here</h4>
+                  <h4>{t("dragHere")}</h4>
                 
                  
 
@@ -6241,16 +6239,16 @@ id={task.id}
 <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Content" {...a11yProps(0)} />
-          <Tab label="Global Style" {...a11yProps(1)} />
+          <Tab label={t("content")} {...a11yProps(0)} />
+          <Tab label={t("globalStyle")} {...a11yProps(1)} />
       
-           <Tab label="Advanced" {...a11yProps(2)} />
+           <Tab label={t("advanced")} {...a11yProps(2)} />
            {/* <Tab label="dynamique" {...a11yProps(3)} /> */}
-           <Tab label="Translation" {...a11yProps(3)} />
+           <Tab label={t("translation")} {...a11yProps(3)} />
          
-           <Tab label="history" {...a11yProps(4)} />
-           <Tab label="Order" {...a11yProps(5)} />
-           <Tab label="how to ?" {...a11yProps(6)} />
+           <Tab label={t("history")} {...a11yProps(4)} />
+           <Tab label={t("order")} {...a11yProps(5)} />
+           <Tab label={t("howTo")} {...a11yProps(6)} />
             
          
         </Tabs>
@@ -6265,7 +6263,7 @@ id={task.id}
           aria-controls="panelContentTeam-content"
           id="panelContentTeam-header"
         >
-          <Typography>Content card</Typography>
+          <Typography>{t("contentCard")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           
@@ -6327,14 +6325,14 @@ id={task.id}
            
       
               <Tabs value={valueTitle} onChange={handleChangeValueTitleTap} aria-label="basic tabs example">
-          <Tab label="Content" {...a11yProps(0)} />
-          <Tab label="Style" {...a11yProps(1)} />
+          <Tab label={t("content")} {...a11yProps(0)} />
+          <Tab label={t("style")} {...a11yProps(1)} />
      
          
         </Tabs> 
         <TabPanel value={valueTitle} index={0}  >
           
-          <p style={{textAlign:"left"}}>title text</p>   
+          <p style={{textAlign:"left"}}>{t("titleText")}</p>   
  
      
           <InputElement  
@@ -6349,7 +6347,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title text
+                 {t("reportIssueTitleText")}
         </FormHelperText>
           </a>
               
@@ -6358,7 +6356,7 @@ id={task.id}
       <TabPanel value={valueTitle} index={1} key={index} >
       <Grid container spacing={2}>
       <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>title color</p>   
+      <p style={{textAlign:"left"}}>{t("titleColor")}</p>   
  
       <InputElementTypeColor 
        values={item.color}
@@ -6372,14 +6370,14 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title color
+                 {t("reportIssueTitleColor")}
         </FormHelperText>
           </a>
 
       </Grid>
 
       <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>title hover color</p>
+      <p style={{textAlign:"left"}}>{t("titleHoverColor")}</p>
     
       <InputElementTypeColor 
        values={item.hover_color}
@@ -6393,7 +6391,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title hover color
+                {t("reportIssueTitleHoverColor")}
         </FormHelperText>
           </a>
       </Grid>                      
@@ -6408,7 +6406,7 @@ id={task.id}
 <Grid container spacing={2}>
              {/* font family title  team style */} 
           <Grid item xs={6}>
-          <p>font family</p>
+          <p>{t("fontFamily")}</p>
          
           <FontFamilySelect 
            values={item.font_family}
@@ -6421,7 +6419,7 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title font family
+                {t("reportIssueFontFamily")}
         </FormHelperText>
           </a>
 
@@ -6429,7 +6427,7 @@ id={task.id}
          
   {/* font size title team style */} 
           <Grid item xs={6}>
-            <p>Font Size </p>
+            <p>{t("fontSize")} </p>
         
             <ComponentwithSelectAndInput 
             value={item.font_size}
@@ -6442,7 +6440,7 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title font size
+                {t("reportIssueFontSize")}
         </FormHelperText>
           </a>
             </Grid>        
@@ -6451,11 +6449,11 @@ id={task.id}
   {/* padding title team style */} 
            <Grid container spacing={2}>
             <Grid item xs={2}>
-                 padding           
+                 {t("padding")}           
             </Grid>
              {/* padding top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
            
             <ComponentwithSelectAndInput 
             value={item.padding_top}
@@ -6468,13 +6466,13 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding top
+                {t("reportIssuePaddingTop")}
         </FormHelperText>
           </a>
             </Grid> 
  {/* padding bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
           
             <ComponentwithSelectAndInput 
             value={item.padding_bottom}
@@ -6487,13 +6485,13 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding bottom
+                {t("reportIssuePaddingBottom")}
         </FormHelperText>
           </a>
             </Grid>                
  {/* padding left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
       
             <ComponentwithSelectAndInput 
             value={item.padding_left}
@@ -6506,14 +6504,14 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding left
+                 {t("reportIssuePaddingLeft")}
         </FormHelperText>
           </a>
             </Grid>
 
    {/* padding right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
  
             <ComponentwithSelectAndInput 
             value={item.padding_right}
@@ -6526,7 +6524,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding right
+                 {t("reportIssuePaddingRight")}
         </FormHelperText>
           </a>
             </Grid>          
@@ -6540,7 +6538,7 @@ id={task.id}
             </Grid>
              {/* margin top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
            
             <ComponentwithSelectAndInput 
             value={item.margin_top}
@@ -6552,13 +6550,13 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin top
+                 {t("reportIssueMarginTop")}
         </FormHelperText>
           </a>
             </Grid> 
  {/* margin bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             
             <ComponentwithSelectAndInput 
             value={item.margin_bottom}
@@ -6571,13 +6569,13 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin bottom
+                 {t("reportIssueMarginBottom")}
         </FormHelperText>
           </a>
             </Grid>                
  {/* margin left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             
             <ComponentwithSelectAndInput 
             value={item.margin_left}
@@ -6590,14 +6588,14 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin left
+                 {t("reportIssueMarginLeft")}
         </FormHelperText>
           </a>
             </Grid>
 
    {/* margin right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             
             <ComponentwithSelectAndInput 
             value={item.margin_right}
@@ -6610,7 +6608,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin right
+                 {t("reportIssueMarginRight")}
         </FormHelperText>
           </a>
             </Grid>          
@@ -6621,7 +6619,7 @@ id={task.id}
            style={{marginTop:"2%"}}
            >
            <Grid item xs={2}>
-           <p>text Align</p>
+           <p>{t("textAlign")}</p>
            </Grid>
            <Grid item xs={6}>
            
@@ -6636,7 +6634,7 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title text align
+                 {t("reportIssueTextAlign")}
         </FormHelperText>
           </a>
            </Grid>
@@ -6662,7 +6660,7 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title priority
+                 {t("reportIssueTitlePriority")}
         </FormHelperText>
           </a>
         
@@ -6672,19 +6670,19 @@ id={task.id}
                       "text",indexParent
                       
                       )}
-                    >Edit</Button>
+                    >{t("edit")}</Button>
               </div>
               
               </>}
               
               {item.type ==="description" && <>
               <Tabs value={valueDescription} onChange={handleChangeValueDescription} aria-label="basic tabs example">
-          <Tab label="Content" {...a11yProps(0)} />
-          <Tab label="Style" {...a11yProps(1)} />
+          <Tab label={t("content")} {...a11yProps(0)} />
+          <Tab label={t("style")} {...a11yProps(1)} />
 
         </Tabs>
         <TabPanel value={valueDescription} index={0}  >
-        <p style={{textAlign:"left"}}>Description Content</p>
+        <p style={{textAlign:"left"}}>{t("descriptionContent")}</p>
         <InputElement  
                 values={item.text}
                 onFormSubmit={handleFormSubmit}
@@ -6694,7 +6692,7 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description content
+                 {t("reportIssueDescriptionContent")}
         </FormHelperText>
           </a>
         </TabPanel> 
@@ -6702,7 +6700,7 @@ id={task.id}
         <TabPanel value={valueDescription} index={1} key={index}  >
         <Grid container spacing={2}>
           <Grid item xs={6}>
-          <p style={{textAlign:"left"}}>Description Color</p>
+          <p style={{textAlign:"left"}}>{t("descriptionColor")}</p>
           <InputElementTypeColor 
        values={item.color}
        onFormSubmit={handleFormSubmit}
@@ -6712,7 +6710,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description color
+                 {t("reportIssueDescriptionColor")}
         </FormHelperText>
           </a>
           </Grid>
@@ -6727,7 +6725,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description hover color
+                 {t("reportIssueDescriptionHoverColor")}
         </FormHelperText>
           </a>
 
@@ -6743,7 +6741,7 @@ id={task.id}
 <Grid container spacing={2}>
              {/* font family title  team style */} 
           <Grid item xs={6}>
-          <p>font family</p>
+          <p>{t("fontFamily")}</p>
           <FontFamilySelect 
            values={item.font_family}
            onFormSubmit={handleFormSubmit}
@@ -6753,7 +6751,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description font family
+                 {t("reportIssueDescriptionFontFamily")}
         </FormHelperText>
           </a>
         
@@ -6761,7 +6759,7 @@ id={task.id}
          
   {/* font size title team style */} 
           <Grid item xs={6}>
-            <p>Font Size </p>
+            <p>{t("fontSize")} </p>
             <ComponentwithSelectAndInput 
             value={item.font_size}
              onFormSubmit={handleFormSubmit}
@@ -6771,7 +6769,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description font size
+                 {t("reportIssueDescriptionFontSize")}
         </FormHelperText>
           </a>
             </Grid>        
@@ -6780,11 +6778,11 @@ id={task.id}
   {/* padding title team style */} 
            <Grid container spacing={2}>
             <Grid item xs={2}>
-                 padding           
+                 {t("padding")}           
             </Grid>
              {/* padding top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={item.padding_top}
              onFormSubmit={handleFormSubmit}
@@ -6794,13 +6792,13 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding top
+                 {t("reportIssueDescriptionPaddingTop")}
         </FormHelperText>
           </a>
             </Grid> 
  {/* padding bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={item.padding_bottom}
              onFormSubmit={handleFormSubmit}
@@ -6810,13 +6808,13 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding bottom
+                 {t("reportIssueDescriptionPaddingBottom")}
         </FormHelperText>
           </a>
             </Grid>                
  {/* padding left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={item.padding_left}
              onFormSubmit={handleFormSubmit}
@@ -6826,14 +6824,14 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding left
+                 {t("reportIssueDescriptionPaddingLeft")}
         </FormHelperText>
           </a>
             </Grid>
 
    {/* padding right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={item.padding_right}
              onFormSubmit={handleFormSubmit}
@@ -6843,7 +6841,7 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding right
+                 {t("reportIssueDescriptionPaddingRight")}
         </FormHelperText>
           </a>
             </Grid>          
@@ -6853,11 +6851,11 @@ id={task.id}
  {/* margin title team style */} 
  <Grid container spacing={2}>
             <Grid item xs={2}>
-                 margin           
+                 {t("margin")}          
             </Grid>
              {/* margin top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={item.margin_top}
              onFormSubmit={handleFormSubmit}
@@ -6867,13 +6865,13 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin top
+                 {t("reportIssueDescriptionMarginTop")}
         </FormHelperText>
           </a>
             </Grid> 
  {/* margin bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={item.margin_bottom}
              onFormSubmit={handleFormSubmit}
@@ -6883,13 +6881,13 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin bottom
+                {t("reportIssueDescriptionMarginBottom")}
         </FormHelperText>
           </a>
             </Grid>                
  {/* margin left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={item.margin_left}
              onFormSubmit={handleFormSubmit}
@@ -6899,14 +6897,14 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin left
+                 {t("reportIssueDescriptionMarginLeft")}
         </FormHelperText>
           </a>
             </Grid>
 
    {/* margin right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={item.margin_right}
              onFormSubmit={handleFormSubmit}
@@ -6916,7 +6914,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin right
+                {t("reportIssueDescriptionMarginRight")}
         </FormHelperText>
           </a>
             </Grid>          
@@ -6927,7 +6925,7 @@ id={task.id}
            style={{marginTop:"2%"}}
            >
            <Grid item xs={2}>
-           <p>text Align</p>
+           <p>{t("textAlign")}</p>
            </Grid>
            <Grid item xs={6}>
            <AlignElement 
@@ -6939,7 +6937,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description text align
+                 {t("reportIssueDescriptionTextAlign")}
         </FormHelperText>
           </a>
            </Grid>
@@ -6961,7 +6959,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about priority
+                 {t("reportIssueDescriptionPriority")}
         </FormHelperText>
           </a>
                           <Button variant="contained"
@@ -6970,7 +6968,7 @@ id={task.id}
                       "text",indexParent
                       
                       )}
-                    >Edit</Button>
+                    >{t("edit")}</Button>
                           </div>
             
               </>}
@@ -6979,8 +6977,8 @@ id={task.id}
                    {item.type==="image" && <>
 
                    <Tabs value={valueImage} onChange={handleChangeValueImage} aria-label="basic tabs example">
-          <Tab label="Content" {...a11yProps(0)} />
-          <Tab label="Style" {...a11yProps(1)} />
+          <Tab label={t("content")} {...a11yProps(0)} />
+          <Tab label={t("style")} {...a11yProps(1)} />
 
           
          
@@ -7013,7 +7011,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image content
+                 {t("reportIssueImageContent")}
         </FormHelperText>
           </a> 
                  
@@ -7022,11 +7020,11 @@ id={task.id}
         <TabPanel value={valueImage} index={1}  >
         <Grid container spacing={2}>
             <Grid item xs={2}>
-                <p>Border radius</p>        
+                <p>{t("borderRadius")}</p>        
             </Grid>
             {/* Border radius Top left Image Team */}
             <Grid item xs={2}>
-            <p>top left</p>  
+            <p>{t("topLeft")}</p>  
             <ComponentwithSelectAndInput 
             value={item.border_top_left_radius}
              onFormSubmit={handleFormSubmit}
@@ -7036,7 +7034,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about border radius top left
+                 {t("reportIssueBorderRadiusTopLeft")}
         </FormHelperText>
           </a> 
 
@@ -7044,7 +7042,7 @@ id={task.id}
 
               {/* Border radius top right Image Team */}
               <Grid item xs={2}>
-            <p>top right</p>  
+            <p>{t("topRight")}</p>  
             <ComponentwithSelectAndInput 
             value={item.border_top_right_radius}
              onFormSubmit={handleFormSubmit}
@@ -7054,14 +7052,14 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about border radius top right
+                 {t("reportIssueImageBorderRadiusTopRight")}
         </FormHelperText>
           </a> 
             </Grid>
 
               {/* Border radius bottom right Image Team */}
               <Grid item xs={2}>
-            <p>bottom right</p>  
+            <p>{t("bottomRight")}</p>  
             <ComponentwithSelectAndInput 
             value={item.border_bottom_right_radius}
              onFormSubmit={handleFormSubmit}
@@ -7071,7 +7069,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about border radius bottom right
+                 {t("reportIssueImageBorderRadiusBottomRight")}
         </FormHelperText>
           </a>
 
@@ -7079,7 +7077,7 @@ id={task.id}
           
               {/* Border radius bottom left Image Team */}
               <Grid item xs={2}>
-            <p>bottom left</p> 
+            <p>{t("bottomLeft")}</p> 
             <ComponentwithSelectAndInput 
             value={item.border_bottom_left_radius}
              onFormSubmit={handleFormSubmit}
@@ -7089,7 +7087,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about border radius bottom left 
+                 {t("reportIssueImageBorderRasdiusBottomLeft")} 
         </FormHelperText>
           </a>
 
@@ -7103,7 +7101,7 @@ id={task.id}
 
   {/* Width  Image Team */}
   <Grid item xs={6}>
-            <p>Width</p>  
+            <p>{t("width")}</p>  
             <ComponentwithSelectAndInput 
             value={item.width}
              onFormSubmit={handleFormSubmit}
@@ -7113,13 +7111,13 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about  image width
+                 {t("reportIssueImageWidth")}
         </FormHelperText>
           </a>
             </Grid>          
  {/* Height  Image Team */}
  <Grid item xs={6}>
-            <p>Height</p>  
+            <p>{t("height")}</p>  
             <ComponentwithSelectAndInput 
             value={item.height}
              onFormSubmit={handleFormSubmit}
@@ -7130,7 +7128,7 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about  image height
+                 {t("reportIssueImageHeight")}
         </FormHelperText>
           </a>
             </Grid>  
@@ -7141,11 +7139,11 @@ id={task.id}
  {/* Margin  Image Team */}
         <Grid container spacing={2}>
             <Grid item xs={2}>
-                <p>Margin</p>        
+                <p>{t("margin")}</p>        
             </Grid>
             {/* margin Top  Image Team */}
             <Grid item xs={2}>
-            <p>top </p>  
+            <p>{t("top")} </p>  
             <ComponentwithSelectAndInput 
             value={item.margin_top}
              onFormSubmit={handleFormSubmit}
@@ -7155,14 +7153,14 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Image margin top 
+                 {t("reportIssueImageMarginTop")} 
         </FormHelperText>
           </a>
             </Grid>
 
               {/* Margin Bottom Image Team */}
               <Grid item xs={2}>
-            <p>Bottom</p>  
+            <p>{t("bottom")}</p>  
             <ComponentwithSelectAndInput 
             value={item.margin_bottom}
              onFormSubmit={handleFormSubmit}
@@ -7172,14 +7170,14 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Image margin bottom
+                 {t("reportIssueImageMarginBottom")}
         </FormHelperText>
           </a>
             </Grid>
 
               {/* Margin Left Image Team */}
               <Grid item xs={2}>
-            <p>Left</p>  
+            <p>{t("left")}</p>  
             <ComponentwithSelectAndInput 
             value={item.margin_left}
              onFormSubmit={handleFormSubmit}
@@ -7189,14 +7187,14 @@ id={task.id}
            target='_blank'rel="noreferrer" >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Image margin left
+                 {t("reportIssueImageMarginLeft")}
         </FormHelperText>
           </a>
             </Grid>
           
               {/* Margin Right Image Team */}
               <Grid item xs={2}>
-            <p>right</p>  
+            <p>{t("right")}</p>  
             <ComponentwithSelectAndInput 
             value={item.margin_right}
              onFormSubmit={handleFormSubmit}
@@ -7206,7 +7204,7 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Image margin right
+                 {t("reportIssueImageMarginRight")}
         </FormHelperText>
           </a>
             </Grid>
@@ -7220,7 +7218,7 @@ id={task.id}
   <Grid item xs={4}
   style={{marginTop:'2%'}}
   >
-      <p>Background color</p>
+      <p>{t("backgroundColor")}</p>
            
            <InputElementTypeColor 
        values={item.background_img}
@@ -7231,7 +7229,7 @@ id={task.id}
            target='_blank' rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Image background color
+                {t("reportIssueImageBackgroundColor")}
         </FormHelperText>
           </a>
             </Grid> 
@@ -7239,7 +7237,7 @@ id={task.id}
   <Grid item xs={4}
   style={{marginTop:'2%'}}
   >
-      <p>Background width</p>  
+      <p>{t("backgroundWidth")}</p>  
      <ComponentwithSelectAndInput 
             value={item.widthBackground}
              onFormSubmit={handleFormSubmit}
@@ -7251,7 +7249,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Image background width
+                 {t("reportIssueImageBackgroundWidth")}
         </FormHelperText>
           </a>
             </Grid>       
@@ -7261,7 +7259,7 @@ id={task.id}
 <Grid item xs={4}
   style={{marginTop:'2%'}}
   >
-            <p>Background height</p>
+            <p>{t("backgroundHeight")}</p>
            <ComponentwithSelectAndInput 
             value={item.heightBackground}
              onFormSubmit={handleFormSubmit}
@@ -7273,7 +7271,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Image background height
+                 {t("reportIssueImageBackgroundHeight")}
         </FormHelperText>
           </a>
             </Grid>
@@ -7294,7 +7292,7 @@ id={task.id}
                       
                       )}
                     >
-                      Edit
+                     {t("edit")}
                     </Button> 
                    </div>
                     
@@ -7306,7 +7304,7 @@ id={task.id}
                    <Grid container spacing={2}>
                    <Grid item xs={6}>
                    <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Social Media</InputLabel>
+                <InputLabel id="demo-simple-select-label">{t("socialMedia")}</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -7314,20 +7312,20 @@ id={task.id}
                   label="Social Media"
                   onChange={handleChangeSocialMediaContent}
                 >
-                  <MenuItem value={"Instagram"}>Instagram</MenuItem>
-                  <MenuItem value={"YouTube"}>YouTube</MenuItem>
-                  <MenuItem value={"Facebook"}>Facebook</MenuItem>
+                  <MenuItem value={"Instagram"}>{t("instagram")}</MenuItem>
+                  <MenuItem value={"YouTube"}>{t("youtube")}</MenuItem>
+                  <MenuItem value={"Facebook"}>{t("facebook")}</MenuItem>
               
-                  <MenuItem value={"Twitter"}>Twitter</MenuItem>
-                  <MenuItem value={"TikTok"}>TikTok</MenuItem>
-                  <MenuItem value={"Pinterest"}>Pinterest</MenuItem>
+                  <MenuItem value={"Twitter"}>{t("twitter")}</MenuItem>
+                  <MenuItem value={"TikTok"}>{t("tiktok")}</MenuItem>
+                  <MenuItem value={"Pinterest"}>{t("printest")}</MenuItem>
               
-                  <MenuItem value={"Snapchat"}>Snapchat</MenuItem>
-                  <MenuItem value={"LinkedIn"}>LinkedIn</MenuItem>
-                  <MenuItem value={"GooglePlus"}>Google Plus</MenuItem>
-                  <MenuItem value={"Behance"}>Behance</MenuItem>
-                  <MenuItem value={"Gmail"}>Gmail</MenuItem>
-                  <MenuItem value={"goArrow"}>goArrow</MenuItem>
+                  <MenuItem value={"Snapchat"}>{t("snapchat")}</MenuItem>
+                  <MenuItem value={"LinkedIn"}>{t("linkedin")}</MenuItem>
+                  <MenuItem value={"GooglePlus"}>{t("googlePlus")}</MenuItem>
+                  <MenuItem value={"Behance"}>{t("behance")}</MenuItem>
+                  <MenuItem value={"Gmail"}>{t("gmail")}</MenuItem>
+                  <MenuItem value={"goArrow"}>{t("goArrow")}</MenuItem>
                 </Select>
                 <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02DxYnsmc4yUYkopJytN9Y9j6KHjBkaD1q9e5Ds7AmMPAZ1QRbMnSwAWLYX5xA2m4Yl&id=100081746135007"
            target='_blank'
@@ -7335,7 +7333,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media select
+                 {t("reportIssueSocialMediaSelect")}
         </FormHelperText>
           </a>
               </FormControl>
@@ -7358,7 +7356,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media url
+                 {t("reportIssueSocialMediaUrl")}
         </FormHelperText>
           </a>            
                    </Grid>
@@ -7374,14 +7372,14 @@ id={task.id}
                       
                       )}
                    
-                    >ADD</Button>
+                    >{t("add")}</Button>
                         <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02bb3Ziac7KJNqoQM3zqJAT3FRMUt4RzTzHAMYiZYW5Ywp9AHY3GjApY53hmifgtGDl&id=100081746135007"
            target='_blank' 
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media ADD
+                 {t("reportIssueSocialMediaAdd")}
         </FormHelperText>
           </a>   
                     </div>
@@ -7415,7 +7413,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media delete
+                 {t("reportIssueSocialMediaDelete")}
         </FormHelperText>
           </a>  
               <EditIcon
@@ -7465,7 +7463,7 @@ id={task.id}
           aria-controls="panelslider-content"
           id="panelslider-header"
         >
-          <Typography>Slider</Typography>
+          <Typography>{t("slider")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -7478,21 +7476,21 @@ id={task.id}
               checked={hasSlider}
               onChange={e => setHasSlider(e.target.checked)}
               name
-              />} label="Show Slider" />
+              />} label={t("showSlider")} />
                 <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02xH3byVdiEve5ePj5MRGSghfCqeZHLKNNrZBmuFKKG9essLfg18wdSWaqsEnoyiGMl&id=100081746135007"
            target='_blank'
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Show slider
+                 {t("reportIssueShowSlider")}
         </FormHelperText>
           </a>
             </Grid>
 
           {/* items Per 576 */}
           <Grid item xs={4}>
-            <TextField id="outlined-basic" label="Items per 576px Dimensional"
+            <TextField id="outlined-basic" label={t("item576Dimensional")}
           type="number"
           variant="outlined"
           fullWidth
@@ -7508,13 +7506,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about items per  576px
+                 {t("reportIssueSlider576Dimentional")}
         </FormHelperText>
           </a>
             </Grid>
           {/* items Per 768 */}
             <Grid item xs={4}>
-            <TextField id="outlined-basic" label="Items per 768px Dimensional"
+            <TextField id="outlined-basic" label={t("item768Dimensional")}
           type="number"
           variant="outlined"
           fullWidth
@@ -7529,13 +7527,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about items per  768px
+                 {t("reportIssueSlider768Dimensional")}
         </FormHelperText>
           </a>
             </Grid>
    {/* items Per 1200 */}
    <Grid item xs={4}>
-            <TextField id="outlined-basic" label="Items per 1200px Dimensional"
+            <TextField id="outlined-basic" label={t("item1200Dimensional")}
           type="number"
           variant="outlined"
           fullWidth
@@ -7550,7 +7548,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about items per  1200px
+                 {t("reportIssueSlider1200Dimensional")}
         </FormHelperText>
           </a>
             </Grid>
@@ -7559,14 +7557,14 @@ id={task.id}
               <FormControlLabel control={<Switch 
                  checked={autoplay}
                  onChange={e => setAutoPlay(e.target.checked)}
-              />} label="Auto Play" />
+              />} label={t("autoPlay")} />
                    <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02TtNk3fjtHXUfg2evvexEUe8XqdCDnLVYmzxs2jALCMUoPq36g3yFENQzX2CYKpeEl&id=100081746135007"
            target='_blank' 
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about auto play
+                 {t("reportIssueSliderAutoPlay")}
         </FormHelperText>
           </a>
             </Grid>
@@ -7576,14 +7574,14 @@ id={task.id}
               checked={showDots}
               onChange={e => setShowDots(e.target.checked)}
               
-              />} label="Show Dots" />
+              />} label={t("showDots")} />
                      <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0AZXxL9Khni1FPsE1WWczfT1cF6v5q8H7VAh8C6f2nh74NZzoRkswVa2FGC66V8sYl&id=100081746135007"
            target='_blank' 
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show dots
+                 {t("reportIssueSliderShowDots")}
         </FormHelperText>
           </a>
             </Grid>
@@ -7592,14 +7590,14 @@ id={task.id}
               <FormControlLabel control={<Switch 
                 checked={showArrows}
                 onChange={e => setShowArrows(e.target.checked)}
-              />} label="Show Arrow" />
+              />} label={t("showArrow")} />
                     <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02ZKfZe1JLL2tBv6PsrCC2KQusiGJPfMPFmovwq9LyS61TPN59kEL8TtVxmRiXBiwdl&id=100081746135007"
            target='_blank' 
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show arrows
+                 {t("reportIssueSliderShowArrow")}
         </FormHelperText>
           </a>
             </Grid>
@@ -7608,14 +7606,14 @@ id={task.id}
               <FormControlLabel control={<Switch 
                  checked={mouseDrag}
                  onChange={e => setMouseDrag(e.target.checked)}
-              />} label="Mouse Dragged" />
+              />} label={t("mouseDragged")} />
                      <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02GQ5tzRjz95TbdFRcD4mvdi42W8wVMfJFZH6uJcDBY4XV9XoqbgAWQs2EMfobCLR7l&id=100081746135007"
            target='_blank' 
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about mouse dragged
+                 {t("reportIssueSliderMouseDragged")}
         </FormHelperText>
           </a>
             </Grid>
@@ -7629,7 +7627,7 @@ id={task.id}
 <Button
       onClick={() => updateTeamToSlider()}
       
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           
           </Typography>
@@ -7644,7 +7642,7 @@ id={task.id}
           aria-controls="panelslider-content"
           id="panelslider-header"
         >
-          <Typography>Title </Typography>
+          <Typography>{t("title")} </Typography>
         </AccordionSummary>
         <AccordionDetails>
          
@@ -7656,14 +7654,14 @@ id={task.id}
            
       
               <Tabs value={valueTitleTap} onChange={handleChangeFunctionalityTapTitle} aria-label="basic tabs example">
-          <Tab label="Content" {...a11yProps(0)} />
-          <Tab label="Style" {...a11yProps(1)} />
+          <Tab label={t("content")} {...a11yProps(0)} />
+          <Tab label={t("style")} {...a11yProps(1)} />
  
          
         </Tabs> 
 
         <TabPanel value={valueTitleTap} index={0}  >
-          <p style={{textAlign:"left"}}>title text</p>      
+          <p style={{textAlign:"left"}}>{t("titleText")}</p>      
           <InputElement  
                 values={titleInOpen.text}
                 onFormSubmit={handleFormSubmit}
@@ -7675,7 +7673,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title text
+                 {t("reportIssueTitleText")}
         </FormHelperText>
           </a>  
  
@@ -7683,7 +7681,7 @@ id={task.id}
       <TabPanel value={valueTitleTap} index={1}  >
       <Grid container spacing={2}>
       <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>title color</p> 
+      <p style={{textAlign:"left"}}>{t("titleColor")}</p> 
       <InputElementTypeColor 
        values={titleInOpen.color}
        onFormSubmit={handleFormSubmit}
@@ -7695,13 +7693,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title color
+                 {t("reportIssueTitleColor")}
         </FormHelperText>
           </a>  
       </Grid>
 
       <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>title hover color</p> 
+      <p style={{textAlign:"left"}}>{t("titleHoverColor")}</p> 
       <InputElementTypeColor 
        values={titleInOpen.hover_color}
        onFormSubmit={handleFormSubmit}
@@ -7713,7 +7711,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title hover color
+                {t("reportIssueTitleHoverColor")}
         </FormHelperText>
           </a>  
       
@@ -7729,7 +7727,7 @@ id={task.id}
 <Grid container spacing={2}>
              {/* font family title  team style */} 
           <Grid item xs={6}>
-          <p>font family</p>
+          <p>{t("fontFamily")}</p>
           <FontFamilySelect 
            values={titleInOpen.font_family}
            onFormSubmit={handleFormSubmit}
@@ -7741,14 +7739,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title font family
+            {t("reportIssueFontFamily")}
         </FormHelperText>
           </a>  
           </Grid>
          
   {/* font size title team style */} 
           <Grid item xs={6}>
-            <p>Font Size </p>
+            <p>{t("fontSize")} </p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.font_size}
              onFormSubmit={handleFormSubmit}
@@ -7760,7 +7758,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title font size
+                {t("reportIssueFontSize")}
         </FormHelperText>
           </a> 
             </Grid>        
@@ -7769,11 +7767,11 @@ id={task.id}
   {/* padding title team style */} 
            <Grid container spacing={2}>
             <Grid item xs={2}>
-                 padding           
+                 {t("padding")}           
             </Grid>
              {/* padding top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.padding_top}
              onFormSubmit={handleFormSubmit}
@@ -7785,14 +7783,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding top
+                {t("reportIssuePaddingTop")}
         </FormHelperText>
           </a> 
 
             </Grid> 
  {/* padding bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.padding_bottom}
              onFormSubmit={handleFormSubmit}
@@ -7804,13 +7802,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding bottom
+                {t("reportIssuePaddingBottom")}
         </FormHelperText>
           </a> 
             </Grid>                
  {/* padding left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.padding_left}
              onFormSubmit={handleFormSubmit}
@@ -7822,14 +7820,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding left
+                {t("reportIssuePaddingLeft")}
         </FormHelperText>
           </a> 
             </Grid>
 
    {/* padding right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.padding_right}
              onFormSubmit={handleFormSubmit}
@@ -7841,7 +7839,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding right
+            {t("reportIssuePaddingRight")}
         </FormHelperText>
           </a> 
             </Grid>          
@@ -7851,11 +7849,11 @@ id={task.id}
  {/* margin title team style */} 
  <Grid container spacing={2}>
             <Grid item xs={2}>
-                 margin           
+                 {t("margin")}           
             </Grid>
              {/* margin top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.margin_top}
              onFormSubmit={handleFormSubmit}
@@ -7867,13 +7865,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin top
+                 {t("reportIssueMarginTop")}
         </FormHelperText>
           </a> 
             </Grid> 
  {/* margin bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.margin_bottom}
              onFormSubmit={handleFormSubmit}
@@ -7886,13 +7884,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin bottom
+                {t("reportIssueMarginBottom")}
         </FormHelperText>
           </a> 
             </Grid>                
  {/* margin left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.margin_left}
              onFormSubmit={handleFormSubmit}
@@ -7904,14 +7902,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin left
+                {t("reportIssueMarginLeft")}
         </FormHelperText>
           </a> 
             </Grid>
 
    {/* margin right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={titleInOpen.margin_right}
              onFormSubmit={handleFormSubmit}
@@ -7923,14 +7921,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin right
+                {t("reportIssueMarginRight")}
         </FormHelperText>
           </a> 
             </Grid>          
 
            </Grid>
            <Grid item xs={2}>
-           <p>text Align</p>
+           <p>{t("textAlign")}</p>
            <AlignElement 
              values={titleInOpen.text_align}
             onFormSubmit={handleFormSubmit}
@@ -7942,7 +7940,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title text align
+                 {t("reportIssueTextAlign")}
         </FormHelperText>
           </a> 
            </Grid>
@@ -7962,7 +7960,7 @@ id={task.id}
 <Button
       onClick={() => updateTitleUnique()}
       
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           
         
@@ -7977,7 +7975,7 @@ id={task.id}
           aria-controls="panelslider-content"
           id="panelslider-header"
         >
-          <Typography>Description </Typography>
+          <Typography>{t("description")} </Typography>
         </AccordionSummary>
         <AccordionDetails>
          
@@ -7989,14 +7987,14 @@ id={task.id}
            
       
               <Tabs value={valueTapDescription} onChange={handleChangeDescriptionTap} aria-label="basic tabs example">
-          <Tab label="Content" {...a11yProps(0)} />
-          <Tab label="Style" {...a11yProps(1)} />
+          <Tab label={t("content")} {...a11yProps(0)} />
+          <Tab label={t("style")} {...a11yProps(1)} />
 
          
         </Tabs> 
 
         <TabPanel value={valueTapDescription} index={0}  >
-          <p style={{textAlign:"left"}}>description text</p>   
+          <p style={{textAlign:"left"}}>{t("descriptionContent")}</p>   
           <InputElement  
                 values={descriptionInOpen.text}
                 onFormSubmit={handleFormSubmit}
@@ -8008,7 +8006,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description text 
+                 {t("reportIssueDescriptionContent")} 
         </FormHelperText>
           </a> 
       </TabPanel>
@@ -8016,7 +8014,7 @@ id={task.id}
       <TabPanel value={valueTapDescription} index={1}  >
       <Grid container spacing={2}>
       <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>description color </p>
+      <p style={{textAlign:"left"}}>{t("descriptionColor")} </p>
       <InputElementTypeColor 
        values={ descriptionInOpen.color}
        onFormSubmit={handleFormSubmit}
@@ -8028,13 +8026,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description color
+                {t("reportIssueDescriptionColor")}
         </FormHelperText>
           </a> 
       </Grid>
 
       <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>description hover color </p>
+      <p style={{textAlign:"left"}}>{t("descriptionHoverColor")} </p>
       <InputElementTypeColor 
        values={  descriptionInOpen.hover_color}
        onFormSubmit={handleFormSubmit}
@@ -8046,7 +8044,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description hover color
+                {t("reportIssueDescriptionHoverColor")}
         </FormHelperText>
           </a> 
       
@@ -8062,7 +8060,7 @@ id={task.id}
 <Grid container spacing={2}>
              {/* font family title  team style */} 
           <Grid item xs={6}>
-          <p>font family</p>
+          <p>{t("fontFamily")}</p>
           <FontFamilySelect 
            values={descriptionInOpen.font_family}
            onFormSubmit={handleFormSubmit}
@@ -8074,7 +8072,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description font family
+                {t("reportIssueFontFamily")}
         </FormHelperText>
           </a> 
         
@@ -8082,7 +8080,7 @@ id={task.id}
          
   {/* font size title team style */} 
           <Grid item xs={6}>
-            <p>Font Size </p>
+            <p>{t("fontSize")} </p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.font_size}
              onFormSubmit={handleFormSubmit}
@@ -8094,7 +8092,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description font size
+                {t("reportIssueFontSize")}
         </FormHelperText>
           </a> 
             </Grid>        
@@ -8103,11 +8101,11 @@ id={task.id}
   {/* padding title team style */} 
            <Grid container spacing={2}>
             <Grid item xs={2}>
-                 padding           
+                 {t("padding")}           
             </Grid>
              {/* padding top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.padding_top}
              onFormSubmit={handleFormSubmit}
@@ -8119,13 +8117,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding top
+                {t("reportIssuePaddingTop")}
         </FormHelperText>
           </a> 
             </Grid> 
  {/* padding bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.padding_bottom}
              onFormSubmit={handleFormSubmit}
@@ -8137,13 +8135,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding bottom
+                {t("reportIssuePaddingBottom")}
         </FormHelperText>
           </a> 
             </Grid>                
  {/* padding left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.padding_left}
              onFormSubmit={handleFormSubmit}
@@ -8155,14 +8153,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding left
+                {t("reportIssuePaddingLeft")}
         </FormHelperText>
           </a> 
             </Grid>
 
    {/* padding right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.padding_right}
              onFormSubmit={handleFormSubmit}
@@ -8174,7 +8172,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding right
+                {t("reportIssuePaddingRight")}
         </FormHelperText>
           </a> 
             </Grid>          
@@ -8184,11 +8182,11 @@ id={task.id}
  {/* margin title team style */} 
  <Grid container spacing={2}>
             <Grid item xs={2}>
-                 margin           
+                 {t("margin")}           
             </Grid>
              {/* margin top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.margin_top}
              onFormSubmit={handleFormSubmit}
@@ -8200,13 +8198,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin top
+                {t("reportIssueDescriptionMarginTop")}
         </FormHelperText>
           </a> 
             </Grid> 
  {/* margin bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.margin_bottom}
              onFormSubmit={handleFormSubmit}
@@ -8218,13 +8216,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin bottom
+                {t("reportIssueDescriptionMarginBottom")}
         </FormHelperText>
           </a> 
             </Grid>                
  {/* margin left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.margin_left}
              onFormSubmit={handleFormSubmit}
@@ -8236,14 +8234,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin left
+                {t("reportIssueDescriptionMarginLeft")}
         </FormHelperText>
           </a> 
             </Grid>
 
    {/* margin right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={descriptionInOpen.margin_right}
              onFormSubmit={handleFormSubmit}
@@ -8255,14 +8253,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin right
+                {t("reportIssueDescriptionMarginRight")}
         </FormHelperText>
           </a> 
             </Grid>          
          
            </Grid>
            <Grid item xs={2}>
-           <p>text Align</p>
+           <p>{t("textAlign")}</p>
            <AlignElement 
              values={descriptionInOpen.text_align}
             onFormSubmit={handleFormSubmit}
@@ -8274,7 +8272,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description text align
+                 {t("reportIssueDescriptionTextAlign")}
         </FormHelperText>
           </a> 
            </Grid>
@@ -8287,7 +8285,7 @@ id={task.id}
 <Button
       onClick={() =>   updateDescriptionUnique()}
       
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           
         
@@ -8329,7 +8327,7 @@ id={task.id}
            
      <Grid item xs={6}>
      <FormControl fullWidth>
-  <InputLabel id="demo-simple-select-label">Social Media</InputLabel>
+  <InputLabel id="demo-simple-select-label">{t("socialMedia")}</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
@@ -8337,19 +8335,19 @@ id={task.id}
     label="Social Media"
     onChange={handleChangeSocialMediaEdit}
   >
-    <MenuItem value={"Instagram"}>Instagram</MenuItem>
-    <MenuItem value={"YouTube"}>YouTube</MenuItem>
-    <MenuItem value={"Facebook"}>Facebook</MenuItem>
+    <MenuItem value={"Instagram"}>{t("instagram")}</MenuItem>
+    <MenuItem value={"YouTube"}>{t("youtube")}</MenuItem>
+    <MenuItem value={"Facebook"}>{t("facebook")}</MenuItem>
 
-    <MenuItem value={"Twitter"}>Twitter</MenuItem>
-    <MenuItem value={"TikTok"}>TikTok</MenuItem>
-    <MenuItem value={"Pinterest"}>Pinterest</MenuItem>
+    <MenuItem value={"Twitter"}>{t("twitter")}</MenuItem>
+    <MenuItem value={"TikTok"}>{t("tiktok")}</MenuItem>
+    <MenuItem value={"Pinterest"}>{t("printest")}</MenuItem>
 
-    <MenuItem value={"Snapchat"}>Snapchat</MenuItem>
-    <MenuItem value={"LinkedIn"}>LinkedIn</MenuItem>
-    <MenuItem value={"GooglePlus"}>Google Plus</MenuItem>
-    <MenuItem value={"Behance"}>Behance</MenuItem>
-    <MenuItem value={"Gmail"}>Gmail</MenuItem>
+    <MenuItem value={"Snapchat"}>{t("snapchat")}</MenuItem>
+    <MenuItem value={"LinkedIn"}>{t("linkedin")}</MenuItem>
+    <MenuItem value={"GooglePlus"}>{t("googlePlus")}</MenuItem>
+    <MenuItem value={"Behance"}>{t("behance")}</MenuItem>
+    <MenuItem value={"Gmail"}>{t("gmail")}</MenuItem>
 
 
   </Select>
@@ -8359,14 +8357,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media select 
+          {t("reportIssueSocialMediaSelect")}
         </FormHelperText>
           </a> 
 </FormControl>
      </Grid>
 
      <Grid item xs={6}>
-      <p>url</p>
+      <p>{t("url")}</p>
      <TextField id="outlined-basic"
             fullWidth
             name="url_edit"
@@ -8381,14 +8379,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media url
+          {t("reportIssueSocialMediaUrl")}
         </FormHelperText>
           </a>             
      </Grid>
 
   {/* Font size  icon part social media team  */}
   <Grid item xs={12}>
-    <p>Font Size</p>
+    <p>{t("fontSize")}</p>
     <ComponentwithSelectAndInput 
             value={dataForm.font_size_icon}
              onFormSubmit={handleFormSubmit}
@@ -8400,14 +8398,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media font size
+                {t("reportIssueSocialMediaFontSize")}
         </FormHelperText>
           </a>          
      </Grid>   
 
   {/*   icon  color part social media team  */}
   <Grid item xs={6}>
-    <p>Icon color</p>
+    <p>{t("iconColor")}</p>
     <InputElementTypeColor 
        values={dataForm.color_icon}
        onFormSubmit={handleFormSubmit}
@@ -8419,7 +8417,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media icon color
+          {t("reportIssueSocialMediaIconColor")}
         </FormHelperText>
           </a> 
      </Grid>        
@@ -8427,7 +8425,7 @@ id={task.id}
 
   {/*   icon  hover color part social media team  */}
   <Grid item xs={6}>
-  <p>Icon hover color</p>
+  <p>{t("iconHoverColor")}</p>
   <InputElementTypeColor 
        values={dataForm.color_icon_hover}
        onFormSubmit={handleFormSubmit}
@@ -8439,14 +8437,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media icon hover color
+                 {t("reportIssueSocialMediaIconHoverColor")}
         </FormHelperText>
           </a>          
      </Grid> 
 
        {/*  background icon   color part social media team  */}
   <Grid item xs={6}>
-  <p>background icon color</p>
+  <p>{t("backgroundIconColor")}</p>
   <InputElementTypeColor 
        values={dataForm.backgroundcolorContainer}
        onFormSubmit={handleFormSubmit}
@@ -8458,14 +8456,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media backgroun icon  color
+                 {reportIssueSocialMediabackgroundIconColor}
         </FormHelperText>
           </a>             
      </Grid>
 
  {/*  background icon hover color part social media team  */}
  <Grid item xs={6}>
- <p>background icon hover color</p>
+ <p>{t("backgroundIconHoverColor")}</p>
  <InputElementTypeColor 
        values={""}
        onFormSubmit={handleFormSubmit}
@@ -8477,7 +8475,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media backgroun icon hover color
+                {t("reportIssueSocialMediabackgroundIconHoverColor")}
         </FormHelperText>
           </a>                
      </Grid>
@@ -8490,11 +8488,11 @@ id={task.id}
  {/*  border radius part social media team  */}
  <Grid container spacing={2}>
  <Grid item xs={2}>
-    <p>Border Radius</p>            
+    <p>{t("borderRadius")}</p>            
      </Grid>
  {/*  border radius top left part social media team  */}
      <Grid item xs={2}>
-      <p>top left</p>
+      <p>{t("topLeft")}</p>
       <ComponentwithSelectAndInput 
             value={dataForm.borderRadiusTopLeft}
              onFormSubmit={handleFormSubmit}
@@ -8506,13 +8504,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media  border radieus top left
+          {t("reportIssueBorderRadiusTopLeft")}
         </FormHelperText>
           </a>    
      </Grid>
       {/*  border radius top right part social media team  */}
      <Grid item xs={2}>
-      <p>top right</p>
+      <p>{t("topRight")}</p>
       <ComponentwithSelectAndInput 
             value={dataForm.borderRadiusTopRight}
              onFormSubmit={handleFormSubmit}
@@ -8524,13 +8522,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media  border radieus top right
+          {t("reportIssueImageBorderRadiusTopRight")}
         </FormHelperText>
           </a>          
      </Grid>
       {/*  border radius bottom left part social media team  */}
      <Grid item xs={2}>
-      <p>bottom left</p>
+      <p>{t("bottomLeft")}</p>
       <ComponentwithSelectAndInput 
             value={dataForm.borderRadiusBottomLeft}
              onFormSubmit={handleFormSubmit}
@@ -8542,14 +8540,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media  border radieus bottom left
+                {t("reportIssueImageBorderRasdiusBottomLeft")}
         </FormHelperText>
           </a>      
      </Grid>
     {/*  border radius bottom right part social media team  */}
 
      <Grid item xs={2}>
-      <p>bottom right</p>
+      <p>{t("bottomRight")}</p>
       <ComponentwithSelectAndInput 
             value={dataForm.borderRadiusBottomRight}
              onFormSubmit={handleFormSubmit}
@@ -8561,7 +8559,7 @@ id={task.id}
             >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media  border radieus bottom right
+          {t("reportIssueImageBorderRadiusBottomRight")}
         </FormHelperText>
           </a>       
      </Grid>
@@ -8570,7 +8568,7 @@ id={task.id}
 
  <Grid container spacing={2}>
      <Grid item xs={6}>
-      Width
+      {t("width")}
       <ComponentwithSelectAndInput 
             value={dataForm.widthIcon}
              onFormSubmit={handleFormSubmit}
@@ -8582,13 +8580,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media  width
+                {t("reportIssueSocialMediaWidth")}
         </FormHelperText>
           </a>         
      </Grid>
 
      <Grid item xs={6}>
-      <p>Height</p>
+      <p>{t("height")}</p>
       <ComponentwithSelectAndInput 
             value={dataForm.heightIcon}
              onFormSubmit={handleFormSubmit}
@@ -8600,7 +8598,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about Social media  height
+                {t("reportIssueSocialMediaHeight")}
         </FormHelperText>
           </a>          
      </Grid>
@@ -8617,7 +8615,7 @@ id={task.id}
         "text",indexParentData,"editSocialMedia"
         
         )}
-      >Edit</Button>
+      >{t("edit")}</Button>
 
       </div>
           </Typography>
@@ -8645,14 +8643,14 @@ id={task.id}
           aria-controls="paneltitleStyleteam-content"
           id="paneltitleStyleteam-header"
         >
-          <Typography>Title Style</Typography>
+          <Typography>{t("titleStyle")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
           <Grid container spacing={2}>
       <Grid item xs={6}>
      
-        <p>Title color</p>
+        <p>{t("titleColor")}</p>
         <InputElementTypeColor 
        values={global_style[0].color }
        onFormSubmit={handleFormSubmit}
@@ -8664,14 +8662,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title color
+                 {t("reportIssueTitleColor")}
         </FormHelperText>
           </a> 
 
       </Grid>
 
       <Grid item xs={6}>
-        <p>Title Hover Color</p>
+        <p>{t("titleHoverColor")}</p>
         <InputElementTypeColor 
        values={global_style[0].hover_color }
        onFormSubmit={handleFormSubmit}
@@ -8683,7 +8681,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title hover  color
+          {t("reportIssueTitleHoverColor")}
         </FormHelperText>
           </a> 
       
@@ -8699,7 +8697,7 @@ id={task.id}
 <Grid container spacing={2}>
              {/* font family title  team style */} 
           <Grid item xs={6}>
-          <p>font family</p>
+          <p>{t("fontFamily")}</p>
           <FontFamilySelect 
            values={global_style[0].font_family}
            onFormSubmit={handleFormSubmit}
@@ -8711,7 +8709,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title font family
+          {t("reportIssueFontFamily")}
         </FormHelperText>
           </a> 
         
@@ -8719,7 +8717,7 @@ id={task.id}
          
   {/* font size title team style */} 
           <Grid item xs={6}>
-            <p>Font Size </p>
+            <p>{t("fontSize")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].font_size}
              onFormSubmit={handleFormSubmit}
@@ -8731,7 +8729,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title font size
+          {t("reportIssueFontSize")}
         </FormHelperText>
           </a>
             </Grid>        
@@ -8740,11 +8738,11 @@ id={task.id}
   {/* padding title team style */} 
            <Grid container spacing={2}>
             <Grid item xs={2}>
-                 padding           
+                 {t("padding")}           
             </Grid>
              {/* padding top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].padding_top}
              onFormSubmit={handleFormSubmit}
@@ -8756,14 +8754,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding top
+          {t("reportIssuePaddingTop")}
         </FormHelperText>
           </a>
          
             </Grid> 
  {/* padding bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].padding_bottom}
              onFormSubmit={handleFormSubmit}
@@ -8775,13 +8773,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding bottom
+          {t("reportIssuePaddingBottom")}
         </FormHelperText>
           </a>
             </Grid>                
  {/* padding left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].padding_left}
              onFormSubmit={handleFormSubmit}
@@ -8793,14 +8791,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding left
+          {t("reportIssuePaddingLeft")}
         </FormHelperText>
           </a>
             </Grid>
 
    {/* padding right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].padding_right}
              onFormSubmit={handleFormSubmit}
@@ -8812,7 +8810,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title padding right
+          {t("reportIssuePaddingRight")}
         </FormHelperText>
           </a>
             </Grid>          
@@ -8822,11 +8820,11 @@ id={task.id}
  {/* margin title team style */} 
  <Grid container spacing={2}>
             <Grid item xs={2}>
-                 margin           
+                 {t("margin")}           
             </Grid>
              {/* margin top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].margin_top}
              onFormSubmit={handleFormSubmit}
@@ -8838,13 +8836,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin top
+          {t("reportIssueMarginTop")}
         </FormHelperText>
           </a>
             </Grid> 
  {/* margin bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].margin_bottom}
              onFormSubmit={handleFormSubmit}
@@ -8856,13 +8854,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin bottom
+                 {t("reportIssueMarginBottom")}
         </FormHelperText>
           </a>
             </Grid>                
  {/* margin left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].margin_left}
              onFormSubmit={handleFormSubmit}
@@ -8874,7 +8872,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin left
+                 {t("reportIssueMarginLeft")}
         </FormHelperText>
           </a>
 
@@ -8882,7 +8880,7 @@ id={task.id}
 
    {/* margin right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[0].margin_right}
              onFormSubmit={handleFormSubmit}
@@ -8894,7 +8892,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title margin right
+                {t("reportIssueMarginRight")}
         </FormHelperText>
           </a>
             </Grid>          
@@ -8905,7 +8903,7 @@ id={task.id}
            style={{marginTop:"2%"}}
            >
            <Grid item xs={2}>
-           <p>text Align</p>
+           <p>{t("textAlign")}</p>
            </Grid>
            <Grid item xs={6}>
            <AlignElement 
@@ -8919,7 +8917,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about title text align
+                {t("reportIssueTextAlign")}
         </FormHelperText>
           </a>
            </Grid>
@@ -8934,7 +8932,7 @@ id={task.id}
           >
 <Button
       onClick={() => updateGlobalStyle("title")}
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           
 
@@ -8949,13 +8947,13 @@ id={task.id}
           aria-controls="paneldescriptionStyleteam-content"
           id="paneldescriptionStyleteam-header"
         >
-          <Typography>Desctiption Style</Typography>
+          <Typography>{t("descriptionStyle")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
         <Typography>
         <Grid container spacing={2}>
           <Grid item xs={6}>
-          <p>description color</p>
+          <p>{t("descriptionColor")}</p>
           <InputElementTypeColor 
        values={global_style[1].color}
        onFormSubmit={handleFormSubmit}
@@ -8967,12 +8965,12 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description text color
+               {t("reportIssueDescriptionColor")}
         </FormHelperText>
           </a>
           </Grid>
           <Grid item xs={6}>
-          <p>description hover color</p>
+          <p>{t("descriptionHoverColor")}</p>
           <InputElementTypeColor 
        values={global_style[1].hover_color}
        onFormSubmit={handleFormSubmit}
@@ -8984,7 +8982,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description text hover color
+          {t("reportIssueDescriptionHoverColor")}
         </FormHelperText>
           </a>
           </Grid>
@@ -8999,7 +8997,7 @@ id={task.id}
 <Grid container spacing={2}>
              {/* font family title  team style */} 
           <Grid item xs={6}>
-          <p>font family</p>
+          <p>{t("fontFamily")}</p>
           <FontFamilySelect 
            values={global_style[1].font_family}
            onFormSubmit={handleFormSubmit}
@@ -9011,7 +9009,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description font family
+            {t('reportIssueDescriptionFontFamily')}
         </FormHelperText>
           </a>
         
@@ -9019,7 +9017,7 @@ id={task.id}
          
   {/* font size title team style */} 
           <Grid item xs={6}>
-            <p>Font Size </p>
+            <p>{t("fontSize")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].font_size}
              onFormSubmit={handleFormSubmit}
@@ -9031,7 +9029,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description font size
+          {t("reportIssueDescriptionFontSize")}
         </FormHelperText>
           </a>
             </Grid>        
@@ -9040,11 +9038,11 @@ id={task.id}
   {/* padding title team style */} 
            <Grid container spacing={2}>
             <Grid item xs={2}>
-                 padding           
+                 {t("padding")}           
             </Grid>
              {/* padding top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].padding_top}
              onFormSubmit={handleFormSubmit}
@@ -9056,13 +9054,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding top 
+          {t("reportIssueDescriptionPaddingTop")}
         </FormHelperText>
           </a>
             </Grid> 
  {/* padding bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].padding_bottom}
              onFormSubmit={handleFormSubmit}
@@ -9074,13 +9072,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding bottom
+          {t("reportIssueDescriptionPaddingBottom")}
         </FormHelperText>
           </a>
             </Grid>                
  {/* padding left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].padding_left}
              onFormSubmit={handleFormSubmit}
@@ -9092,14 +9090,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding left
+          {t("reportIssueDescriptionPaddingLeft")}
         </FormHelperText>
           </a>
             </Grid>
 
    {/* padding right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].padding_right}
              onFormSubmit={handleFormSubmit}
@@ -9111,7 +9109,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description padding right
+          {t("reportIssueDescriptionPaddingRight")}
         </FormHelperText>
           </a>
             </Grid>          
@@ -9121,11 +9119,11 @@ id={task.id}
  {/* margin title team style */} 
  <Grid container spacing={2}>
             <Grid item xs={2}>
-                 margin           
+                 {t("margin")}           
             </Grid>
              {/* margin top title team style */} 
             <Grid item xs={2}>
-            <p>Top</p>
+            <p>{t("top")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].margin_top}
              onFormSubmit={handleFormSubmit}
@@ -9137,13 +9135,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin top
+          {t("reportIssueDescriptionMarginTop")}
         </FormHelperText>
           </a>
             </Grid> 
  {/* margin bottom title team style */} 
             <Grid item xs={2}>
-            <p>Bottom</p>
+            <p>{t("bottom")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].margin_bottom}
              onFormSubmit={handleFormSubmit}
@@ -9155,13 +9153,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin bottom
+          {t("reportIssueDescriptionMarginBottom")}
         </FormHelperText>
           </a>
             </Grid>                
  {/* margin left title team style */} 
  <Grid item xs={2}>
-            <p>Left</p>
+            <p>{t("left")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].margin_left}
              onFormSubmit={handleFormSubmit}
@@ -9173,14 +9171,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin left
+          {t("reportIssueDescriptionMarginLeft")}
         </FormHelperText>
           </a>
             </Grid>
 
    {/* margin right title team style */} 
  <Grid item xs={2}>
-            <p>Right</p>
+            <p>{t("right")}</p>
             <ComponentwithSelectAndInput 
             value={global_style[1].margin_right}
              onFormSubmit={handleFormSubmit}
@@ -9192,7 +9190,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description margin right
+          {t("reportIssueDescriptionMarginRight")}
         </FormHelperText>
           </a>
             </Grid>          
@@ -9203,7 +9201,7 @@ id={task.id}
            style={{marginTop:"2%"}}
            >
            <Grid item xs={2}>
-           <p>text Align</p>
+           <p>{t("textAlign")}</p>
            </Grid>
            <Grid item xs={6}>
            <AlignElement 
@@ -9217,7 +9215,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about description text align
+          {t("reportIssueDescriptionTextAlign")}
         </FormHelperText>
           </a>
            </Grid>
@@ -9227,7 +9225,7 @@ id={task.id}
           >
 <Button
        onClick={() => updateGlobalStyle("description")}
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           
 
@@ -9243,17 +9241,17 @@ id={task.id}
           aria-controls="panelimageStyleteam-content"
           id="panelimageStyleteam-header"
         >
-          <Typography>Image Style</Typography>
+          <Typography>{t("imageStyle")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
           <Grid container spacing={2}>
             <Grid item xs={2}>
-                <p>Border radius</p>        
+                <p>{t("borderRadius")}</p>        
             </Grid>
             {/* Border radius Top left Image Team */}
             <Grid item xs={2}>
-            <p>top left</p>  
+            <p>{t("topLeft")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].border_top_left_radius}
              onFormSubmit={handleFormSubmit}
@@ -9265,14 +9263,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image border radius top left
+          {t("reportIssueBorderRadiusTopLeft")}
         </FormHelperText>
           </a>
             </Grid>
 
               {/* Border radius top right Image Team */}
               <Grid item xs={2}>
-            <p>top right</p>  
+            <p>{t("topRight")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].border_top_right_radius}
              onFormSubmit={handleFormSubmit}
@@ -9284,7 +9282,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image border radius top right
+            {t("reportIssueImageBorderRadiusTopRight")}
         </FormHelperText>
           </a>
 
@@ -9292,7 +9290,7 @@ id={task.id}
 
               {/* Border radius bottom right Image Team */}
               <Grid item xs={2}>
-            <p>bottom right</p>  
+            <p>{t("bottomRight")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].border_bottom_right_radius}
              onFormSubmit={handleFormSubmit}
@@ -9304,7 +9302,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image border radius bottom right
+          {t("reportIssueImageBorderRadiusBottomRight")}
         </FormHelperText>
           </a>
 
@@ -9312,7 +9310,7 @@ id={task.id}
           
               {/* Border radius bottom left Image Team */}
               <Grid item xs={2}>
-            <p>bottom left</p>  
+            <p>{t("bottomLeft")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].border_bottom_left_radius}
              onFormSubmit={handleFormSubmit}
@@ -9324,7 +9322,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image border radius bottom left
+          {t("reportIssueImageBorderRasdiusBottomLeft")}
         </FormHelperText>
           </a>
 
@@ -9338,7 +9336,7 @@ id={task.id}
 
   {/* Width  Image Team */}
   <Grid item xs={6}>
-            <p>Width</p> 
+            <p>{t("width")}</p> 
             <ComponentwithSelectAndInput 
             value={global_style[2].width}
              onFormSubmit={handleFormSubmit}
@@ -9350,13 +9348,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image width
+                {t("reportIssueImageWidth")}
         </FormHelperText>
           </a>
             </Grid>          
  {/* Height  Image Team */}
  <Grid item xs={6}>
-            <p>Height</p>  
+            <p>{t("height")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].height}
              onFormSubmit={handleFormSubmit}
@@ -9369,7 +9367,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image height
+                 {t("reportIssueImageHeight")}
         </FormHelperText>
           </a>
             </Grid>  
@@ -9380,11 +9378,11 @@ id={task.id}
  {/* Margin  Image Team */}
         <Grid container spacing={2}>
             <Grid item xs={2}>
-                <p>Margin</p>        
+                <p>{t("margin")}</p>        
             </Grid>
             {/* margin Top  Image Team */}
             <Grid item xs={2}>
-            <p>top </p>  
+            <p>{t("top")} </p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].margin_top}
              onFormSubmit={handleFormSubmit}
@@ -9396,14 +9394,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image margin top 
+          {t("reportIssueImageMarginTop")}
         </FormHelperText>
           </a>
             </Grid>
 
               {/* Margin Bottom Image Team */}
               <Grid item xs={2}>
-            <p>Bottom</p>  
+            <p>{t("bottom")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].margin_bottom}
              onFormSubmit={handleFormSubmit}
@@ -9415,7 +9413,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image margin bottom 
+          {t("reportIssueImageMarginBottom")}
         </FormHelperText>
           </a>
 
@@ -9423,7 +9421,7 @@ id={task.id}
 
               {/* Margin Left Image Team */}
               <Grid item xs={2}>
-            <p>Left</p>  
+            <p>{t("left")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].margin_left}
              onFormSubmit={handleFormSubmit}
@@ -9435,14 +9433,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image margin left 
+          {t("reportIssueImageMarginLeft")}
         </FormHelperText>
           </a>
             </Grid>
           
               {/* Margin Right Image Team */}
               <Grid item xs={2}>
-            <p>right</p>  
+            <p>{t("right")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[2].margin_right}
              onFormSubmit={handleFormSubmit}
@@ -9454,7 +9452,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image margin right 
+          {t("reportIssueImageMarginRight")}
         </FormHelperText>
           </a>
             </Grid>
@@ -9468,7 +9466,7 @@ id={task.id}
   <Grid item xs={4}
   style={{marginTop:'2%'}}
   >
-     <p>background  color</p>
+     <p>{t("backgroundColor")}</p>
            
            <InputElementTypeColor 
        values={global_style[2].background_img}
@@ -9481,7 +9479,7 @@ id={task.id}
            rel="noreferrer">
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image background color
+          {t("reportIssueImageBackgroundColor")}
         </FormHelperText>
           </a>
             </Grid> 
@@ -9489,7 +9487,7 @@ id={task.id}
   <Grid item xs={4}
   style={{marginTop:'2%'}}
   >
-      <p>background  width</p>
+      <p>{t("backgroundWidth")}</p>
                <ComponentwithSelectAndInput 
             value={global_style[2].widthBackground}
              onFormSubmit={handleFormSubmit}
@@ -9501,7 +9499,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image background width
+          {t("reportIssueImageBackgroundWidth")}
         </FormHelperText>
           </a>
 
@@ -9512,7 +9510,7 @@ id={task.id}
 <Grid item xs={4}
   style={{marginTop:'2%'}}
   >
-             <p>background  height</p>
+             <p>{t("backgroundHeight")}</p>
            <ComponentwithSelectAndInput 
             value={global_style[2].heightBackground}
              onFormSubmit={handleFormSubmit}
@@ -9524,7 +9522,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about image background height
+          {t("reportIssueImageBackgroundHeight")}
         </FormHelperText>
           </a>
             </Grid>
@@ -9594,7 +9592,7 @@ id={task.id}
           >
 <Button
        onClick={() => updateGlobalStyle("image")}
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           </Typography>
           
@@ -9610,14 +9608,14 @@ id={task.id}
           aria-controls="panelarrowleftStyleteam-content"
           id="panelarrowleftStyleteam-header"
         >
-          <Typography>Arrow left Style</Typography>
+          <Typography>{t("arrowLeftStyle")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
           <Grid container spacing={2}>
             {/* Icon Color Arrow left team section */}
             <Grid item xs={4}>
-            <p>Icon color</p>
+            <p>{t("iconColor")}</p>
             <InputElementTypeColor 
        values={global_style[5].color}
        onFormSubmit={handleFormSubmit}
@@ -9629,14 +9627,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about icon color
+                 {t("reportIssueSocialMediaIconColor")}
         </FormHelperText>
           </a>
           
             </Grid>
               {/* Icon  Color Arrow left team section */}
             <Grid item xs={4}>
-            <p>Icon hover color</p>
+            <p>{t("iconHoverColor")}</p>
             <InputElementTypeColor 
        values={global_style[5].hover_color}
        onFormSubmit={handleFormSubmit}
@@ -9648,13 +9646,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about icon hover color
+        {t("reportIssueSocialMediaIconHoverColor")}
         </FormHelperText>
           </a>
             </Grid>
 
             <Grid item xs={4}>
-            <p>background Icon  color</p>
+            <p>{t("backgroundIconColor")}</p>
             <InputElementTypeColor 
        values={global_style[5].background_color}
        onFormSubmit={handleFormSubmit}
@@ -9666,14 +9664,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about background icon  color
+                 {t("reportIssueBackgroundColorIcon")}
         </FormHelperText>
           </a>
  
             </Grid>
 
             <Grid item xs={6}>
-            <p>background Icon hover color</p>
+            <p>{t("backgroundIconHoverColor")}</p>
             <InputElementTypeColor 
        values={global_style[5].background_hover_color}
        onFormSubmit={handleFormSubmit}
@@ -9685,13 +9683,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about background icon hover color
+                 {t("reportIssueBacondIconHoverColor")}
         </FormHelperText>
           </a>
             </Grid>
 
             <Grid item xs={6}>
-              font size : 
+              {t("fontSize")}
               <ComponentwithSelectAndInput 
             value={global_style[5].font_size}
              onFormSubmit={handleFormSubmit}
@@ -9703,13 +9701,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about font size
+                 {t("reportIssueFontSize")}
         </FormHelperText>
           </a>
             </Grid>
 
             <Grid item xs={6}>
-              <p>left</p>
+              <p>{t("left")}</p>
               <ComponentwithSelectAndInput 
             value={global_style[5].left}
              onFormSubmit={handleFormSubmit}
@@ -9721,7 +9719,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about left
+                 {t("reportIssueLeft")}
         </FormHelperText>
           </a>
             </Grid>
@@ -9729,7 +9727,7 @@ id={task.id}
            
             
             <Grid item xs={6}>
-              <p>Top</p>
+              <p>{t("top")}</p>
               <ComponentwithSelectAndInput 
             value={global_style[5].top}
              onFormSubmit={handleFormSubmit}
@@ -9741,7 +9739,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about top
+                 {t("reportIssueTop")}
         </FormHelperText>
           </a>
             </Grid>
@@ -9756,7 +9754,7 @@ id={task.id}
           >
 <Button
         onClick={() => updateGlobalStyle("arrowLeft")}
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
 
           </Typography>
@@ -9771,7 +9769,7 @@ id={task.id}
           aria-controls="panelarrowrightStyleteam-content"
           id="panelarrowrightStyleteam-header"
         >
-          <Typography>Arrow right Style</Typography>
+          <Typography>{t("arrowRightStyle")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
         <Typography>
@@ -9779,7 +9777,7 @@ id={task.id}
             {/* Icon Color Arrow left team section */}
             <Grid item xs={4}>
               
-            <p> Icon color</p>
+            <p> {t("iconColor")}</p>
             <InputElementTypeColor 
        values={global_style[5].color}
        onFormSubmit={handleFormSubmit}
@@ -9791,14 +9789,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about icon color
+                 {t("reportIssueSocialMediaIconColor")}
         </FormHelperText>
           </a>
             </Grid>
               {/* Icon  Color Arrow left team section */}
             <Grid item xs={4}>
               
-            <p> Icon hover color</p>
+            <p> {t("iconHoverColor")}</p>
             <InputElementTypeColor 
        values={global_style[5].hover_color}
        onFormSubmit={handleFormSubmit}
@@ -9810,13 +9808,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about icon hover color
-        </FormHelperText>
+            {t("reportIssueSocialMediaIconHoverColor")}
+          </FormHelperText>
           </a>
             </Grid>
 
             <Grid item xs={4}>
-            <p>background Icon  color</p>
+            <p>{t("backgroundIconColor")}</p>
             <InputElementTypeColor 
        values={global_style[5].background_color }
        onFormSubmit={handleFormSubmit}
@@ -9828,13 +9826,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about background icon  color
+        {t("reportIssueSocialMediabackgroundIconColor")}
         </FormHelperText>
           </a>
             </Grid>
 
             <Grid item xs={6}>
-            <p>background Icon hover color</p>
+            <p>{t("backgroundIconHoverColor")}</p>
             <InputElementTypeColor 
        values={global_style[5].background_hover_color }
        onFormSubmit={handleFormSubmit}
@@ -9846,13 +9844,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about background icon hover color
+        {t("reportIssueSocialMediabackgroundIconHoverColor")}
         </FormHelperText>
           </a>
             </Grid>
 
             <Grid item xs={6}>
-              font size : 
+              {t("fontSize")}
               <ComponentwithSelectAndInput 
             value={global_style[5].font_size}
              onFormSubmit={handleFormSubmit}
@@ -9864,13 +9862,13 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about font size
+                {t("reportIssueFontSize")}
         </FormHelperText>
           </a>
             </Grid>
 
             <Grid item xs={6}>
-              <p>Right</p>
+              <p>{t("right")}</p>
               <ComponentwithSelectAndInput 
             value={global_style[5].left}
              onFormSubmit={handleFormSubmit}
@@ -9882,7 +9880,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about right
+                 {t("reportIssueRight")}
         </FormHelperText>
           </a>
             </Grid>
@@ -9890,7 +9888,7 @@ id={task.id}
            
             
             <Grid item xs={6}>
-              <p>Top</p>
+              <p>{t("top")}</p>
               <ComponentwithSelectAndInput 
             value={global_style[5].top}
              onFormSubmit={handleFormSubmit}
@@ -9902,7 +9900,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about top
+                 {t("reportIssueTop")}
         </FormHelperText>
           </a>
             </Grid>
@@ -9917,7 +9915,7 @@ id={task.id}
           >
 <Button
         onClick={() => updateGlobalStyle("arrowRight")}
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           </Typography>
         </AccordionDetails>
@@ -9935,13 +9933,13 @@ id={task.id}
           aria-controls="panelbackgroundStyleteam-content"
           id="panelbackgroundStyleteam-header"
         >
-          <Typography>background Style</Typography>
+          <Typography>{t("backgroundStyle")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
             {/* Background color or Image  */}
             <div >
-            <p>background  Image</p>
+            <p>{t("backgroundImage")}</p>
             <FilePond
         files={files}
         allowReorder={true}
@@ -9967,11 +9965,11 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about background image
+                 {t("reportIssueBackgroundImage")}
         </FormHelperText>
           </a>
             </div>
-            <p>background   Image color</p>
+            <p>{t("backgroundImageColor")}</p>
             <InputElementTypeColor 
        values={global_style[4].backgroundContainercolor }
        onFormSubmit={handleFormSubmit}
@@ -9983,7 +9981,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about background image color
+                 {t("reportIssueBackgroundImageColor")}
         </FormHelperText>
           </a>
 <div 
@@ -9991,7 +9989,7 @@ id={task.id}
           >
 <Button
         onClick={() => updateGlobalStyle("background")}   
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           </Typography>
         </AccordionDetails>
@@ -10006,7 +10004,7 @@ id={task.id}
           aria-controls="panelcontainerStyleteam-content"
           id="panelcontainerStyleteam-header"
         >
-          <Typography>container Style</Typography>
+          <Typography>{t("containerStyle")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -10016,11 +10014,11 @@ id={task.id}
           {/* Margin  Image Team */}
         <Grid container spacing={2}>
             <Grid item xs={2}>
-                <p>Margin</p>        
+                <p>{t("margin")}</p>        
             </Grid>
             {/* margin Top  Image Team */}
             <Grid item xs={2}>
-            <p>top </p>  
+            <p>{t("top")} </p>  
             <ComponentwithSelectAndInput 
             value={global_style[3].container_margin_top}
              onFormSubmit={handleFormSubmit}
@@ -10032,14 +10030,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about margin top 
+                 {t("reportIssueMarginTop")}
         </FormHelperText>
           </a>
             </Grid>
 
               {/* Margin Bottom Image Team */}
               <Grid item xs={2}>
-            <p>Bottom</p>  
+            <p>{t("bottom")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[3].container_margin_bottom}
              onFormSubmit={handleFormSubmit}
@@ -10051,7 +10049,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about margin bottom 
+          {t("reportIssueMarginBottom")}
         </FormHelperText>
           </a>
 
@@ -10059,7 +10057,7 @@ id={task.id}
 
               {/* Margin Left Image Team */}
               <Grid item xs={2}>
-            <p>Left</p>  
+            <p>{t("left")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[3].container_margin_left}
              onFormSubmit={handleFormSubmit}
@@ -10071,14 +10069,14 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about margin left 
+                 {t("reportIssueMarginLeft")}
         </FormHelperText>
           </a>
             </Grid>
           
               {/* Margin Right Image Team */}
               <Grid item xs={2}>
-            <p>right</p>  
+            <p>{t("right")}</p>  
             <ComponentwithSelectAndInput 
             value={global_style[3].container_margin_right}
              onFormSubmit={handleFormSubmit}
@@ -10090,7 +10088,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about margin right 
+                 {t("reportIssueMarginRight")} 
         </FormHelperText>
           </a>
 
@@ -10107,7 +10105,7 @@ id={task.id}
           >
 <Button
  onClick={() => updateGlobalStyle("container")}       
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           </Typography>
         </AccordionDetails>
@@ -10131,47 +10129,47 @@ id={task.id}
           aria-controls="panelresponsiveshowUpteam-content"
           id="panelresponsiveshowUpteam-header"
         >
-          <Typography>Responsive</Typography>
+          <Typography>{t("responsive")}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
           <FormControlLabel control={<Switch 
                checked={checkDesktopDisplay}
                onChange={e => setCheckDesktopDisplay(e.target.checked )}
-          />} label="Show Section In Desktop" />
+          />} label={t("showSectionInDesktop")} />
           <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0282KSGxgSkjgobwNUgwXvmcWrFf5repirsuaz2eXYro8efKdGEj95ifXmoAUaLABfl&id=100081746135007"
            target='_blank' 
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show in desktop
+                 {t("reportIssueShowInDesktop")}
         </FormHelperText>
           </a>
           <FormControlLabel control={<Switch 
             checked={checkMobileDisplay}
             onChange={e => setCheckMobileDisplay(e.target.checked )}
-          />} label="Show Section In Mobile" />
+          />} label={t("showSectionInMobile")} />
               <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid031ZBRSLdLXvysNFgoVEmquoSs4t5yAEyW1y9YvQReHzVzEK4odwrwBFxy1Yz1dUrTl&id=100081746135007"
            target='_blank' 
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show in mobile
+                 {t("reportIssueShowInMobile")}
         </FormHelperText>
           </a>
           <FormControlLabel control={<Switch 
             checked={checkTabletDisplay}
             onChange={e => setCheckTabletDisplay(e.target.checked )}
-          />} label="Show Section In Tablet" />
+          />} label={t("showSectionInTablet")} />
     <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0Q3b62gcugYg9U5tqXjJwwYUqXEiqfq1JAJGSQjSy58NYF52zUzHQriLt9nnNY7Bil&id=100081746135007&__cft__[0]=AZW4XQQEyoIASOyJHzOkrquuc7Tz1ZbiHPfCECVMi8yumxsMhdyHbB9mCUBSUFKeT1mb65xsGQdDnOiiHd5U4mypS9XR4577cthsTkaXQ2LF08KacsCrVQ2uZXYfyE5kAYM1ADZRyPnoxZsPvSrCQi594XpACqTfA0uEF0k4JO4YODmvZ4rkLWVPsyKkUIoFNO0&__tn__=%2CO%2CP-R"
            target='_blank'
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show in tablet
+                {t("reportIssueShowInTablet")}
         </FormHelperText>
           </a>
           <div 
@@ -10179,7 +10177,7 @@ id={task.id}
           >
 <Button
        onClick={() => updateResponsive()}      
-       variant="contained">Update</Button>
+       variant="contained">{t("update")}</Button>
           </div>
           </Typography>
         </AccordionDetails>
@@ -10196,10 +10194,10 @@ id={task.id}
       <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={valueTapTranslation} onChange={handleChangeTranslationTap} aria-label="basic tabs example">
-          <Tab label="Card Title" {...a11yProps(0)} />
-          <Tab label="Card Description" {...a11yProps(1)} />
-          <Tab label="Title" {...a11yProps(2)} />
-          <Tab label="Description" {...a11yProps(3)} />
+          <Tab label={t("cardTitle")} {...a11yProps(0)} />
+          <Tab label={t("cardDescription")} {...a11yProps(1)} />
+          <Tab label={t("title")} {...a11yProps(2)} />
+          <Tab label={t("description")} {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={valueTapTranslation} index={0}>
@@ -10211,7 +10209,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show in card title
+                 {t("reportIssueCardTitle")}
         </FormHelperText>
           </a>   
       <TranslatorDrager 
@@ -10221,14 +10219,14 @@ id={task.id}
       </TabPanel>
       <TabPanel value={valueTapTranslation} index={1}>
           {/* Table of Translation */}
-      <h4>Card Description </h4>  
+      <h4>{t("cardDescription")} </h4>  
       <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0jLfUCBkQr6Sp7T5bDn69Q5n2cwPDcMQn4MdyfrEZ95R1hzzFULFJqEbMobsstkw6l&id=100081746135007"
            target='_blank' 
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show in card description
+                {t("reportIssueCardDescription")}
         </FormHelperText>
           </a>    
       <CardDescriptionTranslator 
@@ -10238,14 +10236,14 @@ id={task.id}
       </TabPanel>
       <TabPanel value={valueTapTranslation} index={2}>
        
-        <h4>Title </h4> 
+        <h4>{t("title")} </h4> 
         <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02DNNC4LNcPrsfW6nQZvNtxXrFVovRpqRDbhE11CBQtGs6hLgnLmNueSygSpPnEhvXl&id=100081746135007&__cft__[0]=AZWXN5nIsj6w9FJ008IrVQ2xI_ZaBTiGEFqy765hvdAqtKNlNH4Kzd8L3UpOb9XmUxgTgJcumbp24C9OCJL_G142inYTH7tnTrxl9a6WkDbhrrrkRbBBDNLgmjwl4N72iTKMRStTuJjvlI8G0gZLwIGl3X2v5Ne4ozToi9SVHUuY0eY5jDssD8XBL9eORBiIUjE&__tn__=%2CO%2CP-R"
            target='_blank'
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show in title
+                 {t("reportIssueTitle")}
         </FormHelperText>
           </a>        
       <TitleTranslator 
@@ -10260,16 +10258,14 @@ id={task.id}
       </TabPanel>
       <TabPanel value={valueTapTranslation} index={3}>
 
-
-      
-      <h4>Description </h4>  
+      <h4>{t("description")} </h4>  
       <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02Av4iq2KAteMfcyN9r4BT1oU2eQqCwZvJWScgHfBxuXcrevZtBjDcHGBvMrWwSpknl&id=100081746135007"
            target='_blank'
            rel="noreferrer"
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 report about issue or suggestion about show in description
+            {t("reportIssueDescription")}
         </FormHelperText>
           </a>    
       <DescriptionTranslator 
@@ -10300,7 +10296,7 @@ id={task.id}
       <TabPanel 
        style={{maxHeight:"500px",overflowY: "auto"}}
       value={value} index={4}>
-        <h4>History </h4>
+        <h4>{t("history")} </h4>
         <Paper
       component="form"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center',
@@ -10337,7 +10333,7 @@ id={task.id}
   avatar={
     <>
       <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-      SH
+      {t("sh")}
     </Avatar>
     <Breadcrumbs aria-label="breadcrumb">
      {el.iteration_tap.map((elhistory,i) => (
@@ -10362,12 +10358,12 @@ style={{fontSize:"11px"}}
     <IconButton aria-label="settings">
      <Button variant="text"
      onClick={() => returnViewPopup(el)}
-     >view</Button>
+     >{t("view")}</Button>
     </IconButton>   
     <IconButton aria-label="settings">
      <Button variant="text"
      onClick={() => returnToOldHistory(el)}
-     >Apply</Button>
+     >{t("apply")}</Button>
     </IconButton>
     </>
   }
@@ -10641,14 +10637,14 @@ style={{fontSize:"11px"}}
       
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={order} onChange={handleChangeOrder} aria-label="basic tabs example">
-          <Tab label="export Orders" {...a11yProps(0)} />
+          <Tab label={t("exportOrders")} {...a11yProps(0)} />
   
-          <Tab label="charge Orders" {...a11yProps(1)} />
+          <Tab label={t("chargeOrders")} {...a11yProps(1)} />
          
         </Tabs>
       </Box>
       <TabPanel value={order} index={0}    style={{maxHeight:"500px",overflowY: "auto"}}>
-        EXPORT ORDERS
+        {t("exportOrders")}
         <Box sx={{ width: "100%" }}>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
@@ -10675,7 +10671,7 @@ style={{fontSize:"11px"}}
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleReset}>Reset</Button>
+            <Button onClick={handleReset}>{t("reset")}</Button>
           </Box>
         </React.Fragment>
       ) : (
@@ -10692,7 +10688,7 @@ style={{fontSize:"11px"}}
   avatar={
     <>
       <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-      SH
+      {t("sh")}
     </Avatar>
     <Breadcrumbs aria-label="breadcrumb">
      {el.iteration_tap.map((elhistory,i) => (
@@ -10775,14 +10771,14 @@ style={{fontSize:"11px"}}
     onClick={e => setPublicExportOrder(e.target.checked)}
     label="public"
 />
-{publicExportOrder ? <h3>Public (No need to enter password)</h3> : <h3>Not Public (you need to enter password)</h3> }
+{publicExportOrder ? <h3>{t("publicNoNeedToEnterPassword")}</h3> : <h3>{t("noPublic")}</h3> }
 
          </div>
       
           {!publicExportOrder &&
           <>
           <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">{t("password")}</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -10805,9 +10801,7 @@ style={{fontSize:"11px"}}
           />
                  <FormHelperText id="filled-weight-helper-text"
            >
-            Password Must have at least one lowercase letter
-            , one uppercase letter , one digit, one special character
-            , and is at least eight characters long
+           {t("passwordRule")}
            </FormHelperText>
         </FormControl>
           </>
@@ -10824,12 +10818,12 @@ style={{fontSize:"11px"}}
               onClick={handleBack}
               sx={{ mr: 1 }}
             >
-              Back
+              {t("back")}
             </Button>
             <Box sx={{ flex: "1 1 auto" }} />
 
             <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? "Finish" : "Next"}
+              {activeStep === steps.length - 1 ? t("finish") : t("next")}
             </Button>
           </Box>
         </React.Fragment>
@@ -10838,7 +10832,7 @@ style={{fontSize:"11px"}}
    
       </TabPanel>
       <TabPanel value={order} index={1}>
-        CHARGE ORDERS
+        {t("chargeOrders")}
         <Box sx={{ width: "100%" }}>
       <Stepper activeStep={activeStepCharge}>
         {stepsForCharge.map((label, index) => {
@@ -10865,7 +10859,7 @@ style={{fontSize:"11px"}}
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleResetCharge}>Reset</Button>
+            <Button onClick={handleResetCharge}>{t("reset")}</Button>
           </Box>
         </React.Fragment>
       ) : (
@@ -10887,13 +10881,13 @@ style={{fontSize:"11px"}}
       onClick={e => setPublicChargeOrder(e.target.checked)}
       label="public"
         />
-        {publicChargeOrder ? <h3>Public (No need to enter password)</h3> : <h3>Not Public (you need to enter password)</h3> }
+        {publicChargeOrder ? <h3>{t("publicNoNeedToEnterPassword")}</h3> : <h3>{t("noPublic")}</h3> }
 
         </div>
     {!publicChargeOrder  && 
     <>
         <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">{t("password")}</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -10916,9 +10910,7 @@ style={{fontSize:"11px"}}
           />
                  <FormHelperText id="filled-weight-helper-text"
            >
-            Password Must have at least one lowercase letter
-            , one uppercase letter , one digit, one special character
-            , and is at least eight characters long
+           {t("passwordRule")}
            </FormHelperText>
         </FormControl>
     </>}
@@ -10962,12 +10954,12 @@ style={{fontSize:"11px"}}
               onClick={handleBackCharge}
               sx={{ mr: 1 }}
             >
-              Back
+              {t("back")}
             </Button>
             <Box sx={{ flex: "1 1 auto" }} />
 
             <Button onClick={handleNextCharge}>
-              {activeStep === steps.length - 1 ? "Finish" : "Next"}
+              {activeStep === steps.length - 1 ? t("finish") : t("next")}
             </Button>
           </Box>
         </React.Fragment>
@@ -11013,9 +11005,9 @@ style={{fontSize:"11px"}}
          style={{display:"flex",justifyContent:"space-between"}}
      
       >
-        <div   >Made By <FavoriteIcon style={{color:"red"}} /> and really many <FreeBreakfastIcon color="primary"/> <FreeBreakfastIcon color="primary"/> </div>
+        <div   >{t("madeBy")} <FavoriteIcon style={{color:"red"}} /> {t("reallyMany")} <FreeBreakfastIcon color="primary"/> <FreeBreakfastIcon color="primary"/> </div>
     
-        <div><CopyrightIcon /> {new Date().getFullYear()} ShadowKnight{" "} last Update 20-09-2023</div>
+        <div><CopyrightIcon /> {new Date().getFullYear()} {t("shadowKinght")}{" "} {t("lastUpdate")}</div>
       </div>
         
     
@@ -11057,7 +11049,7 @@ style={{fontSize:"11px"}}
         <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={valueViewHistory} onChange={handleChangeViewHistory} aria-label="basic tabs example">
-          <Tab label="Play Arround" {...a11yProps(0)} />
+          <Tab label={t("playArround")} {...a11yProps(0)} />
       
           
         </Tabs>
@@ -11102,15 +11094,15 @@ style={{fontSize:"11px"}}
         <Button autoFocus
         disabled={indexInitHistory===0}
         onClick={handleGoPrevieus}>
-            previeus
+            {t("previeus")}
           </Button>
         <Button autoFocus onClick={handleApply}>
-            apply
+            {t("apply")}
           </Button>
           <Button autoFocus 
              disabled={indexInitHistory===history.length-1}
           onClick={handleGoAfter}>
-            next
+            {t("next")}
           </Button>
         </DialogActions>
 </>

@@ -16,7 +16,7 @@ export let handleChangeDataHistory = (characters,global_data,global_object,secti
   
       if(type=="title"){
         if(global_object.title_text!=""){
-          console.log("detect text changes ")
+      
           searcher.children[0]["text"] = global_object.title_text
     
         }
@@ -154,7 +154,7 @@ export let handleChangeDataHistory = (characters,global_data,global_object,secti
     if(type=="image"){
       if(global_object.logo_content !=""){
         searcher.children[2]["text"] = global_object.logo_content
-            console.log("image content = ",global_object.logo_content)
+      
       }
       if(global_object.Image_border_top_left_radius!=""){
         searcher.children[2]["border_top_left_radius"] = global_object.Image_border_top_left_radius

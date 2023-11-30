@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { useTranslation } from 'react-i18next'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,7 +41,7 @@ function a11yProps(index) {
 
 export default function TranslatorDocs() {
   const [value, setValue] = React.useState(0);
-
+  const {t}=useTranslation()
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -49,7 +50,7 @@ export default function TranslatorDocs() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Video Demonstration" {...a11yProps(0)} />
+          <Tab label={t("videoDemonstartion")} {...a11yProps(0)} />
        
          
         </Tabs>

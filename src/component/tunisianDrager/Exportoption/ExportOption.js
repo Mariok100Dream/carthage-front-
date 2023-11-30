@@ -185,7 +185,7 @@ const ExportOption = (props) =>{
           style_media+=result[i].media_tag + 
           fishstring.replaceAll("@c","$c") + "} \n" 
         }        
-        console.log("final style = ",style_media)
+       
       
         style = style +style_media
 
@@ -286,7 +286,6 @@ const ExportOption = (props) =>{
         }
       }
       
-      console.log("array  = ",array_of_js_functions,"data html ",data_html)
       jsFolder.file("script.js",ch_js)
       data_html = beautify.html_beautify(data_html) 
       html+= "</head> \n <body> \n" +data_html
@@ -318,16 +317,12 @@ const ExportOption = (props) =>{
         FileSaver.saveAs(content, `result.zip`);
     }); 
 
-      console.log("searcher : ",searcher )
+
     }
 
 
     let [angularShowUp,setAngularShowUp] = useState(false)
-    let handleShowAngular = () =>{
-      console.log("angular show up ")
-      setAngularShowUp(true)
-      setShowDetail(true)
-    }
+  
     return(
         <>
        <SystemUpdateAltIcon color='primary'

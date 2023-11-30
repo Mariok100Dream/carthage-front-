@@ -35,6 +35,8 @@ import JSZip from "jszip"
 import  FileSaver from 'file-saver' 
 import { v4 as uuidv4 } from 'uuid';
 import Confetti from "react-confetti";
+import { useTranslation } from 'react-i18next'
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -93,6 +95,7 @@ function a11yProps(index) {
 }
 
 export default function Success(props) {
+  const {t}=useTranslation()
   let {final_step} = props
   const [value, setValue] = React.useState(0);
   let [showing,setShowing] = useState(true)
@@ -159,7 +162,7 @@ setShow(final)
   let [showConfetti,setShowCofetti] = useState(false)
   let DownloadFiles = () =>{
     if(downloades.length == 0){
-     return toast.error("no Files selected to download ...")
+     return toast.error(t("noFilesSelectedToDownload"))
     }
     let zip = new JSZip();
     for(let i=0;i<downloades.length;i++){
@@ -218,7 +221,7 @@ setShow(final)
   }, [showConfetti]);
   return (
     <>
-    <Navbar  firstText="don't have a nice day" secondText="have a great day"/>
+    <Navbar  firstText={t("dontHaveANiceDay")} secondText={t("haveAGreatDay")}/>
 
     {showConfetti&&
       <Confetti
@@ -230,16 +233,16 @@ setShow(final)
     <div class="container" >
 
         <div class="wrapper">
-        <Alert severity="info">All those border in result will not be exported</Alert>
+        <Alert severity="info">{t("allBorderWillNotBeExported")}</Alert>
         <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Download Files</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">{t("downloadFiles")}</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
           value={downloades}
           onChange={handleChangeDownload}
-          input={<OutlinedInput id="select-multiple-chip" label="Download Files" />}
+          input={<OutlinedInput id="select-multiple-chip" label={t("downloadFiles")} />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (
@@ -263,7 +266,7 @@ setShow(final)
         style={{marginTop:"1%"}}
         onClick={() => DownloadFiles()}
         >
-        Download
+        {t("download")}
       </Button>
       </FormControl>
 
@@ -305,7 +308,7 @@ color="text.primary"
 <div className="pane top-pane" 
 style={{ height: "50px"}}
 >
-html
+{t("html")}
 <CodeMirror
 style={{textAlign:"left",width:"40vw",height:"10vh !important"}}
 value={el.file_data}
@@ -319,7 +322,7 @@ onChange={(value) =>onChangeCode(value,i)}
 
 </div>
 <div>
-css
+{t("css")}
 <CodeMirror
 style={{textAlign:"left",width:"40vw",marginLeft:"1%"}}
 value={el.file_css}
@@ -333,7 +336,7 @@ onChange={(value) =>onChangeCssCode(value,i)}
 
 </div>
 <div className="pane" >
-Result
+{t("result")}
 <iframe
 style={{backgroundColor:"white",border:"2px solid #FD5959"}}
 
@@ -362,7 +365,7 @@ height="100%"
         Translate
       </Button> */}
       <Button variant="contained" startIcon={<ShareIcon />}>
-        Share Project
+        {t("shareProject")}
       </Button>
       {/* <Button variant="contained" startIcon={<PrecisionManufacturingIcon />}>
         Convert

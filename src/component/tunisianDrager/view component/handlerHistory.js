@@ -7,9 +7,8 @@ import {handleupdateResponsiveStyle} from "../functionsNeccessairy/handleUpdateR
 import {handleUpdateTitle} from "../functionsNeccessairy/handleUpdateTitle"
 import {handleAddSection} from "../functionsNeccessairy/handleAddSection"
 import {handleDeleteSection} from "../functionsNeccessairy/handleDeleteSection"
-
 export const handlerHistory = async(history,data) =>{
-   console.log("data == ",data)
+  
     let history_of_section = history.filter(el => el.iteration_section == data.iteration_section)
     // Find the index of the item with the specific ID
     const index = history_of_section.findIndex(item => item.iteration_id === data.iteration_id);
@@ -254,7 +253,6 @@ export const handlerHistory = async(history,data) =>{
 export const handlerOrders = async(data_sended,iteration_section) =>{
 
   let precedingItems = data_sended
-  console.log(precedingItems,iteration_section)
   let table = await axios.get("http://62.72.36.199:5000/api/getTemplates")
     
     

@@ -13,7 +13,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-
+import { useTranslation } from 'react-i18next'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -21,6 +21,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function FullScreenDialog(props) {
+  const { t } = useTranslation()
   const [open, setOpen] = React.useState(false);
     const {data_all} = props
     const [rule, setRule] = React.useState('translated_text');
@@ -39,7 +40,6 @@ export default function FullScreenDialog(props) {
       let left_rule = rule.split("translated_text")[0]
       let right_rule = rule.split("translated_text")[1]
       let final_string = ''
-      console.log("left rule",left_rule)
       for (let a = 0;a<data_all;a++){
           final_string +=    `${left_rule}${data_all[a].data}${right_rule}`
       }
@@ -63,7 +63,8 @@ export default function FullScreenDialog(props) {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open full-screen dialog
+        {t("openFullScreen")}
+        
       </Button>
       <Dialog
         fullScreen
@@ -82,14 +83,14 @@ export default function FullScreenDialog(props) {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Sound
+              {t("sound")}
             </Typography>
             <Button autoFocus color="inherit" onClick={handleClose}>
-              save
+              {t("save")}
             </Button>
           </Toolbar>
         </AppBar>
-        <p>Applicate a Roule</p>
+        <p>{t("applicateARule")}</p>
           <TextField
            
           id="filled-multiline-flexible"
@@ -103,9 +104,9 @@ export default function FullScreenDialog(props) {
           
         />
          <CopyToClipboard text={copy}
-        onCopy={() => toast.success("html file Copied")}
+        onCopy={() => toast.success(t("htmlFileCopied"))}
          >   
-         <Button >Copy html</Button>
+         <Button >{t("copyHtml")}</Button>
 
          </CopyToClipboard>
       </Dialog>

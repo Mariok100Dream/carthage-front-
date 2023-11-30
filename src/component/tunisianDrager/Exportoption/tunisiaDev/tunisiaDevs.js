@@ -39,7 +39,7 @@ const TunisiaDevsExport = (props) =>{
       if(testPasswordStringth){
         setDisabledButton(false)
       }
-      console.log("test",testPasswordStringth)
+
     };
 
 
@@ -64,7 +64,7 @@ const TunisiaDevsExport = (props) =>{
     let [js_code,setjscode] = useState("")
     useEffect(()=>{
       let data = Templates.filter(el => el.id == id)[0]
-      console.log( data.section_data)
+
       setHtmlCode(data.section_data)
       setCssCode(data.section_css)
       setjscode(data.js_data)

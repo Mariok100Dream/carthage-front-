@@ -140,7 +140,7 @@ const AngularExport = (props) =>{
     let imagesFolder = assetsFolder.folder("images")
     let html = ""
      if(searcher.hasSlider){
-      console.log("sliders = ")
+
         //here first we add in package .json the libery used 
         //libery name used is ngx-owl-carousel-o 
        //docs  https://www.npmjs.com/package/ngx-owl-carousel-o 
@@ -210,7 +210,7 @@ const AngularExport = (props) =>{
      } 
      string_for_owl_carousel += `  </owl-carousel-o>`
      html = team_header+ string_for_owl_carousel + team_footer
-     console.log("html = ",html)
+   
      let object_ts =" customOptions: OwlOptions = { \n"+
       searcher.angular_object_to_export
      .replaceAll("$item1200",searcher.item1200)
@@ -378,7 +378,7 @@ const AngularExport = (props) =>{
      } 
      string_for_owl_carousel += `  </owl-carousel-o>`
      html = team_header+ string_for_owl_carousel + team_footer
-     console.log("html = ",html)
+   
      let object_ts =" customOptions: OwlOptions = { \n"+
       searcher.angular_object_to_export
      .replaceAll("$item1200",searcher.item1200)
@@ -594,7 +594,7 @@ const AngularExport = (props) =>{
      } 
      string_for_owl_carousel += `  </owl-carousel-o>`
      html = team_header+ string_for_owl_carousel + team_footer
-     console.log("html = ",html)
+
      let object_ts =" customOptions: OwlOptions = { \n"+
       searcher.angular_object_to_export
      .replaceAll("$item1200",searcher.item1200)
@@ -810,7 +810,7 @@ const AngularExport = (props) =>{
      } 
      string_for_owl_carousel += `  </owl-carousel-o>`
      html = team_header+ string_for_owl_carousel + team_footer
-     console.log("html = ",html)
+
      let object_ts =" customOptions: OwlOptions = { \n"+
       searcher.angular_object_to_export
      .replaceAll("$item1200",searcher.item1200)

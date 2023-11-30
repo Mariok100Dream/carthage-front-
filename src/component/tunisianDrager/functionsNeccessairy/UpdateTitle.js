@@ -34,7 +34,7 @@ export const updateTitleJS = (searcher, data, all) => {
      //width and height of container
      .replace("{widthIcon}",all[i].children[3].social_media_data[j].widthIcon)
      .replace("{heightIcon}",all[i].children[3].social_media_data[j].heightIcon)
-        console.log("ch = ",ch)
+        
         if(all[i].children[3].social_media_data[j].name == "Facebook"){
           ch=ch.replace("{icon}","fab fa-facebook")
    

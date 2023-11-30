@@ -35,7 +35,7 @@ const ReactExport = (props) =>{
         let result = Templates.filter(el => el.id == id)[0]
         setResultTemplate(result)
         setHasSlider(result.hasSlider)
-        console.log("result for React = ",result)
+      
     },[])
 
 
@@ -106,7 +106,7 @@ const ReactExport = (props) =>{
             let images = zip.folder("images")
 
             for(let i=0;i<base64Table.length;i++){
-                console.log(base64Table[i].image)
+                
                if(base64Table[i].image != undefined){
                 images.file(`${base64Table[i].name}.jpg`,
                 base64Table[i].image
@@ -180,7 +180,7 @@ const ReactExport = (props) =>{
             let images = subComponentFolder.folder("images")
 
             for(let i=0;i<base64Table.length;i++){
-                console.log(base64Table[i].image)
+               
                if(base64Table[i].image != undefined){
                 images.file(`${base64Table[i].name}.jpg`,
                 base64Table[i].image
@@ -238,7 +238,7 @@ const ReactExport = (props) =>{
 
             }
         }
-        console.log("ch_html",ch_html)
+        
     
         subComponentFolder.file(`${component_name}.js`,ch_html)
         zip.generateAsync({type:"blob"}).then(function(content) {

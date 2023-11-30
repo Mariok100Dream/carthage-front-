@@ -3,7 +3,6 @@ export let updateResponsiveStyle = (data_global) =>{
     let responsivedesktop = "block"
     let responsiveTablet = "block"
     let responsiveMobile = "block" 
-    console.log(data_global.show_desktop,data_global.show_tablet,data_global.show_mobile)  
     if(data_global.show_desktop==false){
         responsivedesktop = "none"
     }
@@ -14,7 +13,6 @@ export let updateResponsiveStyle = (data_global) =>{
     if(data_global.show_mobile == false){
         responsiveMobile = "none"
     }
-    console.log(responsivedesktop,responsiveTablet,responsiveMobile)
 
    
     let ch1_css = data_global.old_css.substring(

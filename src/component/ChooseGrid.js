@@ -60,7 +60,7 @@ import TextField from '@mui/material/TextField';
 import saveAs from 'file-saver';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import OpenWithIcon from '@mui/icons-material/OpenWith';
-
+import { useTranslation } from 'react-i18next'
 const getRowId = row => row.id;
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -68,6 +68,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 const ChooseGrid = (props) =>{
+  const {t} = useTranslation()
     let {rowss,editingStateColumnExtensions,columnBands,columns,filter,selected,
       orginals_html,projectCode
     
@@ -168,7 +169,7 @@ const ChooseGrid = (props) =>{
     if(changed_value.includes("translated_text")){
       setRule(event.target.value);
     }else{
-      return toast.error("tag translated_text cannot changed")
+      return toast.error(t("tagTranslatedTextCannotBeChanged"))
     }
   };
 
@@ -351,7 +352,7 @@ const ChooseGrid = (props) =>{
     id="ExportTable"
    
     >
-        Complete
+        {t("complete")}
       </Button>
       
       <Dialog
@@ -361,7 +362,7 @@ const ChooseGrid = (props) =>{
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Options to finish the process"}</DialogTitle>
+        <DialogTitle>{t("optionsToFinishTheProcess")}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
           <Stack direction="row" spacing={3}>
@@ -370,12 +371,12 @@ const ChooseGrid = (props) =>{
       </Stack>
      
       <FormControl sx={{ m: 1 }} fullWidth size="small">
-      <InputLabel id="demo-select-small">Language to export</InputLabel>
+      <InputLabel id="demo-select-small">{t("languageToExport")}</InputLabel>
       <Select
         labelId="demo-select-small"
         id="demo-select-small"
         value={age}
-        label="Language to export"
+        label={t("languageToExport")}
         onChange={handleChange}
       >
        
@@ -417,16 +418,16 @@ const ChooseGrid = (props) =>{
         <Typography gutterBottom variant="h5" component="div"
        
         >
-          HTML
+          {t("html")}
         </Typography>
         
       </CardContent>
       <CardActions>
         
         <CopyToClipboard text={replacer()}
-        onCopy={() => toast.success("html file Copied")}
+        onCopy={() => toast.success(t("htmlFileCopied"))}
          >
-          <Button size="small">Copy HTMl file</Button>
+          <Button size="small">{t("copyHtmlFile")}</Button>
          </CopyToClipboard>
       
       </CardActions>
@@ -443,16 +444,16 @@ const ChooseGrid = (props) =>{
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          JSON
+          {t("json")}
         </Typography>
         
       </CardContent>
       <CardActions>
       
         <CopyToClipboard text={replacer_json_format()}
-         onCopy={() => toast.success("JSON file Copied")}
+         onCopy={() => toast.success(t("jsonFileCopied"))}
          >
-          <Button size="small">Copy JSON file</Button>
+          <Button size="small">{t("copyJsonFile")}</Button>
          </CopyToClipboard>
       
       </CardActions>

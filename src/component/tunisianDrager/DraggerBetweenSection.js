@@ -347,7 +347,7 @@ const getListStyle = isDraggingOver => ({
     
   
     parentsCopy.push(to_copy_section)
-    console.log(parentsCopy)
+   
     setItems(parentsCopy)
     
   }

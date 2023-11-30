@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React,{useEffect} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -25,6 +25,13 @@ import {Link} from "react-router-dom"
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import {logo} from "../logo/logo"
+import { useTranslation } from 'react-i18next'
+import i18next from 'i18next'
+import cookies from 'js-cookie'
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 const drawerWidth = 240;
 const navItems = ['traduction'];
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -38,13 +45,38 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 function DrawerAppBar(props) {
   const { window,firstText,secondText } = props;
+  const languages = [
+    {
+      code: 'fr',
+      name: 'Français',
+      country_code: 'fr',
+    },
+    {
+      code: 'en',
+      name: 'English',
+      country_code: 'gb',
+    },
+    // {
+    //   code: 'ar',
+    //   name: 'العربية',
+    //   dir: 'rtl',
+    //   country_code: 'sa',
+    // },
+  ]
+  const currentLanguageCode = cookies.get('i18next') || 'en'
+  const currentLanguage = languages.find((l) => l.code === currentLanguageCode)
+  const { t } = useTranslation()
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  // useEffect(() => {
 
+  //   document.body.dir = currentLanguage.dir || 'ltr'
+  //  console.log(currentLanguage)
+  // }, [currentLanguage, t])
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       
@@ -82,7 +114,13 @@ function DrawerAppBar(props) {
     setIsShowingButton(true)
     setIsShowingText(false)
   }
+  const [languageSelected, setlanguageSelected] = React.useState(currentLanguage?.code);
 
+  const handleChangeLanguageSelected = (event) => {
+    setlanguageSelected(event.target.value);
+    i18next.changeLanguage(event.target.value)
+
+  };
   return (
     <Box sx={{ display: 'flex' }}>
        <img src={logo}/>
@@ -133,13 +171,14 @@ function DrawerAppBar(props) {
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           <Link to="/" style={{textDecoration:"none",color:"white"}}>
           <Button  sx={{ color: '#fff' }}>
-                Translate
+          {t('translate')}
               </Button>
           </Link>
           <Link to="/Converter" style={{textDecoration:"none",color:"white"}}>
         
           <Button  sx={{ color: '#fff' }}>
-               Converter
+            {t("converter")}
+               
               </Button>
        
       
@@ -152,7 +191,7 @@ function DrawerAppBar(props) {
 
           <Link to="/CssExtractor" style={{textDecoration:"none",color:"white"}}>
           <Button  sx={{ color: '#fff' }}>
-               Html & Css Combiner
+              {t("htmlCssCombiner")}
               </Button>
          
           </Link>   
@@ -164,7 +203,8 @@ function DrawerAppBar(props) {
          <Link to="/Drager" style={{textDecoration:"none",color:"white"}}>
           <Badge badgeContent={"new"} color="secondary">
           <Button  sx={{ color: '#fff' }}>
-          𐤒𐤓𐤕𐤟𐤇𐤃𐤔𐤕
+          
+          {t("carthage")}
               </Button>
               </Badge>
           </Link>   
@@ -178,7 +218,7 @@ function DrawerAppBar(props) {
                 <Button variant="contained" style={{color:"black",backgroundColor:"yellow"}}
             onMouseEnter = {( e) => handleEnterEvent(e)}
             >
-                Donate
+                {t("donate")}
                 </Button>
             </>}
 
@@ -189,9 +229,27 @@ function DrawerAppBar(props) {
   style={{color:"yellow"}}
   /></h1>
 </div></>}
-            
+  
         
           </Typography>
+          <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          style={{color:"white",border:"none"}}
+          value={languageSelected}
+          label="Age"
+          onChange={handleChangeLanguageSelected}
+        >
+          {languages.map(el => (
+ <MenuItem value={el.code}>{el.name}</MenuItem>
+          ))}
+         
+         
+        </Select>
+      </FormControl>
+    </Box>
         </Toolbar>
       </AppBar>
       <Box component="nav">

@@ -44,7 +44,7 @@ import Button from '@mui/material/Button';
 
 import JSZip from "jszip"
 import  FileSaver from 'file-saver' 
-
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -89,7 +89,7 @@ const HeaderCell = ({ classes, className, ...restProps }) => (
 );
 
 export default (props) => {
-
+  const { t } = useTranslation()
   const {columnBands,columns,contriess
     ,editingStateColumnExtensions,
     projectCode,
@@ -150,7 +150,7 @@ export default (props) => {
   let  steps = [
     {
       selector: '#ALl',
-      content: "Hi this Shadow knight Again Enjoy it ",
+      content: t("shadowKnightEnjoyAgain"),
     },
 
    
@@ -274,13 +274,13 @@ export default (props) => {
       checked={true}
       />
 
-      <h3> Project Code  : {projectCode}</h3>
+      <h3> {t("projectCode")} {projectCode}</h3>
       
     <div id="ALl">
     <Button variant="contained" startIcon={<DownloadIcon />}
     onClick = {() => generateAndDownloadAll()}
     >
-        Download All
+        {t("downloadAll")}
       </Button>
      <Tour
         steps={steps}
@@ -292,7 +292,7 @@ export default (props) => {
       
      <Box sx={{ minWidth: 120 }} id="selectDisplayingType">
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Display Type</InputLabel>
+        <InputLabel id="demo-simple-select-label">{t("displayType")}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -301,7 +301,7 @@ export default (props) => {
           label={formatSelected}
           onChange={handleChange}
         >
-       {!depaced_value && <MenuItem value={"default"}>Multi Level</MenuItem> }
+       {!depaced_value && <MenuItem value={"default"}>{t("multiLevel")}</MenuItem> }
           {columnBands.map(el =>(
             
   <MenuItem key={el} value={el.title}>{el.title}</MenuItem>
