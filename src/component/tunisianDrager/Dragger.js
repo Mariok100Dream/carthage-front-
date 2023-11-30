@@ -8456,7 +8456,7 @@ id={task.id}
            >
           <FormHelperText id="component-helper-text">
                  <ReportIcon color="error"/>
-                 {reportIssueSocialMediabackgroundIconColor}
+                 {t("reportIssueSocialMediabackgroundIconColor")}
         </FormHelperText>
           </a>             
      </Grid>
