@@ -217,15 +217,56 @@ export default (props) => {
 //file names
 
 
-//download all 
-   
+
+// Function to perform replacements
+function replaceAll(inputString ) {
+  var replacements = {
+    '&agrave;': 'à',
+    '&eacute;': 'é',
+    '&rsquo;': '\'',
+    '&nbsp;': ' ',
+    '&ugrave;': 'ù',
+    '&ccedil;': 'ç',
+    '&euml;': 'ë',
+    '&ocirc;': 'ô',
+    '&ecirc;': 'ê',
+  };
+  
+  for (var key in replacements) {
+      if (replacements.hasOwnProperty(key)) {
+          var regex = new RegExp(key, 'g');
+          inputString = inputString.replace(regex, replacements[key]);
+      }
+  }
+  return inputString;
+}
+function removeSpacesAndNewlinesOutsideTags(inputString) {
+  // Remove spaces and newlines outside HTML tags
+  let cleanedString = inputString.replace(/>\s+</g, '><');
+  
+  // Remove spaces and newlines at the beginning and end of the string
+  cleanedString = cleanedString.trim();
+  
+  return cleanedString;
+}
+
+// Perfo
   const replacer_html = (rows,orginal_html,language,name) =>{
-   
+    
       for (let r=0;r<rows.length;r++){
         let file_name = rows[r].file.split(".")[0] + "auto"
         let file_direction = rows[r].file.split(".")[0] +language
+        orginal_html[0][name] = replaceAll( orginal_html[0][name])
       
-        orginal_html[0][name] = orginal_html[0][name].replaceAll(rows[r][file_name],rows[r][file_direction])
+  
+        var expectedSubstring = rows[r][file_name];
+ 
+
+ // Remove spaces and new lines within text content of HTML tags
+
+
+ expectedSubstring = expectedSubstring.replace(/\s/g, '')
+        orginal_html[0][name] = orginal_html[0][name].replaceAll(expectedSubstring,rows[r][file_direction])
       }
       return orginal_html[0][name]
   }
@@ -244,13 +285,19 @@ export default (props) => {
             let rows = all_data.filter(el => el.file == files_name[f] )
 
             let orginal_html = html_codes.filter(el => el[String(files_name[f])])
-        
-
+           
+            var modifiedHtml = orginal_html[f][String(files_name[f])].replace(/>([^<]*)</g, function(match, group) {
+              var cleanedText = group.replace(/\s+/g, '');
+              return '>' + cleanedText + '<';
+            });
+            orginal_html[f][String(files_name[f])]  = modifiedHtml 
+         
            if(rows !=[] && orginal_html.length !=0 ){
-          
+            
 
             let replacer = replacer_html(rows,orginal_html,languages[i].label,files_name[f])
-          
+       
+            
             component.file(files_name[f], replacer);
            }
        

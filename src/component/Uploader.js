@@ -199,7 +199,27 @@ const [originalValues,setOrignalValues] = useState([])
     span.innerHTML = s;
     return span.textContent || span.innerText;
   };
-
+  const extractAllTagsInnerText = (htmlString) => {
+    const div = document.createElement('div');
+    div.innerHTML = htmlString;
+  
+    const extractedTexts = [];
+  
+    // Recursive function to traverse all child nodes
+    const extractTextFromNode = (node) => {
+      if (node.nodeType === 3) { // Text node
+        extractedTexts.push(node.textContent || node.innerText);
+      } else if (node.nodeType === 1) { // Element node
+        node.childNodes.forEach(childNode => extractTextFromNode(childNode));
+      }
+    };
+  
+  
+    // Start the extraction
+    extractTextFromNode(div);
+  
+    return extractedTexts;
+  };
   //layout for uploder 
   //
 
@@ -540,9 +560,8 @@ let [files_names_all,setFilesNames] = useState([])
       //remove css attributes
       let text_without_css_attributes =  text_without_script.replace(/<([a-z][a-z0-9]*)(?:[^>]*?((?:\s(?:src|href|style)=['\"][^'\"]*['\"]){0,3}))[^>]‌​*?(\/?)>/, '') 
       
-      let table_with_spaces = extractContent(text_without_css_attributes).split("\n")
-      
-     
+      let table_with_spaces = extractAllTagsInnerText(text_without_css_attributes)
+
       let result = []
       for(let i=0;i<table_with_spaces.length;i++){
           let string = table_with_spaces[i].trimStart()
@@ -607,8 +626,7 @@ let [files_names_all,setFilesNames] = useState([])
       //remove css attributes
       let text_without_css_attributes =  text_without_script.replace(/<([a-z][a-z0-9]*)(?:[^>]*?((?:\s(?:src|href|style)=['\"][^'\"]*['\"]){0,3}))[^>]‌​*?(\/?)>/, '') 
       
-      let table_with_spaces = extractContent(text_without_css_attributes).split("\n")
-      
+      let table_with_spaces = extractAllTagsInnerText(text_without_css_attributes)
      
       let result = []
       for(let i=0;i<table_with_spaces.length;i++){
