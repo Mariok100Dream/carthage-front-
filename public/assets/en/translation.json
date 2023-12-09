@@ -280,6 +280,7 @@
     "readMe":"Read me",
     "ruleInConverter":"For evrey Section write @Begin NameofComponent @ in the end write @End NameofComponent @ as an exemple",
     "youreawsome":"You're awesome",
-    "haveANiceDay":"Have a nice Day"
+    "haveANiceDay":"Have a nice Day",
+    "cardStyle":"Card Style"
     
 }

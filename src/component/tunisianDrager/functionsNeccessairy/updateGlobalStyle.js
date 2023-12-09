@@ -140,7 +140,27 @@ export const updateGlobalStyleJS = (searcher, data, all) => {
       .replace("{background_img}", data.global_style[2].background_img)
       .replace("{widthBackground}", data.global_style[2].widthBackground)
       .replace("{heightBackground}",data.global_style[2].heightBackground)
+      //card 
+      .replaceAll("{color_card}",data.global_style[7].color)
+      .replace("{color_card_hover}",data.global_style[7].hover_color)
+      .replace("{card_padding_top}",data.global_style[7].padding_top)
+      .replace("{card_padding_bottom}",data.global_style[7].padding_bottom)
+      .replace("{card_padding_left}",data.global_style[7].padding_left)
+      .replace("{card_padding_right}",data.global_style[7].padding_right)
+      .replace("{card_margin_top}",data.global_style[7].margin_top)
+      .replace("{card_margin_bottom}",data.global_style[7].margin_bottom)
+      .replace("{card_margin_left}",data.global_style[7].margin_left)
+      .replace("{card_margin_right}",data.global_style[7].margin_right)
+      .replace("{card_border_top_left_radius}",data.global_style[7].border_top_left_radius)
+      .replace("{card_border_top_right_radius}",data.global_style[7].border_top_right_radius)
+      .replace("{card_border_bottom_right_radius}",data.global_style[7].border_bottom_right_radius)
+      .replace("{card_border_bottom_left_radius}",data.global_style[7].border_bottom_left_radius)
       
+      .replace("{border_card_top}",data.global_style[7].border_card_top)
+      .replace("{border_card_bottom}",data.global_style[7].border_card_bottom)
+      .replace("{border_card_left}",data.global_style[7].border_card_left)
+      .replace("{border_card_right}",data.global_style[7].border_card_right)
+
       //icon thing just text without url
       .replace("{socialLinkReplacer}", all_ch);
     }
@@ -197,6 +217,28 @@ export const updateGlobalStyleJS = (searcher, data, all) => {
       .replace("{background_img}",all[i].children[2].background_img)
       .replace("{widthBackground}",all[i].children[2].widthBackground)
       .replace("{heightBackground}",all[i].children[2].heightBackground)
+
+      //card 
+
+      .replaceAll("{color_card}",all[i].children[4].color)
+      .replace("{color_card_hover}",all[i].children[4].hover_color)
+      .replace("{card_padding_top}",all[i].children[4].padding_top)
+      .replace("{card_padding_bottom}",all[i].children[4].padding_bottom)
+      .replace("{card_padding_left}",all[i].children[4].padding_left)
+      .replace("{card_padding_right}",all[i].children[4].padding_right)
+      .replace("{card_margin_top}",all[i].children[4].margin_top)
+      .replace("{card_margin_bottom}",all[i].children[4].margin_bottom)
+      .replace("{card_margin_left}",all[i].children[4].margin_left)
+      .replace("{card_margin_right}",all[i].children[4].margin_right)
+      .replace("{card_border_top_left_radius}",all[i].children[4].border_top_left_radius)
+      .replace("{card_border_top_right_radius}",all[i].children[4].border_top_right_radius)
+      .replace("{card_border_bottom_right_radius}",all[i].children[4].border_bottom_right_radius)
+      .replace("{card_border_bottom_left_radius}",all[i].children[4].border_bottom_left_radius)
+      
+      .replace("{border_card_top}",all[i].children[4].border_card_top)
+      .replace("{border_card_bottom}",all[i].children[4].border_card_bottom)
+      .replace("{border_card_left}",all[i].children[4].border_card_left)
+      .replace("{border_card_right}",all[i].children[4].border_card_right)
 
       //icon thing just text without url 
       .replace("{socialLinkReplacer}",all_ch)

@@ -47,7 +47,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import CloseIcon from '@mui/icons-material/Close';
 
-
+import CardAllStyle from "./component/all/card/style/cardALLStyle"
 
 //content things
 
@@ -5146,625 +5146,7 @@ if(precedingItems[i].function_name === "handleDeleteSection"){
 
   const [history_searcher,setHistorySearcher] = useState("")
 
-  let  updateTitleUnique = () =>{
-    let all = itemsData
-    let searcher = characters.filter(el => el.id === section_id)[0]
-    let updates = []
-    let data = characters.filter(el => el.status!=="New Order" 
-    && el.id === section_id
-    )[0]
-   
-    let historyMaker = history
-    if(title_text!==""){
-      searcher.title.text = title_text
-      searcher.title_text = title_text
-       let object_history = {}
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_tap = ["Content","Title","Content"]
-      
-       object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title text to ${title_text}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_text:,!:$*ù${title_text}`
-     
-      historyMaker.push(object_history)
-    }
-     if(title_color!==""){
-    
-      searcher.title.color = title_color
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title color to ${title_color}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_color:,!:$*ù${title_color}`
-      historyMaker.push(object_history)
-    }
-    if(title_hover_color!==""){
-      searcher.title.hover_color = title_hover_color
-      let object_history = {}
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_tap = ["Content","Title","Style"]
-            object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title hover color to ${title_hover_color}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_hover_color:,!:$*ù${title_hover_color}`
-      historyMaker.push(object_history)
-    } 
-    if(title_font_family!==""){
-      searcher.title.font_family = title_font_family
-   
-  let object_history = {}
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_tap = ["Content","Title","Style"]
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title font family to ${title_font_family}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_font_family:,!:$*ù${title_font_family}`
-      historyMaker.push(object_history)
-    }
-    if(title_font_size!==""){
-      searcher.title.font_size = title_font_size
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title font size to ${title_font_size}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_font_size:,!:$*ù${title_font_size}`
-      historyMaker.push(object_history)
-    }
-    if(title_padding_top!==""){
-      searcher.title.padding_top = title_padding_top
-    
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title padding top to ${title_padding_top}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_padding_top:,!:$*ù${title_padding_top}`
-      historyMaker.push(object_history)
-    }
-    if(title_padding_bottom!==""){
-      searcher.title.padding_bottom = title_padding_bottom
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title padding bottom to ${title_padding_bottom}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_padding_bottom:,!:$*ù${title_padding_bottom}`
-      historyMaker.push(object_history)
-    }
-    if(title_padding_left!==""){
-      searcher.title.padding_left = title_padding_left
-    
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-        object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title padding left to ${title_padding_left}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_padding_left:,!:$*ù${title_padding_left}`
-      historyMaker.push(object_history)
-    }
-    if(title_padding_right!==""){
-      searcher.title.padding_right = title_padding_right
-      
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title padding right to ${title_padding_right}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_padding_right:,!:$*ù${title_padding_right}`
-      historyMaker.push(object_history)
-    }
-    if(title_margin_top!==""){
-      searcher.title.margin_top = title_margin_top
-     
-      let object_history = {}
-      object_history.iteration_tap = ["Content","Title","Style"]
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title margin top to ${title_margin_top}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_margin_top:,!:$*ù${title_margin_top}`
-      historyMaker.push(object_history)
-    }
-    if(title_margin_bottom!==""){
-      searcher.title.margin_bottom = title_margin_bottom 
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id      
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title margin bottom to ${title_margin_bottom}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_margin_bottom:,!:$*ù${title_margin_bottom}`
-      historyMaker.push(object_history)
-    }
-    if(title_margin_left!==""){
-      searcher.title.margin_left = title_margin_left
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","title","style"]
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title margin left to ${title_margin_left}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_margin_left:,!:$*ù${title_margin_left}`
-      historyMaker.push(object_history)
-    }
-    if(title_margin_right!==""){
-      searcher.title.margin_right = title_margin_right
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing title margin right to ${title_margin_right}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_margin_right:,!:$*ù${title_margin_right}`
-      historyMaker.push(object_history)
-    }
-
-    if(alignmentTitleAlign!==""){
-      searcher.title.text_align = alignmentTitleAlign
-      
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Title","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing  title align to ${alignmentTitleAlign}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeTitle" 
-      object_history.parameter = ``
-      object_history.variable_change = `alignmentTitleAlign:,!:$*ù${alignmentTitleAlign}`
-      historyMaker.push(object_history)
-    }
-    
-    let {ch1,global_html,ch2} = updateTitleJS(searcher,data,all)
-
-    let final_html =ch1 + global_html + ch2 
-      let data_late = characters.filter(el => el.id !== section_id) 
-      if(data.data_team[0].children[0].lang==="ar"){
-        final_html = final_html.replace("rtl:false,","rtl:true,").replaceAll("dir='ltr'","dir='rtl'")
-        }else{
-          final_html = final_html.replace("rtl:true,","rtl:false,").replaceAll("dir='rtl'","dir='ltr'")
-      
-        }
-      
-      data.section_data = final_html  
   
-       if(hasSlider){
-        data.section_css = data.section_css
-        .replace("$color_arrow_left",searcher.global_style[5]["color"])
-        .replace("$color_hover_arrow_left",searcher.global_style[5]["hover_color"])
-        .replace("$background_color_arrow_left", searcher.global_style[5]["background_color"])
-        .replace("$background_hover_color_arrow_left ",  searcher.global_style[5]["background_hover_color"])
-        .replace("$font_size_arrow_left ",   searcher.global_style[5]["font_size"] )
-        .replace("$left_position_arrow_left ",   searcher.global_style[5]["left"] )
-        .replace("$top_position_arrow_left ",   searcher.global_style[5]["top"] )
-        //arrow Right 
-        .replace(" $color_arrow_right",searcher.global_style[6]["color"])
-        .replace("$color_hover_arrow_right",searcher.global_style[6]["hover_color"])
-        .replace("$background_color_arrow_right", searcher.global_style[6]["background_color"])
-        .replace("$background_hover_color_arrow_right ",  searcher.global_style[6]["background_hover_color"])
-        .replace("$font_size_arrow_right",   searcher.global_style[6]["font_size"] )
-        .replace("$right_position_arrow_right",   searcher.global_style[6]["left"] )
-        .replace("$top_position_arrow_right",   searcher.global_style[6]["top"] )
-       
-        
-       
-      }
-      
-       updates.push(data)  
-      // $color_arrow_left
-          
-
-      let final = [...data_late,...updates]
-         
-  
-  
-setHistory(historyMaker)
-
-setApplied(historyMaker.length -1)
-      setTasks(final)
-          setItems(all)
-
-    setTitleText("")
-    setTitleColor("")
-    setTitleHoverColor("")
-    setDescriptionText("")
-    setDescriptionTextColor("")
-    setDescriptionHoverColor("")
-    setSelectSocialMedia("")
-    setUrlSocialMediaAdder("")
-    setUrlEdit("")
-    setSelectSocialMediaEdit("")
-    setLogoContent("")
-    setTitleFontFamily("")
-    setTitleFontSize("")
-    setTitlePaddingTop("")
-    setTitlePaddingLeft("")
-    setTitlePaddingRight("")
-    setTitleMarginTop("")
-    setTitleMaginBottom("")
-    setTitleMaginLeft("")
-    setTitleMarginRight("")
-    setAlignmentTitleAlign("")
-
-
-
-  }
-
-  let updateDescriptionUnique = () =>{
-    let all = itemsData
-    let searcher = characters.filter(el => el.id === section_id)[0]
-    let updates = []
-    let data = characters.filter(el => el.status!=="New Order" 
-    && el.id === section_id
-    )[0]
-   
-    let historyMaker = history
-    if(title_text!==""){
-      searcher.description.text = title_text
-      searcher.description_text = title_text
-       let object_history = {}
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_tap = ["Content","Description","Content"]
-      
-       object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description text to ${title_text}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_text:,!:$*ù${title_text}`
-     
-      historyMaker.push(object_history)
-    }
-     if(title_color!==""){
-    
-      searcher.description.color = title_color
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description color to ${title_color}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription"
-      object_history.parameter = ``
-      object_history.variable_change = `title_color:,!:$*ù${title_color}`
-      historyMaker.push(object_history)
-    }
-    if(title_hover_color!==""){
-      searcher.description.hover_color = title_hover_color
-      let object_history = {}
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_tap = ["Content","Description","Style"]
-            object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description hover color to ${title_hover_color}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription"
-      object_history.parameter = ``
-      object_history.variable_change = `title_hover_color:,!:$*ù${title_hover_color}`
-      historyMaker.push(object_history)
-    } 
-    if(title_font_family!==""){
-      searcher.description.font_family = title_font_family
-   
-  let object_history = {}
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_tap = ["Content","Description","Style"]
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description font family to ${title_font_family}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription"
-      object_history.parameter = ``
-      object_history.variable_change = `title_font_family:,!:$*ù${title_font_family}`
-      historyMaker.push(object_history)
-    }
-    if(title_font_size!==""){
-      searcher.description.font_size = title_font_size
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description font size to ${title_font_size}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_font_size:,!:$*ù${title_font_size}`
-      historyMaker.push(object_history)
-    }
-    if(title_padding_top!==""){
-      searcher.description.padding_top = title_padding_top
-    
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description padding top to ${title_padding_top}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription"
-      object_history.parameter = ``
-      object_history.variable_change = `title_padding_top:,!:$*ù${title_padding_top}`
-      historyMaker.push(object_history)
-    }
-    if(title_padding_bottom!==""){
-      searcher.description.padding_bottom = title_padding_bottom
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description padding bottom to ${title_padding_bottom}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription"
-      object_history.parameter = ``
-      object_history.variable_change = `title_padding_bottom:,!:$*ù${title_padding_bottom}`
-      historyMaker.push(object_history)
-    }
-    if(title_padding_left!==""){
-      searcher.description.padding_left = title_padding_left
-    
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-        object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description padding left to ${title_padding_left}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription"
-      object_history.parameter = ``
-      object_history.variable_change = `title_padding_left:,!:$*ù${title_padding_left}`
-      historyMaker.push(object_history)
-    }
-    if(title_padding_right!==""){
-      searcher.description.padding_right = title_padding_right
-      
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description padding right to ${title_padding_right}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription"
-      object_history.parameter = ``
-      object_history.variable_change = `title_padding_right:,!:$*ù${title_padding_right}`
-      historyMaker.push(object_history)
-    }
-    if(title_margin_top!==""){
-      searcher.description.margin_top = title_margin_top
-     
-      let object_history = {}
-      object_history.iteration_tap = ["Content","Description","Style"]
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description margin top to ${title_margin_top}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_margin_top:,!:$*ù${title_margin_top}`
-      historyMaker.push(object_history)
-    }
-    if(title_margin_bottom!==""){
-      searcher.description.margin_bottom = title_margin_bottom 
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id      
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description margin bottom to ${title_margin_bottom}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_margin_bottom:,!:$*ù${title_margin_bottom}`
-      historyMaker.push(object_history)
-    }
-    if(title_margin_left!==""){
-      searcher.description.margin_left = title_margin_left
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","style"]
-      object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description margin left to ${title_margin_left}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription"
-      object_history.parameter = ``
-      object_history.variable_change = `title_margin_left:,!:$*ù${title_margin_left}`
-      historyMaker.push(object_history)
-    }
-    if(title_margin_right!==""){
-      searcher.description.margin_right = title_margin_right
-     
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing description margin right to ${title_margin_right}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription" 
-      object_history.parameter = ``
-      object_history.variable_change = `title_margin_right:,!:$*ù${title_margin_right}`
-      historyMaker.push(object_history)
-    }
-    if(alignmentTitleAlign!==""){
-      searcher.description.text_align = alignmentTitleAlign
-      
-  let object_history = {}
-  object_history.iteration_tap = ["Content","Description","Style"]
-  object_history.iteration_id  = uuidv4()
-      object_history.iteration_section = section_id
-      object_history.iteration_title = "Updating"
-      object_history.iteration_type = "title"
-      object_history.iteration_description = `changing  description align to ${alignmentTitleAlign}`
-      object_history.iteration_date = new Date().toISOString()
-      object_history.function_name = "handleChangeDescription" 
-      object_history.parameter = ``
-      object_history.variable_change = `alignmentTitleAlign:,!:$*ù${alignmentTitleAlign}`
-      historyMaker.push(object_history)
-    }
-
-    let {ch1,global_html,ch2} = updateDescriptionJS(searcher,data,all)
-
-    let final_html =ch1 + global_html + ch2 
-      let data_late = characters.filter(el => el.id !== section_id) 
-      if(data.data_team[0].children[0].lang==="ar"){
-        final_html = final_html.replace("rtl:false,","rtl:true,").replaceAll("dir='ltr'","dir='rtl'")
-        }else{
-          final_html = final_html.replace("rtl:true,","rtl:false,").replaceAll("dir='rtl'","dir='ltr'")
-      
-        }
-      
-      data.section_data = final_html  
-  
-       if(hasSlider){
-        data.section_css = data.section_css
-        .replace("$color_arrow_left",searcher.global_style[5]["color"])
-        .replace("$color_hover_arrow_left",searcher.global_style[5]["hover_color"])
-        .replace("$background_color_arrow_left", searcher.global_style[5]["background_color"])
-        .replace("$background_hover_color_arrow_left ",  searcher.global_style[5]["background_hover_color"])
-        .replace("$font_size_arrow_left ",   searcher.global_style[5]["font_size"] )
-        .replace("$left_position_arrow_left ",   searcher.global_style[5]["left"] )
-        .replace("$top_position_arrow_left ",   searcher.global_style[5]["top"] )
-        //arrow Right 
-        .replace(" $color_arrow_right",searcher.global_style[6]["color"])
-        .replace("$color_hover_arrow_right",searcher.global_style[6]["hover_color"])
-        .replace("$background_color_arrow_right", searcher.global_style[6]["background_color"])
-        .replace("$background_hover_color_arrow_right ",  searcher.global_style[6]["background_hover_color"])
-        .replace("$font_size_arrow_right",   searcher.global_style[6]["font_size"] )
-        .replace("$right_position_arrow_right",   searcher.global_style[6]["left"] )
-        .replace("$top_position_arrow_right",   searcher.global_style[6]["top"] )
-       
-        
-       
-      }
-      
-       updates.push(data)  
-      // $color_arrow_left
-          
-
-      let final = [...data_late,...updates]
-         
-  
-  
-setHistory(historyMaker)
-
-setApplied(historyMaker.length -1)
-      setTasks(final)
-          setItems(all)
-
-    setTitleText("")
-    setTitleColor("")
-    setTitleHoverColor("")
-    setDescriptionText("")
-    setDescriptionTextColor("")
-    setDescriptionHoverColor("")
-    setSelectSocialMedia("")
-    setUrlSocialMediaAdder("")
-    setUrlEdit("")
-    setSelectSocialMediaEdit("")
-    setLogoContent("")
-    setTitleFontFamily("")
-    setTitleFontSize("")
-    setTitlePaddingTop("")
-    setTitlePaddingLeft("")
-    setTitlePaddingRight("")
-    setTitleMarginTop("")
-    setTitleMaginBottom("")
-    setTitleMaginLeft("")
-    setTitleMarginRight("")
-    setAlignmentTitleAlign("")
-
-
-  }
   const [files, setFiles] = useState([]);
  
 
@@ -8930,7 +8312,61 @@ id={task.id}
         </AccordionDetails>
       </Accordion>
 
+{/* accordion for card team style */} 
+<Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panelcardStyleteam-content"
+          id="panelcardStyleteam-header"
+        >
+          <Typography>{t("cardStyle")}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
 
+      
+      <CardAllStyle 
+           data={
+            [
+              {color:global_style[7].color,field:"title_color"},
+              {hover_color:global_style[7].hover_color,field:"title_hover_color"},
+              {isPaddingSHowing:global_style[7].isPaddingSHowing},
+              {padding_top:global_style[7].padding_top,field:"title_padding_top"},
+              {padding_bottom:global_style[7].padding_bottom,field:"title_padding_bottom"},
+              {padding_left:global_style[7].padding_left,field:"title_padding_left"},
+              {padding_right:global_style[7].padding_right,field:"title_padding_right"},
+              {isMarginShowing:global_style[7].isMarginShowing},
+              {margin_top:global_style[7].margin_top,field:"title_margin_top"},
+              {margin_bottom:global_style[7].margin_bottom,field:"title_margin_bottom"},
+              {margin_left:global_style[7].margin_left,field:"title_margin_left"},
+              {margin_right:global_style[7].margin_right,field:"title_margin_right"},
+     
+              {border_top_left_radius:global_style[7].border_top_left_radius,field:"Image_border_top_left_radius"},
+              {border_top_right_radius:global_style[7].border_top_right_radius,field:"Image_border_top_right_radius"},
+              {border_bottom_right_radius:global_style[7].border_bottom_right_radius,field:"Image_border_bottom_right_radius"},
+              {border_bottom_left_radius:global_style[7].border_bottom_left_radius,field:"Image_border_bottom_left_radius"},
+
+              {border_card_top:global_style[7].border_card_top,field:"border_card_top"},
+              {border_card_bottom:global_style[7].border_card_bottom,field:"border_card_bottom"},
+              {border_card_left:global_style[7].border_card_left,field:"border_card_left"},
+              {border_card_right:global_style[7].border_card_right,field:"border_card_right"},
+
+              
+              
+            
+          ] }
+          type={global_style[7].type}
+          typeThinks={"text"}
+           onTitleSingleSubmit={handleSingleTitleSubmit} 
+           itemsData={itemsData}
+           characters={characters}
+           section_id={section_id}
+           history={history}
+           hasSlider={hasSlider}
+      />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
 
       </div>
     

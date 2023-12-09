@@ -9269,7 +9269,7 @@ export const Templates = [
         margin_left: "0px",
         margin_right: "0px",
         text_align: "center",
-      },
+      },//0
       {
         type: "description",
         color: "#707070",
@@ -9285,7 +9285,7 @@ export const Templates = [
         margin_left: "0px",
         margin_right: "0px",
         text_align: "center",
-      },
+      },//01
       {
         type: "image",
         border_top_left_radius: "10px",
@@ -9301,17 +9301,17 @@ export const Templates = [
         background_img: "white",
         widthBackground: "300px",
         heightBackground: "300px"
-      },
+      },//02
       {
         container_margin_top: "0px",
         container_margin_bottom: "0px",
         container_margin_left: "0px",
         container_margin_right: "0px"
-      },
+      },//03
       {
         backgroundContainercolor: "white",
         backgroundContainerImage: ""
-      },
+      },//04
       {
         type: "arrowLeft",
         color: "#070f4d",
@@ -9321,7 +9321,7 @@ export const Templates = [
         font_size: "16px",
         left: "1",
         top: "50"
-      },
+      },//05
       {
         type: "arrowRight",
         color: "#070f4d",
@@ -9331,7 +9331,7 @@ export const Templates = [
         font_size: "16px",
         left: "1",
         top: "50"
-      },
+      },//06
       //card style
 {
   
@@ -9348,6 +9348,17 @@ export const Templates = [
   type: "card",
   priority: "0",
   lang: "en",
+  
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
 },
     ],
     old_css: cssTeamType1,

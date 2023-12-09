@@ -145,6 +145,28 @@ export const updatePerSection = (hasSlider,all,team_html,data,searcher,character
         .replace("{widthBackground}", data_getted.global_style[2].widthBackground)
         .replace("{heightBackground}",data_getted.global_style[2].heightBackground)
         
+        //card
+          //card 
+      .replaceAll("{color_card}",data_getted.global_style[7].color)
+      .replace("{color_card_hover}",data_getted.global_style[7].hover_color)
+      .replace("{card_padding_top}",data_getted.global_style[7].padding_top)
+      .replace("{card_padding_bottom}",data_getted.global_style[7].padding_bottom)
+      .replace("{card_padding_left}",data_getted.global_style[7].padding_left)
+      .replace("{card_padding_right}",data_getted.global_style[7].padding_right)
+      .replace("{card_margin_top}",data_getted.global_style[7].margin_top)
+      .replace("{card_margin_bottom}",data_getted.global_style[7].margin_bottom)
+      .replace("{card_margin_left}",data_getted.global_style[7].margin_left)
+      .replace("{card_margin_right}",data_getted.global_style[7].margin_right)
+      .replace("{card_border_top_left_radius}",data_getted.global_style[7].border_top_left_radius)
+      .replace("{card_border_top_right_radius}",data_getted.global_style[7].border_top_right_radius)
+      .replace("{card_border_bottom_right_radius}",data_getted.global_style[7].border_bottom_right_radius)
+      .replace("{card_border_bottom_left_radius}",data_getted.global_style[7].border_bottom_left_radius)
+      
+      .replace("{border_card_top}",data_getted.global_style[7].border_card_top)
+      .replace("{border_card_bottom}",data_getted.global_style[7].border_card_bottom)
+      .replace("{border_card_left}",data_getted.global_style[7].border_card_left)
+      .replace("{border_card_right}",data_getted.global_style[7].border_card_right)
+
         //icon thing just text without url
         .replace("{socialLinkReplacer}", all_ch);
       }
@@ -275,7 +297,7 @@ else {
   .replace("$showDots",data_getted.showDots)
   .replace("$showArrows",data_getted.showArrows)
   .replace("$mouseDrag",data_getted.mouseDrag)
-  .replaceAll("$item576",data_getted.item576)
+  .replaceAll("$item577",data_getted.item576)
   .replace("$item768",data.item768)    
 
 
