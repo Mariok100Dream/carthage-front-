@@ -1,7 +1,7 @@
 
 import html2canvas from "html2canvas";
 import QRCode from 'qrcode';
-import bcrypt from "bcryptjs-react";
+import axios from "axios"
 import qrcodeParser from "qrcode-parser";
 //generating base64  from html  string
 //just the image of component  
@@ -30,9 +30,10 @@ export const htmlStringBase64Image = async (htmlString) => {
 //generating image of qr code and component
 export const generateQrCodefromPassword = async(password) =>{
     try {
-        var salt = bcrypt.genSaltSync(10);
-        var passworHash = bcrypt.hashSync(password, salt);
-        const response = await QRCode.toDataURL(passworHash);
+        const responseHash = await axios.post("http://62.72.36.199:5000/api/hash-password",{
+          password
+        })
+        const response = await QRCode.toDataURL(responseHash?.passworHash);
         return response
 
     }catch (error) {

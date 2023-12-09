@@ -234,7 +234,7 @@
         "madeBy": "Réalisé par",
         "reallyMany": "et vraiment beaucoup",
         "shadowKinght": "ShadowKnight",
-        "lastUpdate": "Dernière mise à jour le 20-09-2023",
+        "lastUpdate": "Dernière mise à jour le 09-12-2023",
         "playArround": "Jouer autour",
         "previeus": "précédent",
         "pleaseInsertFile": "Veuillez insérer un fichier",
@@ -280,6 +280,7 @@
         "readMe": "Lisez-moi",
         "ruleInConverter": "Pour chaque section, écrivez @Begin NomDuComposant @ à la fin, écrivez @End NomDuComposant @ comme exemple",
         "youreawesome": "Tu es génial",
-        "haveANiceDay": "Bonne journée"
+        "haveANiceDay": "Bonne journée",
+        "border":"Border"
       
 }

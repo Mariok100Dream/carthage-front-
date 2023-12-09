@@ -7927,7 +7927,7 @@ export const Templates = [
     section_data: htmlTeamType1,
     section_css: cssTeamType1,
     progress: 51,
-    lastUpdate: "05-09-2023",
+    lastUpdate: "09-12-2023",
     js_data: ``,
 
     css_responsive: `
@@ -8120,13 +8120,13 @@ export const Templates = [
 //card style
 {
   id: "54740a62-905e-11ee-b9d1-0242ac120002",
-  content: "card",
+  content: "card content",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -8134,6 +8134,17 @@ export const Templates = [
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
+
 },
 
 
@@ -8268,10 +8279,10 @@ export const Templates = [
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -8279,6 +8290,17 @@ export const Templates = [
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
+
 },
         ]
       },
@@ -8405,10 +8427,10 @@ export const Templates = [
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -8416,6 +8438,17 @@ export const Templates = [
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
+
 },
         ]
       },
@@ -8544,10 +8577,10 @@ export const Templates = [
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -8555,6 +8588,18 @@ export const Templates = [
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
+
+  
 },
         ]
       },
@@ -8683,10 +8728,10 @@ export const Templates = [
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -8694,6 +8739,17 @@ export const Templates = [
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
+
 },
         ]
       },
@@ -8822,10 +8878,10 @@ export const Templates = [
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -8833,6 +8889,17 @@ export const Templates = [
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
+
 },
         ]
       },
@@ -8961,10 +9028,10 @@ export const Templates = [
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -8972,6 +9039,17 @@ export const Templates = [
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
+
 },
         ]
       },
@@ -9050,10 +9128,13 @@ export const Templates = [
       },
       `,
     ch_slider_code_js_hide: ``,
+  
     team_html: `
       <!-- begin section call -->
       <div   class="$section_caller">
-              <div class="memberTeatType1-card">
+              <div class="memberTeatType1-card"
+              
+              >
                 <div class="memberTeatType1-img">
                   <a 
                   class="aTeatType1"
@@ -9077,7 +9158,25 @@ export const Templates = [
                     alt="memberTeatType1 Images" />
                     </div>
                   </a>
-                  <div class="memberTeatType1-content">
+                  <div class="memberTeatType1-content"
+                  style="background-color:{color_card};
+             padding-top:{card_padding_top};
+              padding-bottom:{card_padding_bottom};padding-left:{card_padding_left};
+              padding-right:{card_padding_right};margin-top:{card_margin_top};
+              margin-bottom:{card_margin_bottom};margin-left:{card_margin_left};
+              margin-right:{card_margin_right};position: absolute;
+              bottom: 0;
+              border-top-left-radius:{card_border_top_left_radius};
+                    border-top-right-radius:{card_border_top_right_radius};
+                    border-bottom-right-radius:{card_border_bottom_right_radius};
+                    border-bottom-left-radius:{card_border_bottom_left_radius};
+                    border-top:{border_card_top};border-bottom:{border_card_bottom};
+                    border-left:{border_card_left};border-right:{border_card_right};
+
+              "
+              onmouseover='this.style.backgroundColor="{color_card_hover}"'
+              onmouseout='this.style.backgroundColor="{color_card}"'
+                  >
                     <a 
                     class="aTeatType1"
                     >
@@ -9607,7 +9706,7 @@ export const Templates = [
     status: "New Order",
     section_name: "Team Type 5",
     progress: 21,
-    lastUpdate: "04-09-2023",
+    lastUpdate: "09-12-2023",
     time: "8 hrs",
     days: "5 days left",
     section_image: screenshootteamtype5,
@@ -9804,17 +9903,27 @@ export const Templates = [
             content: "card",
             color: "#000000",
             hover_color: "#ffffff",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
+            padding_top: "26px",
+            padding_bottom: "26px",
+            padding_left: "10px",
+            padding_right: "10px",
+            margin_top: "-50px",
             margin_bottom: "0px",
-            margin_left: "0px",
+            margin_left: "30px",
             margin_right: "0px",
             type: "card",
             priority: "0",
             lang: "en",
+            isMarginShowing:false,
+            isPaddingSHowing:true,
+            border_top_left_radius: "15px",
+            border_top_right_radius: "15px",
+            border_bottom_right_radius: "15px",
+            border_bottom_left_radius: "15px",
+            border_card_top:"1px none #FF0000",
+            border_card_bottom:"1px none #FF0000",
+            border_card_left:"1px none #FF0000",
+            border_card_right:"1px none #FF0000"
           },
 
         ]
@@ -9962,17 +10071,27 @@ export const Templates = [
             content: "card",
             color: "#000000",
             hover_color: "#ffffff",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
+            padding_top: "26px",
+            padding_bottom: "26px",
+            padding_left: "10px",
+            padding_right: "10px",
+            margin_top: "-50px",
             margin_bottom: "0px",
-            margin_left: "0px",
+            margin_left: "-50px",
             margin_right: "0px",
             type: "card",
             priority: "0",
             lang: "en",
+            isMarginShowing:false,
+            isPaddingSHowing:true,
+            border_top_left_radius: "15px",
+            border_top_right_radius: "15px",
+            border_bottom_right_radius: "15px",
+            border_bottom_left_radius: "15px",
+            border_card_top:"1px none #FF0000",
+            border_card_bottom:"1px none #FF0000",
+            border_card_left:"1px none #FF0000",
+            border_card_right:"1px none #FF0000"
           },
         ]
       },
@@ -10115,17 +10234,27 @@ export const Templates = [
             content: "card",
             color: "#000000",
             hover_color: "#ffffff",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
+            padding_top: "26px",
+            padding_bottom: "26px",
+            padding_left: "10px",
+            padding_right: "10px",
+            margin_top: "-50px",
             margin_bottom: "0px",
-            margin_left: "0px",
+            margin_left: "-50px",
             margin_right: "0px",
             type: "card",
             priority: "0",
             lang: "en",
+            isMarginShowing:false,
+            isPaddingSHowing:true,
+            border_top_left_radius: "15px",
+            border_top_right_radius: "15px",
+            border_bottom_right_radius: "15px",
+            border_bottom_left_radius: "15px",
+            border_card_top:"1px none #FF0000",
+            border_card_bottom:"1px none #FF0000",
+            border_card_left:"1px none #FF0000",
+            border_card_right:"1px none #FF0000"
           },
         ]
       },
@@ -10266,17 +10395,27 @@ export const Templates = [
             content: "card",
             color: "#000000",
             hover_color: "#ffffff",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
+            padding_top: "26px",
+            padding_bottom: "26px",
+            padding_left: "10px",
+            padding_right: "10px",
+            margin_top: "-50px",
             margin_bottom: "0px",
-            margin_left: "0px",
+            margin_left: "-50px",
             margin_right: "0px",
             type: "card",
             priority: "0",
             lang: "en",
+            isMarginShowing:false,
+            isPaddingSHowing:true,
+            border_top_left_radius: "15px",
+            border_top_right_radius: "15px",
+            border_bottom_right_radius: "15px",
+            border_bottom_left_radius: "15px",
+            border_card_top:"1px none #FF0000",
+            border_card_bottom:"1px none #FF0000",
+            border_card_left:"1px none #FF0000",
+            border_card_right:"1px none #FF0000"
           },
         ]
       }
@@ -10376,7 +10515,21 @@ responsive: {
               </div>
                
               </div>
-              <div class="team-contentTeamType5">
+              <div class="team-contentTeamType5"
+              style="background-color:{color_card};
+              padding-top:{card_padding_top};
+               padding-bottom:{card_padding_bottom};padding-left:{card_padding_left};
+               padding-right:{card_padding_right};position: relative;
+               max-width: 248px; border-top-left-radius:{card_border_top_left_radius};
+               border-top-right-radius:{card_border_top_right_radius};
+               border-bottom-right-radius:{card_border_bottom_right_radius};
+               border-bottom-left-radius:{card_border_bottom_left_radius};
+               border-top:{border_card_top};border-bottom:{border_card_bottom};
+           border-left:{border_card_left};border-right:{border_card_right};
+
+         "
+               onmouseover='this.style.backgroundColor="{color_card_hover}"'
+               onmouseout='this.style.backgroundColor="{color_card}"'>
                 <div class="box-particleTeamType5" id="team-p1"></div>
                 <div class="team-socialTeamType5">
                   {socialLinkReplacer}
@@ -11501,7 +11654,7 @@ responsive: {
     status: "New Order",
     section_name: "Team Type 2",
     progress: 21,
-    lastUpdate: "04-09-2023",
+    lastUpdate: "09-12-2023",
     time: "8 hrs",
     days: "5 days left",
     section_image: screenshotTeamType2,
@@ -11617,7 +11770,7 @@ responsive: {
             border_bottom_right_radius: "0px",
             border_bottom_left_radius: "0px",
             width: "340px",
-            height: "320px",
+            height: "400px",
             margin_top: "0px",
             margin_bottom: "0px",
             margin_left: "0px",
@@ -11699,10 +11852,10 @@ responsive: {
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -11710,6 +11863,16 @@ responsive: {
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
 },
 
         ]
@@ -11770,7 +11933,7 @@ responsive: {
             border_bottom_right_radius: "0px",
             border_bottom_left_radius: "0px",
             width: "340px",
-            height: "320px",
+            height: "400px",
             margin_top: "0px",
             margin_bottom: "0px",
             margin_left: "0px",
@@ -11852,10 +12015,10 @@ responsive: {
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -11863,6 +12026,16 @@ responsive: {
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
 },
 
         ]
@@ -11920,7 +12093,7 @@ responsive: {
             border_bottom_right_radius: "0px",
             border_bottom_left_radius: "0px",
             width: "340px",
-            height: "320px",
+            height: "400px",
             margin_top: "0px",
             margin_bottom: "0px",
             margin_left: "0px",
@@ -11985,10 +12158,10 @@ responsive: {
   content: "card",
   color: "#000000",
   hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
+  padding_top: "20px",
+  padding_bottom: "20px",
+  padding_left: "20px",
+  padding_right: "20px",
   margin_top: "20px",
   margin_bottom: "0px",
   margin_left: "0px",
@@ -11996,6 +12169,16 @@ responsive: {
   type: "card",
   priority: "0",
   lang: "en",
+  isMarginShowing:true,
+  isPaddingSHowing:true,
+  border_top_left_radius: "15px",
+  border_top_right_radius: "15px",
+  border_bottom_right_radius: "0px",
+  border_bottom_left_radius: "0px",
+  border_card_top:"1px none #FF0000",
+  border_card_bottom:"1px none #FF0000",
+  border_card_left:"1px none #FF0000",
+  border_card_right:"1px none #FF0000"
 },
         ]
       },
@@ -12092,7 +12275,7 @@ responsive: {
               border-bottom-left-radius:{border_bottom_left_radius};
               margin-top:{margin_top_image};margin-bottom:{margin_bottom_image};
               margin-left:{margin_left_image};margin-right:{margin_right_image};
-              height:320px !important;width: 100%;
+              height:400px !important;width: 100%;
               "
               class="imgTeamType2"
               alt="Team">
@@ -12102,7 +12285,25 @@ responsive: {
                 {socialLinkReplacer}
                   </ul>
           </div>
-          <div class="team-contentTeamType2">
+          <div class="team-contentTeamType2"
+          style="background-color:{color_card};
+          padding-top:{card_padding_top};
+           padding-bottom:{card_padding_bottom};padding-left:{card_padding_left};
+           padding-right:{card_padding_right};margin-top:{card_margin_top};
+           margin-bottom:{card_margin_bottom};margin-left:{card_margin_left};
+           margin-right:{card_margin_right};position: absolute;
+           bottom: 0;width:100%;
+           border-top-left-radius:{card_border_top_left_radius};
+           border-top-right-radius:{card_border_top_right_radius};
+           border-bottom-right-radius:{card_border_bottom_right_radius};
+           border-bottom-left-radius:{card_border_bottom_left_radius};
+           border-top:{border_card_top};border-bottom:{border_card_bottom};
+           border-left:{border_card_left};border-right:{border_card_right};
+
+           "
+           onmouseover='this.style.backgroundColor="{color_card_hover}"'
+           onmouseout='this.style.backgroundColor="{color_card}"'
+          >
               <h3 class="team-nameTeamType2 h3TeamType2">
                 <a  class="aTeamType2"
                 style="color:{color_title};font-family:{font_family};
@@ -12337,7 +12538,7 @@ style="font-size:{font_size_icon};color:{color_icon};"
     id: "61",
     status: "New Order",
     progress: 21,
-    lastUpdate: "04-09-2023",
+    lastUpdate: "09-12-2023",
     section_name: "Team Type 3",
     time: "8 hrs",
     days: "5 days left",
@@ -12539,6 +12740,16 @@ style="font-size:{font_size_icon};color:{color_icon};"
             type: "card",
             priority: "0",
             lang: "en",
+            isMarginShowing:true,
+            isPaddingSHowing:false,
+            border_top_left_radius: "15px",
+            border_top_right_radius: "15px",
+            border_bottom_right_radius: "0px",
+            border_bottom_left_radius: "0px",
+            border_card_top:"1px none #FF0000",
+            border_card_bottom:"1px none #FF0000",
+            border_card_left:"1px none #FF0000",
+            border_card_right:"1px none #FF0000"
           },
 
         ]
@@ -12696,6 +12907,16 @@ style="font-size:{font_size_icon};color:{color_icon};"
             type: "card",
             priority: "0",
             lang: "en",
+            isMarginShowing:true,
+            isPaddingSHowing:false,
+            border_top_left_radius: "15px",
+            border_top_right_radius: "15px",
+            border_bottom_right_radius: "0px",
+            border_bottom_left_radius: "0px",
+            border_card_top:"1px none #FF0000",
+            border_card_bottom:"1px none #FF0000",
+            border_card_left:"1px none #FF0000",
+            border_card_right:"1px none #FF0000"
           },
         ]
       },
@@ -12830,6 +13051,16 @@ style="font-size:{font_size_icon};color:{color_icon};"
             type: "card",
             priority: "0",
             lang: "en",
+            isMarginShowing:true,
+            isPaddingSHowing:false,
+            border_top_left_radius: "15px",
+            border_top_right_radius: "15px",
+            border_bottom_right_radius: "0px",
+            border_bottom_left_radius: "0px",
+            border_card_top:"1px none #FF0000",
+            border_card_bottom:"1px none #FF0000",
+            border_card_left:"1px none #FF0000",
+            border_card_right:"1px none #FF0000"
           },
         ]
       },
@@ -12930,7 +13161,20 @@ style="font-size:{font_size_icon};color:{color_icon};"
         </div>
           </a>
       </div>
-      <div class="team-contentTeamType3">
+      <div class="team-contentTeamType3"
+      style="background-color:{color_card};
+      margin-top:{card_margin_top};
+           margin-bottom:{card_margin_bottom};margin-left:{card_margin_left};
+           margin-right:{card_margin_right};position: absolute;
+           bottom: 0;width:100%;
+           border-top-left-radius:{card_border_top_left_radius};
+           border-top-right-radius:{card_border_top_right_radius};
+           border-bottom-right-radius:{card_border_bottom_right_radius};
+           border-bottom-left-radius:{card_border_bottom_left_radius};
+           "
+           onmouseover='this.style.backgroundColor="{color_card_hover}"'
+           onmouseout='this.style.backgroundColor="{color_card}"'
+      >
           <div class="team-infoTeamType3">
               <div class="nameTeamType3">
                   <a 
@@ -13173,957 +13417,1007 @@ style="font-size:{font_size_icon};color:{color_icon};"
   },
 
 
-  {
-    id: "62",
-    status: "New Order",
-    section_name: "Team Type 4",
-    progress: 21,
-    lastUpdate: "04-09-2023",
-    time: "8 hrs",
-    days: "5 days left",
-    section_image: screenshotTeamType4,
-    section_data: htmlTeamType4,
-    section_css: cssTeamType4,
-    js_data: ``,
+//   {
+//     id: "62",
+//     status: "New Order",
+//     section_name: "Team Type 4",
+//     progress: 21,
+//     lastUpdate: "04-09-2023",
+//     time: "8 hrs",
+//     days: "5 days left",
+//     section_image: screenshotTeamType4,
+//     section_data: htmlTeamType4,
+//     section_css: cssTeamType4,
+//     js_data: ``,
 
-    video_url: "https://res.cloudinary.com/dbou9rqjw/video/upload/v1674930439/navbartype2_cxgvbg.wmv",
-    css_responsive: `
-      @media (min-width:320px)  {
-        /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+//     video_url: "https://res.cloudinary.com/dbou9rqjw/video/upload/v1674930439/navbartype2_cxgvbg.wmv",
+//     css_responsive: `
+//       @media (min-width:320px)  {
+//         /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
     
-        .team-sectionTeam4{
-         display: {phoneContainerDisplay};
-       }
-       }
-     @media (min-width:480px)  { 
-       /* smartphones, Android phones, landscape iPhone */ 
-       .team-sectionTeam4{
-         display: {phoneContainerDisplay};
-       }
-     }
-     @media (min-width:600px)  { 
-       /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-       .team-sectionTeam4{
-         display: {tabletContainerDisplay};
-       } 
-     }
-     @media (min-width:801px)  { 
-       /* tablet, landscape iPad, lo-res laptops ands desktops */ 
-       .team-sectionTeam4{
-         display: {phoneContainerDisplay};
-       }
-     }
-     @media (min-width:1025px) { 
-       /* big landscape tablets, laptops, and desktops */
-       .team-sectionTeam4{
-         display: {descktopContainerDisplay};
-       }
-      }
-     @media (min-width:1281px) { 
-       /* hi-res laptops and desktops */
-       .team-sectionTeam4{
-         display: {descktopContainerDisplay};
-       }
-     }
-      `,
-    title_text: `Lorem ipsum dolor sit amet consectetur adipisicing elit.`,
-    title_text_lang: "en",
-    description_text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto .`,
-    description_lang: "en",
-    data_team: [
-      {
-        id: "1", content: "number 1",
-        children: [
-          {
-            id: "5", content: "title",
-            text: "Si Bechir",
-            color: "#000000",
-            hover_color: "#ffffff",
-            font_family: "'Poppins', sans-serif",
-            font_size: "20px",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            text_align: "center",
-            type: "title",
-            priority: "0",
-            lang: "en",
-          },
+//         .team-sectionTeam4{
+//          display: {phoneContainerDisplay};
+//        }
+//        }
+//      @media (min-width:480px)  { 
+//        /* smartphones, Android phones, landscape iPhone */ 
+//        .team-sectionTeam4{
+//          display: {phoneContainerDisplay};
+//        }
+//      }
+//      @media (min-width:600px)  { 
+//        /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+//        .team-sectionTeam4{
+//          display: {tabletContainerDisplay};
+//        } 
+//      }
+//      @media (min-width:801px)  { 
+//        /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+//        .team-sectionTeam4{
+//          display: {phoneContainerDisplay};
+//        }
+//      }
+//      @media (min-width:1025px) { 
+//        /* big landscape tablets, laptops, and desktops */
+//        .team-sectionTeam4{
+//          display: {descktopContainerDisplay};
+//        }
+//       }
+//      @media (min-width:1281px) { 
+//        /* hi-res laptops and desktops */
+//        .team-sectionTeam4{
+//          display: {descktopContainerDisplay};
+//        }
+//      }
+//       `,
+//     title_text: `Lorem ipsum dolor sit amet consectetur adipisicing elit.`,
+//     title_text_lang: "en",
+//     description_text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto .`,
+//     description_lang: "en",
+//     data_team: [
+//       {
+//         id: "1", content: "number 1",
+//         children: [
+//           {
+//             id: "5", content: "title",
+//             text: "Si Bechir",
+//             color: "#000000",
+//             hover_color: "#ffffff",
+//             font_family: "'Poppins', sans-serif",
+//             font_size: "20px",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "20px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             text_align: "center",
+//             type: "title",
+//             priority: "0",
+//             lang: "en",
+//           },
 
-          {
-            id: "6",
-            content: "description",
-            type: "description",
-            text: "Friend",
-            color: "#666666",
-            hover_color: "#ffffff",
-            font_family: "'Poppins', sans-serif",
-            font_size: "14px",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "6px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            text_align: "center",
-            priority: "0",
-            lang: "en",
-          },
-          {
-            id: "13", content: "Image",
-            type: "image",
-            text: firstImageTeam4,
-            color: "hover", hover_color: "hoverme",
-            border_top_left_radius: "20px",
-            border_top_right_radius: "20px",
-            border_bottom_right_radius: "0px",
-            border_bottom_left_radius: "0px",
-            width: "100%",
-            height: "100%",
-            margin_top: "0px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            background_img: "white",
-            widthBackground: "100%",
-            heightBackground: "100%"
-          },
+//           {
+//             id: "6",
+//             content: "description",
+//             type: "description",
+//             text: "Friend",
+//             color: "#666666",
+//             hover_color: "#ffffff",
+//             font_family: "'Poppins', sans-serif",
+//             font_size: "14px",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "6px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             text_align: "center",
+//             priority: "0",
+//             lang: "en",
+//           },
+//           {
+//             id: "13", content: "Image",
+//             type: "image",
+//             text: firstImageTeam4,
+//             color: "hover", hover_color: "hoverme",
+//             border_top_left_radius: "20px",
+//             border_top_right_radius: "20px",
+//             border_bottom_right_radius: "0px",
+//             border_bottom_left_radius: "0px",
+//             width: "100%",
+//             height: "100%",
+//             margin_top: "0px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             background_img: "white",
+//             widthBackground: "100%",
+//             heightBackground: "100%"
+//           },
 
-          {
-            id: "14", content: "Social links",
-            type: "sociallinks",
-            text: "decriptionhello", color: "hover", hover_color: "hoverme",
-            social_media_data: [
-              {
-                name: "Facebook", url: "https://www.facebook.com/",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
+//           {
+//             id: "14", content: "Social links",
+//             type: "sociallinks",
+//             text: "decriptionhello", color: "hover", hover_color: "hoverme",
+//             social_media_data: [
+//               {
+//                 name: "Facebook", url: "https://www.facebook.com/",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
 
-              {
-                name: "Instagram", url: "https://Instagram.com",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
-
-
-
-
-              {
-                name: "Behance", url: "https://Behance.com/?lang=fr",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
-
-
-
-            ]
-
-
-          },
-
-          {
-            id: "92e11f16-905d-11ee-b9d1-0242ac120002",
-            content: "card",
-            color: "#000000",
-            hover_color: "#ffffff",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            type: "card",
-            priority: "0",
-            lang: "en",
-          },
-
-        ]
-      },
-
-
-
-      {
-        id: "2", content: "number 2",
-        children: [
-
-          {
-            id: "7", content: "title",
-            type: "title",
-            text: "Shadow",
-            color: "#000000",
-            hover_color: "#ffffff",
-            font_family: "'Poppins', sans-serif",
-            font_size: "20px",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            text_align: "center",
-            priority: "0",
-            lang: "en",
-          },
-          {
-            id: "8",
-            type: "description",
-            content: "description", text: "Shadow ",
-            color: "#666666",
-            hover_color: "#ffffff",
-            font_family: "'Poppins', sans-serif",
-            font_size: "14px",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "6px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            text_align: "center",
-            priority: "0",
-            lang: "en",
-          },
-          {
-            id: "16", content: "Image",
-            type: "image",
-            text: eightImageTeam4,
-             color: "hover", hover_color: "hoverme",
-            border_top_left_radius: "20px",
-            border_top_right_radius: "20px",
-            border_bottom_right_radius: "0px",
-            border_bottom_left_radius: "0px",
-            width: "100%",
-            height: "100%",
-            margin_top: "0px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            background_img: "white",
-            widthBackground: "100%",
-            heightBackground: "100%"
-          },
-
-          {
-            id: "17", content: "Social links",
-            type: "sociallinks",
-            text: "decriptionhello",
-            social_media_data: [
-              {
-                name: "Facebook", url: "https://www.facebook.com/",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
-
-              {
-                name: "Instagram", url: "https://Instagram.com",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
+//               {
+//                 name: "Instagram", url: "https://Instagram.com",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
 
 
 
 
-              {
-                name: "Behance", url: "https://Behance.com/?lang=fr",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
+//               {
+//                 name: "Behance", url: "https://Behance.com/?lang=fr",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
 
 
 
-            ],
+//             ]
 
 
-            color: "hover", hover_color: "hoverme"
-          },
-          //card style
-          {
-            id: "c53942fe-905d-11ee-b9d1-0242ac120002",
-            content: "card",
-            color: "#000000",
-            hover_color: "#ffffff",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            type: "card",
-            priority: "0",
-            lang: "en",
-          },
+//           },
 
-        ]
-      },
+//           {
+//             id: "92e11f16-905d-11ee-b9d1-0242ac120002",
+//             content: "card",
+//             color: "#000000",
+//             hover_color: "#ffffff",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "20px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             type: "card",
+//             priority: "0",
+//             lang: "en",
+//             isPaddingSHowing:true,
+//             isMarginShowing:true,
+//             border_top_left_radius: "15px",
+//             border_top_right_radius: "15px",
+//             border_bottom_right_radius: "0px",
+//             border_bottom_left_radius: "0px",
+//             border_card_top:"1px none #FF0000",
+//             border_card_bottom:"1px none #FF0000",
+//             border_card_left:"1px none #FF0000",
+//             border_card_right:"1px none #FF0000"
+//           },
 
-
-
-
-
-      {
-        id: "3", content: "number 3",
-        children: [
-          {
-            id: "9", content: "title",
-            text: "Yanes", color: "#000000",
-            hover_color: "#ffffff",
-            font_family: "'Poppins', sans-serif",
-            font_size: "20px",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            text_align: "center",
-            type: "title",
-            priority: "0",
-            lang: "en",
-          },
-
-          {
-            id: "10",
-            type: "description",
-            content: "description", text: "Friend",
-            color: "#666666",
-            hover_color: "#ffffff",
-            font_family: "'Poppins', sans-serif",
-            font_size: "14px",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "6px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            text_align: "center",
-            priority: "0",
-            lang: "en",
-          },
-          {
-            id: "19", content: "Image",
-            type: "image",
-            text:secondImageTeam4 ,
-             color: "hover", hover_color: "hoverme",
-            border_top_left_radius: "20px",
-            border_top_right_radius: "20px",
-            border_bottom_right_radius: "0px",
-            border_bottom_left_radius: "0px",
-            width: "100%",
-            height: "100%",
-            margin_top: "0px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            background_img: "white",
-            widthBackground: "100%",
-            heightBackground: "100%"
-          },
-          {
-            id: "20", content: "Social links",
-            type: "sociallinks",
-            social_media_data: [
-              {
-                name: "Facebook", url: "https://www.facebook.com/",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
-
-              {
-                name: "Twitter", url: "https://twitter.com/?lang=fr",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
-
-              {
-                name: "Instagram", url: "https://www.instagram.com/",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-
-              },
-
-            ],
-            text: "decriptionhello", color: "hover", hover_color: "hoverme"
-          },
-  //card style
-  {
-    id: "de9be468-905d-11ee-b9d1-0242ac120002",
-    content: "card",
-    color: "#000000",
-    hover_color: "#ffffff",
-    padding_top: "0px",
-    padding_bottom: "0px",
-    padding_left: "0px",
-    padding_right: "0px",
-    margin_top: "20px",
-    margin_bottom: "0px",
-    margin_left: "0px",
-    margin_right: "0px",
-    type: "card",
-    priority: "0",
-    lang: "en",
-  },
-        ]
-      },
+//         ]
+//       },
 
 
 
-      {
-        id: "4", content: "number 4",
-        children: [
-          {
-            id: "11", content: "title",
-            text: "Mohamed Yosri",
-            color: "#000000",
-            hover_color: "#ffffff",
-            font_family: "'Poppins', sans-serif",
-            font_size: "20px",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "20px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            text_align: "center",
-            type: "title",
-            priority: "0",
-            lang: "en",
-          },
-          {
-            id: "12",
-            type: "description",
-            content: "description", text: "Brother",
-            color: "#666666",
-            hover_color: "#ffffff",
-            font_family: "'Poppins', sans-serif",
-            font_size: "14px",
-            padding_top: "0px",
-            padding_bottom: "0px",
-            padding_left: "0px",
-            padding_right: "0px",
-            margin_top: "6px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            text_align: "center",
-            priority: "0",
-            lang: "en",
-          },
-          {
-            id: "22", content: "Image",
-            type: "image",
-            text:fourthImageTeam4,
-            color: "hover", hover_color: "hoverme",
-            border_top_left_radius: "20px",
-            border_top_right_radius: "20px",
-            border_bottom_right_radius: "0px",
-            border_bottom_left_radius: "0px",
-            width: "100%",
-            height: "100%",
-            margin_top: "0px",
-            margin_bottom: "0px",
-            margin_left: "0px",
-            margin_right: "0px",
-            background_img: "white",
-            widthBackground: "100%",
-            heightBackground: "100%"
-          },
-          {
-            id: "23", content: "Social links",
-            type: "sociallinks",
-            social_media_data: [
-              {
-                name: "Facebook", url: "https://www.facebook.com/",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
+//       {
+//         id: "2", content: "number 2",
+//         children: [
 
-              {
-                name: "Twitter", url: "https://twitter.com/?lang=fr",
+//           {
+//             id: "7", content: "title",
+//             type: "title",
+//             text: "Shadow",
+//             color: "#000000",
+//             hover_color: "#ffffff",
+//             font_family: "'Poppins', sans-serif",
+//             font_size: "20px",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "20px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             text_align: "center",
+//             priority: "0",
+//             lang: "en",
+//           },
+//           {
+//             id: "8",
+//             type: "description",
+//             content: "description", text: "Shadow ",
+//             color: "#666666",
+//             hover_color: "#ffffff",
+//             font_family: "'Poppins', sans-serif",
+//             font_size: "14px",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "6px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             text_align: "center",
+//             priority: "0",
+//             lang: "en",
+//           },
+//           {
+//             id: "16", content: "Image",
+//             type: "image",
+//             text: eightImageTeam4,
+//              color: "hover", hover_color: "hoverme",
+//             border_top_left_radius: "20px",
+//             border_top_right_radius: "20px",
+//             border_bottom_right_radius: "0px",
+//             border_bottom_left_radius: "0px",
+//             width: "100%",
+//             height: "100%",
+//             margin_top: "0px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             background_img: "white",
+//             widthBackground: "100%",
+//             heightBackground: "100%"
+//           },
 
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
+//           {
+//             id: "17", content: "Social links",
+//             type: "sociallinks",
+//             text: "decriptionhello",
+//             social_media_data: [
+//               {
+//                 name: "Facebook", url: "https://www.facebook.com/",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
 
-              {
-                name: "Instagram", url: "https://www.instagram.com/",
-                font_size_container_icon: "15px",
-                font_size_icon: "25px",
-                color_icon: "#ffffff",
-                color_icon_hover: "white",
-                borderRadiusTopLeft: "0%",
-                borderRadiusTopRight: "0%",
-                borderRadiusBottomLeft: "0%",
-                borderRadiusBottomRight: "0%",
-                widthIcon: "36px",
-                heightIcon: "36px"
-              },
+//               {
+//                 name: "Instagram", url: "https://Instagram.com",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
 
-            ],
-            text: "decriptionhello", color: "hover", hover_color: "hoverme"
-          },
- //card style
- {
-  id: "08f8208c-905e-11ee-b9d1-0242ac120002",
-  content: "card",
-  color: "#000000",
-  hover_color: "#ffffff",
-  padding_top: "0px",
-  padding_bottom: "0px",
-  padding_left: "0px",
-  padding_right: "0px",
-  margin_top: "20px",
-  margin_bottom: "0px",
-  margin_left: "0px",
-  margin_right: "0px",
-  type: "card",
-  priority: "0",
-  lang: "en",
-},
-        ]
-      }
 
-    ],
-    normale_call_section: "team-blockTeam4 col-lg-3 col-md-6 col-sm-12",
-    html_element_parent_for_slider_hide: `
-      $slider
-      class="row clearfix"
-      style="padding-top: 45px;"
+
+
+//               {
+//                 name: "Behance", url: "https://Behance.com/?lang=fr",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
+
+
+
+//             ],
+
+
+//             color: "hover", hover_color: "hoverme"
+//           },
+//           //card style
+//           {
+//             id: "c53942fe-905d-11ee-b9d1-0242ac120002",
+//             content: "card",
+//             color: "#000000",
+//             hover_color: "#ffffff",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "20px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             type: "card",
+//             priority: "0",
+//             lang: "en",
+//             isPaddingSHowing:true,
+//             isMarginShowing:true,
+//             border_top_left_radius: "15px",
+//             border_top_right_radius: "15px",
+//             border_bottom_right_radius: "0px",
+//             border_bottom_left_radius: "0px",
+//             border_card_top:"1px none #FF0000",
+//             border_card_bottom:"1px none #FF0000",
+//             border_card_left:"1px none #FF0000",
+//             border_card_right:"1px none #FF0000"
+//           },
+
+//         ]
+//       },
+
+
+
+
+
+//       {
+//         id: "3", content: "number 3",
+//         children: [
+//           {
+//             id: "9", content: "title",
+//             text: "Yanes", color: "#000000",
+//             hover_color: "#ffffff",
+//             font_family: "'Poppins', sans-serif",
+//             font_size: "20px",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "20px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             text_align: "center",
+//             type: "title",
+//             priority: "0",
+//             lang: "en",
+//           },
+
+//           {
+//             id: "10",
+//             type: "description",
+//             content: "description", text: "Friend",
+//             color: "#666666",
+//             hover_color: "#ffffff",
+//             font_family: "'Poppins', sans-serif",
+//             font_size: "14px",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "6px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             text_align: "center",
+//             priority: "0",
+//             lang: "en",
+//           },
+//           {
+//             id: "19", content: "Image",
+//             type: "image",
+//             text:secondImageTeam4 ,
+//              color: "hover", hover_color: "hoverme",
+//             border_top_left_radius: "20px",
+//             border_top_right_radius: "20px",
+//             border_bottom_right_radius: "0px",
+//             border_bottom_left_radius: "0px",
+//             width: "100%",
+//             height: "100%",
+//             margin_top: "0px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             background_img: "white",
+//             widthBackground: "100%",
+//             heightBackground: "100%"
+//           },
+//           {
+//             id: "20", content: "Social links",
+//             type: "sociallinks",
+//             social_media_data: [
+//               {
+//                 name: "Facebook", url: "https://www.facebook.com/",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
+
+//               {
+//                 name: "Twitter", url: "https://twitter.com/?lang=fr",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
+
+//               {
+//                 name: "Instagram", url: "https://www.instagram.com/",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+
+//               },
+
+//             ],
+//             text: "decriptionhello", color: "hover", hover_color: "hoverme"
+//           },
+//   //card style
+//   {
+//     id: "de9be468-905d-11ee-b9d1-0242ac120002",
+//     content: "card",
+//     color: "#000000",
+//     hover_color: "#ffffff",
+//     padding_top: "0px",
+//     padding_bottom: "0px",
+//     padding_left: "0px",
+//     padding_right: "0px",
+//     margin_top: "20px",
+//     margin_bottom: "0px",
+//     margin_left: "0px",
+//     margin_right: "0px",
+//     type: "card",
+//     priority: "0",
+//     lang: "en",
+//     isPaddingSHowing:true,
+//     isMarginShowing:true,
+//     border_top_left_radius: "15px",
+//     border_top_right_radius: "15px",
+//     border_bottom_right_radius: "0px",
+//     border_bottom_left_radius: "0px",
+//     border_card_top:"1px none #FF0000",
+//     border_card_bottom:"1px none #FF0000",
+//     border_card_left:"1px none #FF0000",
+//     border_card_right:"1px none #FF0000"
+//   },
+//         ]
+//       },
+
+
+
+//       {
+//         id: "4", content: "number 4",
+//         children: [
+//           {
+//             id: "11", content: "title",
+//             text: "Mohamed Yosri",
+//             color: "#000000",
+//             hover_color: "#ffffff",
+//             font_family: "'Poppins', sans-serif",
+//             font_size: "20px",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "20px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             text_align: "center",
+//             type: "title",
+//             priority: "0",
+//             lang: "en",
+//           },
+//           {
+//             id: "12",
+//             type: "description",
+//             content: "description", text: "Brother",
+//             color: "#666666",
+//             hover_color: "#ffffff",
+//             font_family: "'Poppins', sans-serif",
+//             font_size: "14px",
+//             padding_top: "0px",
+//             padding_bottom: "0px",
+//             padding_left: "0px",
+//             padding_right: "0px",
+//             margin_top: "6px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             text_align: "center",
+//             priority: "0",
+//             lang: "en",
+//           },
+//           {
+//             id: "22", content: "Image",
+//             type: "image",
+//             text:fourthImageTeam4,
+//             color: "hover", hover_color: "hoverme",
+//             border_top_left_radius: "20px",
+//             border_top_right_radius: "20px",
+//             border_bottom_right_radius: "0px",
+//             border_bottom_left_radius: "0px",
+//             width: "100%",
+//             height: "100%",
+//             margin_top: "0px",
+//             margin_bottom: "0px",
+//             margin_left: "0px",
+//             margin_right: "0px",
+//             background_img: "white",
+//             widthBackground: "100%",
+//             heightBackground: "100%"
+//           },
+//           {
+//             id: "23", content: "Social links",
+//             type: "sociallinks",
+//             social_media_data: [
+//               {
+//                 name: "Facebook", url: "https://www.facebook.com/",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
+
+//               {
+//                 name: "Twitter", url: "https://twitter.com/?lang=fr",
+
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
+
+//               {
+//                 name: "Instagram", url: "https://www.instagram.com/",
+//                 font_size_container_icon: "15px",
+//                 font_size_icon: "25px",
+//                 color_icon: "#ffffff",
+//                 color_icon_hover: "white",
+//                 borderRadiusTopLeft: "0%",
+//                 borderRadiusTopRight: "0%",
+//                 borderRadiusBottomLeft: "0%",
+//                 borderRadiusBottomRight: "0%",
+//                 widthIcon: "36px",
+//                 heightIcon: "36px"
+//               },
+
+//             ],
+//             text: "decriptionhello", color: "hover", hover_color: "hoverme"
+//           },
+//  //card style
+//  {
+//   id: "08f8208c-905e-11ee-b9d1-0242ac120002",
+//   content: "card",
+//   color: "#000000",
+//   hover_color: "#ffffff",
+//   padding_top: "0px",
+//   padding_bottom: "0px",
+//   padding_left: "0px",
+//   padding_right: "0px",
+//   margin_top: "20px",
+//   margin_bottom: "0px",
+//   margin_left: "0px",
+//   margin_right: "0px",
+//   type: "card",
+//   priority: "0",
+//   lang: "en",
+//   isPaddingSHowing:true,
+//   isMarginShowing:true,
+//   border_top_left_radius: "15px",
+//   border_top_right_radius: "15px",
+//   border_bottom_right_radius: "0px",
+//   border_bottom_left_radius: "0px",
+//   border_card_top:"1px none #FF0000",
+//   border_card_bottom:"1px none #FF0000",
+//   border_card_left:"1px none #FF0000",
+//   border_card_right:"1px none #FF0000"
+// },
+//         ]
+//       }
+
+//     ],
+//     normale_call_section: "team-blockTeam4 col-lg-3 col-md-6 col-sm-12",
+//     html_element_parent_for_slider_hide: `
+//       $slider
+//       class="row clearfix"
+//       style="padding-top: 45px;"
   
-      `,
-    html_element_parent_for_slider_show: `
-    $slider
-    style="padding-top: 45px;"
-    id="owl-carousel" class="row owl-carousel owl-theme"
-    `,
-    ch_slider_code_js_show: `
-    <script>
-      (function ($) {
-      $("#owl-carousel").owlCarousel({
-  animateOut: "animate__animated animate__slideOutDown",
-  animateIn: "animate__animated animate__slideInDown",
-  items: $item1200,
-  loop: true,
-  autoplay: $autoplay,
-  dots: $showDots,
-  nav: $showArrows,
-  rtl:false,
-  navText: [
-    "<i  class='fa fa-arrow-left'></i>",
-    "<i class='fa fa-arrow-right'></i>",
-  ],
-  autoHeight: true,
-  autoplaySpeed: 800,
-  mouseDrag: $mouseDrag,
-  autoplayHoverPause: true,
-  responsive: {
-    0: { items: $item576 },
-    576: { items: $item576 },
-    768: { items: $item768 },
-    1200: { items: $item1200 },
-  },
-});
+//       `,
+//     html_element_parent_for_slider_show: `
+//     $slider
+//     style="padding-top: 45px;"
+//     id="owl-carousel" class="row owl-carousel owl-theme"
+//     `,
+//     ch_slider_code_js_show: `
+//     <script>
+//       (function ($) {
+//       $("#owl-carousel").owlCarousel({
+//   animateOut: "animate__animated animate__slideOutDown",
+//   animateIn: "animate__animated animate__slideInDown",
+//   items: $item1200,
+//   loop: true,
+//   autoplay: $autoplay,
+//   dots: $showDots,
+//   nav: $showArrows,
+//   rtl:false,
+//   navText: [
+//     "<i  class='fa fa-arrow-left'></i>",
+//     "<i class='fa fa-arrow-right'></i>",
+//   ],
+//   autoHeight: true,
+//   autoplaySpeed: 800,
+//   mouseDrag: $mouseDrag,
+//   autoplayHoverPause: true,
+//   responsive: {
+//     0: { items: $item576 },
+//     576: { items: $item576 },
+//     768: { items: $item768 },
+//     1200: { items: $item1200 },
+//   },
+// });
 
-})(jQuery);
+// })(jQuery);
 
 
-</script>
+// </script>
 
-      `,
-    angular_object_to_export: `
-    animateOut: "animate__animated animate__slideOutDown",
-    animateIn: "animate__animated animate__slideInDown",
-    items: $item1200,
-    loop: true,
-    autoplay: $autoplay,
-    dots: $showDots,
-    nav: $showArrows,
-    navText: [
-      "<i  class='fa fa-arrow-left'></i>",
-      "<i class='fa fa-arrow-right'></i>",
-    ],
-    autoHeight: true,
-    autoplaySpeed: 800,
-    mouseDrag: $mouseDrag,
-    autoplayHoverPause: true,
-    responsive: {
-      0: { items: $item576 },
-      576: { items: $item576 },
-      768: { items: $item768 },
-      1200: { items: $item1200 },
-    },
-      `,
-    ch_slider_code_js_hide: ``,
-    team_html: `
-      <!-- begin section call -->
-      <div class="$section_caller">
-        <div
-          class="inner-boxTeam4 wow fadeInUp"
-       
-        >
-          <div class="imageTeam4" style="background-size: {widthBackground} {heightBackground} !important;background-repeat: no-repeat !important;background: {background_img};width: 100%;height: 100%;"
-          >
-            <!--ImageAndAssociatedText ^content_image | ^content_text -->
-            <img
-            src="{image}"
-            height="{height}"
-            width="{width}"
-            style="border-top-left-radius:{border_top_left_radius};
-            border-top-right-radius:{border_top_right_radius};
-            border-bottom-right-radius:{border_bottom_right_radius};
-            border-bottom-left-radius:{border_bottom_left_radius};
-            margin-top:{margin_top_image};margin-bottom:{margin_bottom_image};
-            margin-left:{margin_left_image};margin-right:{margin_right_image};"
-            class="imgTeam4"
-            alt="" />
-          </div>
-          <h5 
-          class="h5Team4"
-          style="color:{color_title};font-family:{font_family};
-                        font-size:{font_size};padding-top:{padding_top};
-                        padding-bottom:{padding_bottom};padding-left:{padding_left};
-                        padding-right:{padding_right};margin-top:{margin_top};
-                        margin-bottom:{margin_bottom};margin-left:{margin_left};
-                        margin-right:{margin_right};text-align:{text_align}"
-                        onmouseover='this.style.color="{color_title_hover}"'
-                        onmouseout='this.style.color="{color_title}"'
-          >
-          {text}
-        </h5>
-          <div class="designationTeam4"
-          style="color:{color_description};font-family:{font_family};
-          font-size:{font_size};padding-top:{padding_top};
-          padding-bottom:{padding_bottom};padding-left:{padding_left};
-          padding-right:{padding_right};margin-top:{margin_top};
-          margin-bottom:{margin_bottom};margin-left:{margin_left};
-          margin-right:{margin_right};text-align:{text_align}"
-          onmouseover='this.style.color="{color_description_hover}"'
-          onmouseout='this.style.color="{color_description}"'
-          >
-          {description}
-        </div>
-          <ul class="social-navTeam4 ulTeam4">
-            {socialLinkReplacer}
-          </ul>
-        </div>
-      </div>
-       <!-- end section call -->
-      `,
-    social_icon_html: `
-      <li 
-        class="liTeam4" 
-        style="background-color:{backgroundcolorContainer};
-        border-top-left-radius:{borderRadiusTopLeft};border-top-right-radius:{borderRadiusTopRight};
-        border-bottom-left-radius:{borderRadiusBottomLeft};border-bottom-right-radius:{borderRadiusBottomRight};
-        width:{widthIcon};height:{heightIcon}"
-        onmouseover='this.style.backgroundColor ="{background_color_hover}"'
-        onmouseout='this.style.backgroundColor="{backgroundcolorContainer}"'
+//       `,
+//     angular_object_to_export: `
+//     animateOut: "animate__animated animate__slideOutDown",
+//     animateIn: "animate__animated animate__slideInDown",
+//     items: $item1200,
+//     loop: true,
+//     autoplay: $autoplay,
+//     dots: $showDots,
+//     nav: $showArrows,
+//     navText: [
+//       "<i  class='fa fa-arrow-left'></i>",
+//       "<i class='fa fa-arrow-right'></i>",
+//     ],
+//     autoHeight: true,
+//     autoplaySpeed: 800,
+//     mouseDrag: $mouseDrag,
+//     autoplayHoverPause: true,
+//     responsive: {
+//       0: { items: $item576 },
+//       576: { items: $item576 },
+//       768: { items: $item768 },
+//       1200: { items: $item1200 },
+//     },
+//       `,
+//     ch_slider_code_js_hide: ``,
+//     team_html: `
+//       <!-- begin section call -->
+//       <div class="$section_caller">
+//         <div
+//           class="inner-boxTeam4 wow fadeInUp"
+//           style="background-color:{color_card};
+//           padding-top:{card_padding_top};
+//            padding-bottom:{card_padding_bottom};padding-left:{card_padding_left};
+//            padding-right:{card_padding_right};margin-top:{card_margin_top};
+//            margin-bottom:{card_margin_bottom};margin-left:{card_margin_left};
+//            margin-right:{card_margin_right}  ;border-bottom-right-radius:{card_border_bottom_right_radius};
+//            border-bottom-left-radius:{card_border_bottom_left_radius};
+//            "
+//            onmouseover='this.style.backgroundColor="{color_card_hover}"'
+//            onmouseout='this.style.backgroundColor="{color_card}"'
+               
+//         >
+//           <div class="imageTeam4" style="background-size: {widthBackground} {heightBackground} !important;background-repeat: no-repeat !important;background: {background_img};width: 100%;height: 100%;"
+//           >
+//             <!--ImageAndAssociatedText ^content_image | ^content_text -->
+//             <img
+//             src="{image}"
+//             height="{height}"
+//             width="{width}"
+//             style="border-top-left-radius:{border_top_left_radius};
+//             border-top-right-radius:{border_top_right_radius};
+//             border-bottom-right-radius:{border_bottom_right_radius};
+//             border-bottom-left-radius:{border_bottom_left_radius};
+//             margin-top:{margin_top_image};margin-bottom:{margin_bottom_image};
+//             margin-left:{margin_left_image};margin-right:{margin_right_image};"
+//             class="imgTeam4"
+//             alt="" />
+//           </div>
+//           <h5 
+//           class="h5Team4"
+//           style="color:{color_title};font-family:{font_family};
+//                         font-size:{font_size};padding-top:{padding_top};
+//                         padding-bottom:{padding_bottom};padding-left:{padding_left};
+//                         padding-right:{padding_right};margin-top:{margin_top};
+//                         margin-bottom:{margin_bottom};margin-left:{margin_left};
+//                         margin-right:{margin_right};text-align:{text_align}"
+//                         onmouseover='this.style.color="{color_title_hover}"'
+//                         onmouseout='this.style.color="{color_title}"'
+//           >
+//           {text}
+//         </h5>
+//           <div class="designationTeam4"
+//           style="color:{color_description};font-family:{font_family};
+//           font-size:{font_size};padding-top:{padding_top};
+//           padding-bottom:{padding_bottom};padding-left:{padding_left};
+//           padding-right:{padding_right};margin-top:{margin_top};
+//           margin-bottom:{margin_bottom};margin-left:{margin_left};
+//           margin-right:{margin_right};text-align:{text_align}"
+//           onmouseover='this.style.color="{color_description_hover}"'
+//           onmouseout='this.style.color="{color_description}"'
+//           >
+//           {description}
+//         </div>
+//           <ul class="social-navTeam4 ulTeam4">
+//             {socialLinkReplacer}
+//           </ul>
+//         </div>
+//       </div>
+//        <!-- end section call -->
+//       `,
+//     social_icon_html: `
+//       <li 
+//         class="liTeam4" 
+//         style="background-color:{backgroundcolorContainer};
+//         border-top-left-radius:{borderRadiusTopLeft};border-top-right-radius:{borderRadiusTopRight};
+//         border-bottom-left-radius:{borderRadiusBottomLeft};border-bottom-right-radius:{borderRadiusBottomRight};
+//         width:{widthIcon};height:{heightIcon}"
+//         onmouseover='this.style.backgroundColor ="{background_color_hover}"'
+//         onmouseout='this.style.backgroundColor="{backgroundcolorContainer}"'
 
-        >
-        <a  
-        style="font-size:{font_size_icon};color:{color_icon};"
-        onmouseover='this.style.color="{color_icon_hover}"'
-        onmouseout='this.style.color="{color_icon}"'
-        class="{icon} aTeam4">
+//         >
+//         <a  
+//         style="font-size:{font_size_icon};color:{color_icon};"
+//         onmouseover='this.style.color="{color_icon_hover}"'
+//         onmouseout='this.style.color="{color_icon}"'
+//         class="{icon} aTeam4">
         
-        </a>
-        </li>
-      `,
-    hasSlider: false,
+//         </a>
+//         </li>
+//       `,
+//     hasSlider: false,
 
-    global_style: [
-      {
-        type: "title",
-        color: "#000000",
-        hover_color: "#ffffff",
-        font_family: "'Poppins', sans-serif",
-        font_size: "20px",
-        padding_top: "0px",
-        padding_bottom: "0px",
-        padding_left: "0px",
-        padding_right: "0px",
-        margin_top: "20px",
-        margin_bottom: "0px",
-        margin_left: "0px",
-        margin_right: "0px",
-        text_align: "center",
-      },
-      {
-        type: "description",
-        color: "#666666",
-        hover_color: "#ffffff",
-        font_family: "'Poppins', sans-serif",
-        font_size: "14px",
-        padding_top: "0px",
-        padding_bottom: "0px",
-        padding_left: "0px",
-        padding_right: "0px",
-        margin_top: "6px",
-        margin_bottom: "0px",
-        margin_left: "0px",
-        margin_right: "0px",
-        text_align: "center",
-      },
-      {
-        type: "image",
-        border_top_left_radius: "20px",
-        border_top_right_radius: "20px",
-        border_bottom_right_radius: "0px",
-        border_bottom_left_radius: "0px",
-        width: "100%",
-        height: "100%",
-        margin_top: "0px",
-        margin_bottom: "0px",
-        margin_left: "0px",
-        margin_right: "0px",
-        background_img: "white",
-        widthBackground: "100%",
-        heightBackground: "100%"
-      },
-      {
-        container_margin_top: "0px",
-        container_margin_bottom: "0px",
-        container_margin_left: "0px",
-        container_margin_right: "0px"
-      },
-      {
-        backgroundContainercolor: "white",
-        backgroundContainerImage: ""
-      },
-      {
-        type: "arrowLeft",
-        color: "#070f4d",
-        hover_color: "white",
-        background_color: "#fff",
-        background_hover_color: "blue",
-        font_size: "16px",
-        left: "1",
-        top: "50"
-      },
-      {
-        type: "arrowRight",
-        color: "#070f4d",
-        hover_color: "white",
-        background_color: "#fff",
-        background_hover_color: "blue",
-        font_size: "16px",
-        left: "1",
-        top: "50"
-      },
-      {
-        type: "card",
-        color: "#000000",
-        hover_color: "#ffffff",
-        padding_top: "0px",
-        padding_bottom: "0px",
-        padding_left: "0px",
-        padding_right: "0px",
-        margin_top: "20px",
-        margin_bottom: "0px",
-        margin_left: "0px",
-        margin_right: "0px",
-      },
-    ],
+//     global_style: [
+//       {
+//         type: "title",
+//         color: "#000000",
+//         hover_color: "#ffffff",
+//         font_family: "'Poppins', sans-serif",
+//         font_size: "20px",
+//         padding_top: "0px",
+//         padding_bottom: "0px",
+//         padding_left: "0px",
+//         padding_right: "0px",
+//         margin_top: "20px",
+//         margin_bottom: "0px",
+//         margin_left: "0px",
+//         margin_right: "0px",
+//         text_align: "center",
+//       },
+//       {
+//         type: "description",
+//         color: "#666666",
+//         hover_color: "#ffffff",
+//         font_family: "'Poppins', sans-serif",
+//         font_size: "14px",
+//         padding_top: "0px",
+//         padding_bottom: "0px",
+//         padding_left: "0px",
+//         padding_right: "0px",
+//         margin_top: "6px",
+//         margin_bottom: "0px",
+//         margin_left: "0px",
+//         margin_right: "0px",
+//         text_align: "center",
+//       },
+//       {
+//         type: "image",
+//         border_top_left_radius: "20px",
+//         border_top_right_radius: "20px",
+//         border_bottom_right_radius: "0px",
+//         border_bottom_left_radius: "0px",
+//         width: "100%",
+//         height: "100%",
+//         margin_top: "0px",
+//         margin_bottom: "0px",
+//         margin_left: "0px",
+//         margin_right: "0px",
+//         background_img: "white",
+//         widthBackground: "100%",
+//         heightBackground: "100%"
+//       },
+//       {
+//         container_margin_top: "0px",
+//         container_margin_bottom: "0px",
+//         container_margin_left: "0px",
+//         container_margin_right: "0px"
+//       },
+//       {
+//         backgroundContainercolor: "white",
+//         backgroundContainerImage: ""
+//       },
+//       {
+//         type: "arrowLeft",
+//         color: "#070f4d",
+//         hover_color: "white",
+//         background_color: "#fff",
+//         background_hover_color: "blue",
+//         font_size: "16px",
+//         left: "1",
+//         top: "50"
+//       },
+//       {
+//         type: "arrowRight",
+//         color: "#070f4d",
+//         hover_color: "white",
+//         background_color: "#fff",
+//         background_hover_color: "blue",
+//         font_size: "16px",
+//         left: "1",
+//         top: "50"
+//       },
+//       {
+//         type: "card",
+//         color: "#000000",
+//         hover_color: "#ffffff",
+//         padding_top: "0px",
+//         padding_bottom: "0px",
+//         padding_left: "0px",
+//         padding_right: "0px",
+//         margin_top: "20px",
+//         margin_bottom: "0px",
+//         margin_left: "0px",
+//         margin_right: "0px",
+//       },
+//     ],
 
-    show_desktop: true,
-    show_tablet: true,
-    show_mobile: true,
-    item576: 1,
-    item768: 1,
-    item1200: 3,
-    autoplay: true,
-    showDots: true,
-    showArrows: true,
-    mouseDrag: true,
-    history: [],
-    title: {
-      text: "Lorem ipsum dolo ",
-      color: "#070f4d",
-      hover_color: "#070f4d",
-      font_family: "'Poppins', sans-serif",
-      font_size: "35px",
-      padding_top: "0px",
-      padding_bottom: "0px",
-      padding_left: "0px",
-      padding_right: "0px",
-      margin_top: "0px",
-      margin_bottom: "0px",
-      margin_left: "0px",
-      margin_right: "0px",
-      text_align: "center",
-      type: "title",
-      lang: "en",
-    },
-    description: {
-      text: "sit amet consectetur ",
-      color: "#75799b",
-      hover_color: "#75799b",
-      font_family: "'Poppins', sans-serif",
-      font_size: "13px",
-      padding_top: "0px",
-      padding_bottom: "0px",
-      padding_left: "0px",
-      padding_right: "0px",
-      margin_top: "0px",
-      margin_bottom: "0px",
-      margin_left: "0px",
-      margin_right: "0px",
-      text_align: "center",
-      type: "title",
-      priority: "0",
-      lang: "en",
+//     show_desktop: true,
+//     show_tablet: true,
+//     show_mobile: true,
+//     item576: 1,
+//     item768: 1,
+//     item1200: 3,
+//     autoplay: true,
+//     showDots: true,
+//     showArrows: true,
+//     mouseDrag: true,
+//     history: [],
+//     title: {
+//       text: "Lorem ipsum dolo ",
+//       color: "#070f4d",
+//       hover_color: "#070f4d",
+//       font_family: "'Poppins', sans-serif",
+//       font_size: "35px",
+//       padding_top: "0px",
+//       padding_bottom: "0px",
+//       padding_left: "0px",
+//       padding_right: "0px",
+//       margin_top: "0px",
+//       margin_bottom: "0px",
+//       margin_left: "0px",
+//       margin_right: "0px",
+//       text_align: "center",
+//       type: "title",
+//       lang: "en",
+//     },
+//     description: {
+//       text: "sit amet consectetur ",
+//       color: "#75799b",
+//       hover_color: "#75799b",
+//       font_family: "'Poppins', sans-serif",
+//       font_size: "13px",
+//       padding_top: "0px",
+//       padding_bottom: "0px",
+//       padding_left: "0px",
+//       padding_right: "0px",
+//       margin_top: "0px",
+//       margin_bottom: "0px",
+//       margin_left: "0px",
+//       margin_right: "0px",
+//       text_align: "center",
+//       type: "title",
+//       priority: "0",
+//       lang: "en",
 
-    },
-    title_html:
-      `
-        <h2 
-        class="h2Team4"
-        dir='ltr'
-        style="color:{color_title};font-family:{font_family};
-        font-size:{font_size};padding-top:{padding_top};
-        padding-bottom:{padding_bottom};padding-left:{padding_left};
-        padding-right:{padding_right};margin-top:{margin_top};
-        margin-bottom:{margin_bottom};margin-left:{margin_left};
-        margin-right:{margin_right};text-align:{text_align}"
-        onmouseover='this.style.color="{color_title_hover}"'
-        onmouseout='this.style.color="{color_title}"'
-        >
-        {text}
+//     },
+//     title_html:
+//       `
+//         <h2 
+//         class="h2Team4"
+//         dir='ltr'
+//         style="color:{color_title};font-family:{font_family};
+//         font-size:{font_size};padding-top:{padding_top};
+//         padding-bottom:{padding_bottom};padding-left:{padding_left};
+//         padding-right:{padding_right};margin-top:{margin_top};
+//         margin-bottom:{margin_bottom};margin-left:{margin_left};
+//         margin-right:{margin_right};text-align:{text_align}"
+//         onmouseover='this.style.color="{color_title_hover}"'
+//         onmouseout='this.style.color="{color_title}"'
+//         >
+//         {text}
        
       
-        `,
-    description_html: `
+//         `,
+//     description_html: `
 
-        <span 
-        class="spanTeam4" 
-        dir='ltr'
-        style="color:{color_title};font-family:{font_family};
-        font-size:{font_size};padding-top:{padding_top};
-        padding-bottom:{padding_bottom};padding-left:{padding_left};
-        padding-right:{padding_right};margin-top:{margin_top};
-        margin-bottom:{margin_bottom};margin-left:{margin_left};
-        margin-right:{margin_right};text-align:{text_align}"
-        onmouseover='this.style.color="{color_title_hover}"'
-        onmouseout='this.style.color="{color_title}"'
-         > {text} </span>
-         </h2>
-        `,
-    old_css: cssTeamType4,
-    type: "Team",
-
-
+//         <span 
+//         class="spanTeam4" 
+//         dir='ltr'
+//         style="color:{color_title};font-family:{font_family};
+//         font-size:{font_size};padding-top:{padding_top};
+//         padding-bottom:{padding_bottom};padding-left:{padding_left};
+//         padding-right:{padding_right};margin-top:{margin_top};
+//         margin-bottom:{margin_bottom};margin-left:{margin_left};
+//         margin-right:{margin_right};text-align:{text_align}"
+//         onmouseover='this.style.color="{color_title_hover}"'
+//         onmouseout='this.style.color="{color_title}"'
+//          > {text} </span>
+//          </h2>
+//         `,
+//     old_css: cssTeamType4,
+//     type: "Team",
 
 
 
-  },
+
+
+//   },
 
 
 

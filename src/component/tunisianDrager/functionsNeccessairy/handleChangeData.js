@@ -213,13 +213,67 @@ export let handleChangeDataHistory = (characters,global_data,global_object,secti
       }
   
     }
+    if(type=="card"){
+     
+     
 
+
+       if(global_object.title_color!=""){
+      
+        searcher.children[4]["color"] = global_object.title_color
+
+      
+      }
+      if(global_object.title_hover_color!=""){
+        searcher.children[4]["hover_color"] = global_object.title_hover_color
+       
+      }
+       
+     
+      if(global_object.title_padding_top!=""){
+        searcher.children[4]["padding_top"] = global_object.title_padding_top
+
+      }
+      if(global_object.title_padding_bottom!=""){
+        searcher.children[4]["padding_bottom"] = global_object.title_padding_bottom
+
+      }
+      if(global_object.title_padding_left!=""){
+        searcher.children[4]["padding_left"] = global_object.title_padding_left
+
+      }
+      if(global_object.title_padding_right!=""){
+        searcher.children[4]["padding_right"] = global_object.title_padding_right
+
+      }
+      if(global_object.title_margin_top!=""){
+        searcher.children[4]["margin_top"] = global_object.title_margin_top
+       
+      }
+
+      if(global_object.title_margin_bottom!=""){
+        searcher.children[4]["margin_bottom"] = global_object.title_margin_bottom 
+ 
+      }
+      if(global_object.title_margin_left!=""){
+        searcher.children[4]["margin_left"] = global_object.title_margin_left
+    
+      }
+      if(global_object.title_margin_right!=""){
+        searcher.children[4]["margin_right"] = global_object.title_margin_right
+       
+      }
+      searcher.children[0]["priority"] = "1"
+
+      }
   all[index] = searcher
+
   let data = global_data
   
     let team_html = data.team_html
     
     let hasSlider = data.hasSlider
+
     let {ch1,global_html,ch2}= updatePerSection(hasSlider,all,team_html,data,searcher,characters,section_id)
   
     let final_html = ch1 + global_html + ch2 

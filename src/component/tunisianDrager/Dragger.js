@@ -13,9 +13,9 @@ import CardMedia from '@mui/material/CardMedia';
 
 import { CardActionArea } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
-
+import DescriptionHeaderAllStyle from "./component/all/descriptionHeader/style/descriptionHeader"
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-
+import CardSingleStyle from "./component/single/card/style/cardSingleStyle"
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
@@ -23,10 +23,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-
 import {Templates} from "./templates"
 import { FileUploader } from "react-drag-drop-files";
-
 import Tooltip from '@mui/material/Tooltip';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -91,19 +89,12 @@ import axios from 'axios';
 import { styled } from '@mui/material/styles';
 
 //export 
-
-
 import ExportOption from "./Exportoption/ExportOption"
-
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import Avatar from '@mui/material/Avatar';
-
 //open in new window 
 import LaunchIcon from '@mui/icons-material/Launch';
-
-
-
 import PortalShowUp from "./OpenInNewWindow/PortalshowUp"
 import {  replaceWithRandom } from './OpenInNewWindow/helpers'
 import {checkIfPasswordIsCorrect,decryptString} from "./Exportoption/tunisiaDev/exportTunisiaDevsFunction"
@@ -186,7 +177,7 @@ import AlignElement from './elements/AlignElement/alignElement';
 import InputElement from './elements/inputElement/inputElement';
 import InputElementTypeColor from './elements/inputElementTypeColor/inputElementTypeColor';
 import PrioritySelectElement from './elements/prioritySelectElement/prioritySelectElement';
-
+import ContentTitleSingle from "./component/single/title/content/contentTitleSingle"
 import LinearProgress from '@mui/material/LinearProgress';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CopyrightIcon from '@mui/icons-material/Copyright';
@@ -194,7 +185,12 @@ import FreeBreakfastIcon from '@mui/icons-material/FreeBreakfast';
 import {logo} from "../../logo/logoDrager"
 import FullScreenCodeResultDialog from "./Models/getCodeResultFullPopup"
 import { useTranslation } from 'react-i18next'
-
+import BorderElement from "./elements/borderElement/borderElement"
+import TitleSingleStyle from "./component/single/title/style/titleSingleStyle"
+import DescriptionSingleStyle from "./component/single/description/style/descriptionSingleStyle"
+import ImageSingleStyle from "./component/single/image/style/imageSingleStyle"
+import TitleHeaderAllStyle from "./component/all/titleHeader/style/titleHeader"
+import TitleAllStyle from "./component/all/title/style/titleGlobalStyle"
 function LinearProgressWithLabel(props) {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -681,6 +677,12 @@ export default function ClippedDrawer() {
   let [indexEdit,setIndexEdit] = useState("")
   let [priority,setPriority] = useState("")  
 
+
+  //card 
+  const [border_card_top,setBorderCardTop] = useState("")
+  const [border_card_bottom,setBorderCardBottom] = useState("")
+  const [border_card_left,setBorderCardLeft] = useState("")
+  const [border_card_right,setBorderCardRight] = useState("")  
   const handleChangeSocialMediaEdit = (event) => {
     setSelectSocialMediaEdit(event.target.value);
   };
@@ -1324,9 +1326,9 @@ if(type==="description"){
 
 
   }
-  console.log("type = ",type)
+  
   if(type==="image"){
-    console.log(logo_content)
+   
     if(logo_content !==""){
       searcher.children[2]["text"] = logo_content
      
@@ -1568,7 +1570,313 @@ if(type==="description"){
     }
 
   }
+  
+  if(type==="card"){
+  
+     if(title_color!==""){
+    
+      searcher.children[4]["color"] = title_color
+    
+  let object_history = {}
+  object_history.iteration_tap = ["Content","Content Card","card"]
+      
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card color to ${title_color}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_color:,!:$*ù${title_color}`
+      historyMaker.push(object_history)
+    }
+    if(title_hover_color!==""){
+      searcher.children[4]["hover_color"] = title_hover_color
+     
+  let object_history = {}
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card hover color to ${title_hover_color}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_hover_color:,!:$*ù${title_hover_color}`
+      historyMaker.push(object_history)
+    } 
+ 
+    if(title_padding_top!==""){
+      searcher.children[4]["padding_top"] = title_padding_top
+    
+  let object_history = {}
+  object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card padding top to ${title_padding_top}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_padding_top:,!:$*ù${title_padding_top}`
+      historyMaker.push(object_history)
+    }
+    if(title_padding_bottom!==""){
+      searcher.children[4]["padding_bottom"] = title_padding_bottom
+     
+  let object_history = {}
+  object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card padding bottom to ${title_padding_bottom}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_padding_bottom:,!:$*ù${title_padding_bottom}`
+      historyMaker.push(object_history)
+    }
+    if(title_padding_left!==""){
+      searcher.children[0]["padding_left"] = title_padding_left
+    
+  let object_history = {}
+  object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card padding left to ${title_padding_left}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_padding_left:,!:$*ù${title_padding_left}`
+      historyMaker.push(object_history)
+    }
+    if(title_padding_right!==""){
+      searcher.children[4]["padding_right"] = title_padding_right
+      
+  let object_history = {}
+  object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "title"
+      object_history.iteration_description = `changing card padding right to ${title_padding_right}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_padding_right:,!:$*ù${title_padding_right}`
+      historyMaker.push(object_history)
+    }
+    if(title_margin_top!==""){
+      searcher.children[4]["margin_top"] = title_margin_top
+     
+      let object_history = {}
+      object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card margin top to ${title_margin_top}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_margin_top:,!:$*ù${title_margin_top}`
+      historyMaker.push(object_history)
+    }
+    if(title_margin_bottom!==""){
+      searcher.children[4]["margin_bottom"] = title_margin_bottom 
+     
+  let object_history = {}
+  object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id      
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card margin bottom to ${title_margin_bottom}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_margin_bottom:,!:$*ù${title_margin_bottom}`
+      historyMaker.push(object_history)
+    }
+    if(title_margin_left!==""){
+      searcher.children[4]["margin_left"] = title_margin_left
+     
+  let object_history = {}
+  object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card margin left to ${title_margin_left}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_margin_left:,!:$*ù${title_margin_left}`
+      historyMaker.push(object_history)
+    }
+    if(title_margin_right!==""){
+      searcher.children[4]["margin_right"] = title_margin_right
+     
+  let object_history = {}
+  object_history.iteration_tap = ["Content","Content Card","card"]
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card margin right to ${title_margin_right}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `title_margin_right:,!:$*ù${title_margin_right}`
+      historyMaker.push(object_history)
+    }
+    if(Image_border_top_left_radius!==""){
+      searcher.children[4]["border_top_left_radius"] = Image_border_top_left_radius
+     
+    let object_history = {}
+    object_history.iteration_tap = ["Content","Content Card","Card"]
 
+      object_history.iteration_id  = uuidv4()
+        object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card border top left radius to ${Image_border_top_left_radius}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `Image_border_top_left_radius:,!:$*ù${Image_border_top_left_radius}`     
+      historyMaker.push(object_history)
+    }
+    if(Image_border_top_right_radius!==""){
+      searcher.children[4]["border_top_right_radius"] = Image_border_top_right_radius
+     
+    let object_history = {}
+    object_history.iteration_tap = ["Content","Content Card","Card"]
+
+      object_history.iteration_id  = uuidv4()
+        object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card border top right radius to ${Image_border_top_right_radius}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `Image_border_top_right_radius:,!:$*ù${Image_border_top_right_radius}`     
+      historyMaker.push(object_history)
+    }
+    if(Image_border_bottom_right_radius!==""){
+      searcher.children[4]["border_bottom_right_radius"] = Image_border_bottom_right_radius
+     
+    let object_history = {}
+    object_history.iteration_tap = ["Content","Content Card","Card"]
+
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card border bottom right radius to ${Image_border_bottom_right_radius}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `Image_border_bottom_right_radius:,!:$*ù${Image_border_bottom_right_radius}`     
+      historyMaker.push(object_history)
+    }
+    if(Image_border_bottom_left_radius!==""){
+      searcher.children[4]["border_bottom_left_radius"] = Image_border_bottom_left_radius
+     
+    let object_history = {}
+    object_history.iteration_tap = ["Content","Content Card","Card"]
+
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card border bottom left radius to ${Image_border_bottom_left_radius}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `Image_border_bottom_left_radius:,!:$*ù${Image_border_bottom_left_radius}`     
+      historyMaker.push(object_history)
+    }
+
+    if(border_card_top!==""){
+      searcher.children[4]["border_card_top"] = border_card_top
+     
+    let object_history = {}
+    object_history.iteration_tap = ["Content","Content Card","Card"]
+
+      object_history.iteration_id  = uuidv4()
+        object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card border top  to ${border_card_top}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `border_card_top:,!:$*ù${border_card_top}`     
+      historyMaker.push(object_history)
+    }
+    if(border_card_bottom!==""){
+      searcher.children[4]["border_card_bottom"] = border_card_bottom
+     
+    let object_history = {}
+    object_history.iteration_tap = ["Content","Content Card","Card"]
+
+      object_history.iteration_id  = uuidv4()
+        object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card border bottom  to ${border_card_bottom}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `border_card_bottom:,!:$*ù${border_card_bottom}`     
+      historyMaker.push(object_history)
+    }
+    if(border_card_left!==""){
+      searcher.children[4]["border_card_left"] = border_card_left
+     
+    let object_history = {}
+    object_history.iteration_tap = ["Content","Content Card","Card"]
+
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card border left  to ${border_card_left}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `border_card_left:,!:$*ù${border_card_left}`     
+      historyMaker.push(object_history)
+    }
+    if(border_card_right!==""){
+      searcher.children[4]["border_card_right"] = border_card_right
+     
+    let object_history = {}
+    object_history.iteration_tap = ["Content","Content Card","Card"]
+
+      object_history.iteration_id  = uuidv4()
+      object_history.iteration_section = section_id
+      object_history.iteration_title = "Updating"
+      object_history.iteration_type = "card"
+      object_history.iteration_description = `changing card border right to ${border_card_right}`
+      object_history.iteration_date = new Date().toISOString()
+      object_history.function_name = "handleChangeData" 
+      object_history.parameter = `${type},${id},${text},${index},${iteration}`
+      object_history.variable_change = `border_card_right:,!:$*ù${border_card_right}`     
+      historyMaker.push(object_history)
+    }
+
+    
+
+    }
 all[index] = searcher
 
 let data = characters.filter(el => el.status!=="New Order" 
@@ -1579,6 +1887,7 @@ let data = characters.filter(el => el.status!=="New Order"
   let team_html = data.team_html
   
   let hasSlider = data.hasSlider
+
   let {ch1,global_html,ch2}= updatePerSection(hasSlider,all,team_html,data,searcher,characters,section_id)
 
   let final_html = ch1 + global_html + ch2 
@@ -1643,6 +1952,10 @@ setApplied(historyMaker.length -1)
       setBackgroundColorIcon("")
       setBackgroundColorHover("")
       setPriority("")
+      setBorderCardTop("")
+      setBorderCardBottom("")
+      setBorderCardLeft("")
+      setBorderCardRight("")
       toast.success("successfully updated")
   }
  
@@ -2771,6 +3084,10 @@ setApplied(historyMaker.length -1)
           setFontSizeIcon("")
           setBackgroundColorIcon("")
           setBackgroundColorHover("")
+          setBorderCardTop("")
+          setBorderCardBottom("")
+          setBorderCardLeft("")
+          setBorderCardRight("")
           toast.success("successfully updated")
 
   } 
@@ -5558,6 +5875,18 @@ setApplied(historyMaker.length -1)
     if(field === "priority"){
       setPriority(value)
     }
+    if(field == "border_card_top"){
+      setBorderCardTop(value)
+    }
+    if(field == "border_card_bottom"){
+      setBorderCardBottom(value)
+    }
+    if(field == "border_card_left"){
+      setBorderCardLeft(value)
+    }
+    if(field == "border_card_right"){
+      setBorderCardRight(value)
+    }
 
 
     }
@@ -5766,7 +6095,17 @@ let deleteFromOrders = (data) =>{
     const [iframeHeight, setIframeHeight] = useState('80vh');
 
   // This function handles the resizing of the iframe based on its content.
-  
+  const handleSingleTitleSubmit = (final,historyMaker,historyMaker2,all) =>{
+    setTasks(final)
+          
+          
+          
+    setOrders(historyMaker) 
+ setHistory(historyMaker)
+ setApplied(historyMaker2)
+     
+       setItems(all)
+  }
    return (
     <Box sx={{ display: 'flex' }}>
         <SpeedDial
@@ -6343,347 +6682,68 @@ id={task.id}
         </Tabs> 
         <TabPanel value={valueTitle} index={0}  >
           
-          <p style={{textAlign:"left"}}>{t("titleText")}</p>   
- 
-     
-          <InputElement  
-                values={item.text}
-                onFormSubmit={handleFormSubmit}
-                field_name={"title_text"}
-          /> 
-         
+               <ContentTitleSingle 
+               data={
+                [
+                  {text:item.text,field:"title_text"},
+                  {text:item.priority,field:"priority"}
+                
+              ] }
+              type={item.type}
+              id={itemParent.id}
+              typeThinks={"text"}
+              indexParent={indexParent}
+               onTitleSingleSubmit={handleSingleTitleSubmit} 
+               itemsData={itemsData}
+               characters={characters}
+               section_id={section_id}
+               history={history}
+               /> 
        
-            
-          <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02f98B51nq9hBL4q2C64VoyhFD99P8xAyq1FHo1rPALyvow8rLqyGN9qmbazXVPzL3l&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueTitleText")}
-        </FormHelperText>
-          </a>
-              
-                          {/* <ReportIcon color="error"/> */}
+       
       </TabPanel>
       <TabPanel value={valueTitle} index={1} key={index} >
-      <Grid container spacing={2}>
-      <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>{t("titleColor")}</p>   
- 
-      <InputElementTypeColor 
-       values={item.color}
-       onFormSubmit={handleFormSubmit}
-       field_name={"title_color"}
-      /> 
-            
-      
     
-       <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02zNGYtTPYjSRyKRRPK13Ynfqzpi6rgTJysvhdfydjYJv6tCBX9kD4N4tXYFFoCwbql&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueTitleColor")}
-        </FormHelperText>
-          </a>
+      <TitleSingleStyle 
+           data={
+            [
+              {color:item.color,field:"title_color"},
+              {hover_color:item.hover_color,field:"title_hover_color"},
+              {font_family:item.font_family,field:"title_font_family"},
+              {font_size:item.font_size,field:"title_font_size"},
+              {padding_top:item.padding_top,field:"title_padding_top"},
+              {padding_bottom:item.padding_bottom,field:"title_padding_bottom"},
+              {padding_left:item.padding_left,field:"title_padding_left"},
+              {padding_right:item.padding_right,field:"title_padding_right"},
 
-      </Grid>
+              {margin_top:item.margin_top,field:"title_margin_top"},
+              {margin_bottom:item.margin_bottom,field:"title_margin_bottom"},
+              {margin_left:item.margin_left,field:"title_margin_left"},
+              {margin_right:item.margin_right,field:"title_margin_right"},
+              {text_align:item.text_align,field:"text_align"},
 
-      <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>{t("titleHoverColor")}</p>
-    
-      <InputElementTypeColor 
-       values={item.hover_color}
-       onFormSubmit={handleFormSubmit}
-       field_name={"title_hover_color"}
-      />
-   
-    
-
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0dh9GbcwQWM1osYHNBJ2rqSsfoNyU5fsnuDwbmhcA5rzMsVxviYAP5CJWUubQb5fFl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueTitleHoverColor")}
-        </FormHelperText>
-          </a>
-      </Grid>                      
-
-
-
-      </Grid>
-     
               
-                
 
-<Grid container spacing={2}>
-             {/* font family title  team style */} 
-          <Grid item xs={6}>
-          <p>{t("fontFamily")}</p>
-         
-          <FontFamilySelect 
-           values={item.font_family}
-           onFormSubmit={handleFormSubmit}
-           field_name={"title_font_family"}
-          />
-       
-         
-          <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02xC8ZkNfrTu86r7AyyuBcs9yw3kxqcx7wybWC7rmJLt1GQaifTrVTza4Yfa3psijel&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueFontFamily")}
-        </FormHelperText>
-          </a>
-
-          </Grid>
-         
-  {/* font size title team style */} 
-          <Grid item xs={6}>
-            <p>{t("fontSize")} </p>
-        
-            <ComponentwithSelectAndInput 
-            value={item.font_size}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_font_size"}
-            />
-       
             
-  <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0fHRdde3s8shjSFwMtU1JdWC6JYzb8mCrQSfurpmanQRYeUYZAEWqL6NGtBmG6fotl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueFontSize")}
-        </FormHelperText>
-          </a>
-            </Grid>        
-            </Grid>
-
-  {/* padding title team style */} 
-           <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("padding")}           
-            </Grid>
-             {/* padding top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-           
-            <ComponentwithSelectAndInput 
-            value={item.padding_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_top"}
-            />
-       
-           
- <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0314MCNqNqSiuuidUGAiM1CssE1FeHEZognncA83BBJ1RXEZaHEGprmCB6BLDdCFsWl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingTop")}
-        </FormHelperText>
-          </a>
-            </Grid> 
- {/* padding bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-          
-            <ComponentwithSelectAndInput 
-            value={item.padding_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_bottom"}
-            />
-         
-            
-             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02fgFRAmtbjWM4RdmaPfTVgxefP6BfXeED8zfCSMPzZi1hcJpGVcbYyrMUqAahiK16l&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingBottom")}
-        </FormHelperText>
-          </a>
-            </Grid>                
- {/* padding left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
+          ] }
+          type={item.type}
+          id={itemParent.id}
+          typeThinks={"text"}
+          indexParent={indexParent}
+           onTitleSingleSubmit={handleSingleTitleSubmit} 
+           itemsData={itemsData}
+           characters={characters}
+           section_id={section_id}
+           history={history}
       
-            <ComponentwithSelectAndInput 
-            value={item.padding_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_left"}
-            />
-        
-            
-             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid027DU3cnG2eBPXwWML7fBaB8H2K71LZVwsH6Cc9j33gv9JdKk6Ls5kzPpNAVUWzsxAl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssuePaddingLeft")}
-        </FormHelperText>
-          </a>
-            </Grid>
-
-   {/* padding right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
- 
-            <ComponentwithSelectAndInput 
-            value={item.padding_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_right"}
-            />
-          
-          
-             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ZMQwoEdnmiSW42Q4zRC5j1zB5GqwW9yemFAtoSVTPHkTc6mgk2uN7eeXqLwNuFkJl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssuePaddingRight")}
-        </FormHelperText>
-          </a>
-            </Grid>          
-
-           </Grid>
-
- {/* margin title team style */} 
- <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 margin           
-            </Grid>
-             {/* margin top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-           
-            <ComponentwithSelectAndInput 
-            value={item.margin_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_top"}
-            />
-        
- <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid021rseMdS6CcS84L5Uw4eWSULmasXNhwYBE93PyQZ8hLmWB845erU9rtr5HuBzEpDdl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueMarginTop")}
-        </FormHelperText>
-          </a>
-            </Grid> 
- {/* margin bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            
-            <ComponentwithSelectAndInput 
-            value={item.margin_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_bottom"}
-            />
-    
-            
-  <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02Ndu4DsBKqBNU5mbrKYzbo9HuZNU5fviYNMLrMGwT1nNTMACseRmRzpwmP624w8PNl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueMarginBottom")}
-        </FormHelperText>
-          </a>
-            </Grid>                
- {/* margin left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            
-            <ComponentwithSelectAndInput 
-            value={item.margin_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_left"}
-            />
-          
-           
-    <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02Fx6LSxUXMC2DQVECCtk8NQsHJF4M8TVzZkQ6uftgAsspjk1cssThaXpWEwmdg9S9l&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueMarginLeft")}
-        </FormHelperText>
-          </a>
-            </Grid>
-
-   {/* margin right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            
-            <ComponentwithSelectAndInput 
-            value={item.margin_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_right"}
-            />
-        
-            
- <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ewL9CMBLKJgiwk1GjswCVumje4pnQtT9XcUvHVcpB5Btw2GytzZobLtKKJ6ogFGfl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueMarginRight")}
-        </FormHelperText>
-          </a>
-            </Grid>          
-
-           </Grid>
-
-           <Grid container spacing={2} 
-           style={{marginTop:"2%"}}
-           >
-           <Grid item xs={2}>
-           <p>{t("textAlign")}</p>
-           </Grid>
-           <Grid item xs={6}>
-           
-           <AlignElement 
-             values={item.text_align}
-            onFormSubmit={handleFormSubmit}
-            field_name={"text_align"}
-           />
-        
-         
-         <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid025NfDEa8ShYsVRKipBdcptRYuFeLtt2GS7Db7ZZRTV3ymwdySatkxNJkcARgib8hEl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueTextAlign")}
-        </FormHelperText>
-          </a>
-           </Grid>
-           </Grid>
-           
-           
+      />
 
 
 
 
         </TabPanel>         
                   
-              <div style={{display:"flex",justifyContent:"center"}}>
-             
-              <PrioritySelectElement 
-                  values={item.priority}
-                  onFormSubmit={handleFormSubmit}
-                  field_name={"priority"}
-              /> 
-              
-             
-              <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02zNGYtTPYjSRyKRRPK13Ynfqzpi6rgTJysvhdfydjYJv6tCBX9kD4N4tXYFFoCwbql&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueTitlePriority")}
-        </FormHelperText>
-          </a>
         
-              <Button variant="contained"
-                    style={{marginTop:"2%"}}
-                    onClick = {() =>handleChangeData(item.type,itemParent.id,
-                      "text",indexParent
-                      
-                      )}
-                    >{t("edit")}</Button>
-              </div>
-              
               </>}
               
               {item.type ==="description" && <>
@@ -6699,292 +6759,97 @@ id={task.id}
                 onFormSubmit={handleFormSubmit}
                 field_name={"description_text"}
           /> 
-   <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02hbyHn6z3TWZHNKJjSk6rYb6VNCdRx5BCWXM6jGGxp6temp6qRHtAvnA7ienQJPucl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionContent")}
-        </FormHelperText>
-          </a>
+
         </TabPanel> 
             
         <TabPanel value={valueDescription} index={1} key={index}  >
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-          <p style={{textAlign:"left"}}>{t("descriptionColor")}</p>
-          <InputElementTypeColor 
-       values={item.color}
-       onFormSubmit={handleFormSubmit}
-       field_name={"description_text_color"}
-      />
-       <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0pqEKGbx6jqPZT28hzxJc2DGyagevWwrnnTu133H9bsJYrs1GvwprQXwVMtTe2jVgl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionColor")}
-        </FormHelperText>
-          </a>
-          </Grid>
-          <Grid item xs={6}>
-          <p style={{textAlign:"left"}}>Description hover Color</p>
-          <InputElementTypeColor 
-       values={item.hover_color}
-       onFormSubmit={handleFormSubmit}
-       field_name={"description_hover_color"}
-      />
-       <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0PwUMA6iRrTu3dVYs29f7B3TpPX7TNgKKrfQPuseiomZx35bua1iGfyQqRqHGQSpjl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionHoverColor")}
-        </FormHelperText>
-          </a>
-
-          </Grid>
-        </Grid>
-       
-
-
+          <DescriptionSingleStyle 
+                  data={
+                    [
+                      {color:item.color,field:"description_text_color"},
+                      {hover_color:item.hover_color,field:"description_hover_color"},
+                      {font_family:item.font_family,field:"title_font_family"},
+                      {font_size:item.font_size,field:"title_font_size"},
+                      {padding_top:item.padding_top,field:"title_padding_top"},
+                      {padding_bottom:item.padding_bottom,field:"title_padding_bottom"},
+                      {padding_left:item.padding_left,field:"title_padding_left"},
+                      {padding_right:item.padding_right,field:"title_padding_right"},
         
+                      {margin_top:item.margin_top,field:"title_margin_top"},
+                      {margin_bottom:item.margin_bottom,field:"title_margin_bottom"},
+                      {margin_left:item.margin_left,field:"title_margin_left"},
+                      {margin_right:item.margin_right,field:"title_margin_right"},
+                      {text_align:item.text_align,field:"text_align"},
+        
+                      
+        
+                    
+                  ] }
+                  type={item.type}
+                  id={itemParent.id}
+                  typeThinks={"text"}
+                  indexParent={indexParent}
+                   onTitleSingleSubmit={handleSingleTitleSubmit} 
+                   itemsData={itemsData}
+                   characters={characters}
+                   section_id={section_id}
+                   history={history}
               
-                
-
-<Grid container spacing={2}>
-             {/* font family title  team style */} 
-          <Grid item xs={6}>
-          <p>{t("fontFamily")}</p>
-          <FontFamilySelect 
-           values={item.font_family}
-           onFormSubmit={handleFormSubmit}
-           field_name={"title_font_family"}
           />
-    <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0sXHqrypwYLVxrH9ghQFk3F4CKxLdD3is6pLDiokKm3isguNSrDizvX9gTpj9WXZFl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionFontFamily")}
-        </FormHelperText>
-          </a>
-        
-          </Grid>
-         
-  {/* font size title team style */} 
-          <Grid item xs={6}>
-            <p>{t("fontSize")} </p>
-            <ComponentwithSelectAndInput 
-            value={item.font_size}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_font_size"}
-            />
-   <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0yUBECEvKApmhtV2yYSbhmXYTSgbQZyqYVAEQgY2eczCnnSJpevr6mdszrDGEuJzfl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionFontSize")}
-        </FormHelperText>
-          </a>
-            </Grid>        
-            </Grid>
-
-  {/* padding title team style */} 
-           <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("padding")}           
-            </Grid>
-             {/* padding top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-            <ComponentwithSelectAndInput 
-            value={item.padding_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_top"}
-            />
- <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0V5WLqBPPNhmgjNWxLb6BECx1f8zMAWSRrp3WNipUxfonWeAhZdKEGVS9oqXLFzySl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionPaddingTop")}
-        </FormHelperText>
-          </a>
-            </Grid> 
- {/* padding bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            <ComponentwithSelectAndInput 
-            value={item.padding_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_bottom"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0NPGJxhJb26fxbhGm6F7quiygrkeFi6cSDTBE1BWfJzzte7WAN1oHRZEYpzRddCAwl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionPaddingBottom")}
-        </FormHelperText>
-          </a>
-            </Grid>                
- {/* padding left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            <ComponentwithSelectAndInput 
-            value={item.padding_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_left"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02ARLq9ipSjCQZJSUN4WDnYwSR3ECvpBCd3DR6i5utFYg1UBqJXQ38hrQQmhjhvFJjl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionPaddingLeft")}
-        </FormHelperText>
-          </a>
-            </Grid>
-
-   {/* padding right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            <ComponentwithSelectAndInput 
-            value={item.padding_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_right"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0tEFBrDVXWw3Gzu1dKE56GeYqBvWUmpELiEmEXLvyUpsuHiD21Dt3p1FfQfeMaBBbl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionPaddingRight")}
-        </FormHelperText>
-          </a>
-            </Grid>          
-
-           </Grid>
-
- {/* margin title team style */} 
- <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("margin")}          
-            </Grid>
-             {/* margin top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-            <ComponentwithSelectAndInput 
-            value={item.margin_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_top"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0Zj37bN5Ab9Syohi9KBPeSaeqxRbDX36CDwEo1x6a8RtpE8hfAuTMkHqRS6gAJR2dl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionMarginTop")}
-        </FormHelperText>
-          </a>
-            </Grid> 
- {/* margin bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            <ComponentwithSelectAndInput 
-            value={item.margin_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_bottom"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02zEJBNtw6oNC8xMGvhHYFUkgovHTKj9vVd9pnYHdaP7sRYYqDg1qo27fGXQQD8Lrbl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueDescriptionMarginBottom")}
-        </FormHelperText>
-          </a>
-            </Grid>                
- {/* margin left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            <ComponentwithSelectAndInput 
-            value={item.margin_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_left"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0F9nhcFNF9jRoFPcWCsapHQTpeEfaTK8SmaZRitGdHzRaBdgDA7XVSHqwuLXhJ4LTl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionMarginLeft")}
-        </FormHelperText>
-          </a>
-            </Grid>
-
-   {/* margin right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            <ComponentwithSelectAndInput 
-            value={item.margin_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_right"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02yN4RrS7fuhhVavmvrmvnyDAvwUhsUW1kWkLKF1ETWPu3VhPC27wW5VhiVWUMvA56l&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueDescriptionMarginRight")}
-        </FormHelperText>
-          </a>
-            </Grid>          
-
-           </Grid>
-
-           <Grid container spacing={2} 
-           style={{marginTop:"2%"}}
-           >
-           <Grid item xs={2}>
-           <p>{t("textAlign")}</p>
-           </Grid>
-           <Grid item xs={6}>
-           <AlignElement 
-             values={item.text_align}
-            onFormSubmit={handleFormSubmit}
-            field_name={"text_align"}
-           /> 
-           <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02xQafPUiAJPTRGpspfsr6x5gLX2XxwGnNk8dTSqrhJPAXgiM9kN6d1iK44Pruw2Ssl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionTextAlign")}
-        </FormHelperText>
-          </a>
-           </Grid>
-           </Grid>
-           
           
         </TabPanel>        
 
        
-         
-                          <div style={{display:"flex",justifyContent:"center"}}>
-                          
-                          <PrioritySelectElement 
-                  values={item.priority}
-                  onFormSubmit={handleFormSubmit}
-                  field_name={"priority"}
-              /> 
-                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02nrELGjg9tutnfUieHrHrGVAJXMLPZEcDoxKeDmf3Hph4kFinUAzjtTCA43ykNs9il&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionPriority")}
-        </FormHelperText>
-          </a>
-                          <Button variant="contained"
-                    style={{marginTop:"2%"}}
-                    onClick = {() =>handleChangeData(item.type,itemParent.id,
-                      "text",indexParent
-                      
-                      )}
-                    >{t("edit")}</Button>
-                          </div>
             
               </>}
               
+              {item.type ==="card" && <>
+
+        
+              <CardSingleStyle 
+           data={
+            [
+              {color:item.color,field:"title_color"},
+              {hover_color:item.hover_color,field:"title_hover_color"},
+              {isPaddingSHowing:item.isPaddingSHowing},
+              {padding_top:item.padding_top,field:"title_padding_top"},
+              {padding_bottom:item.padding_bottom,field:"title_padding_bottom"},
+              {padding_left:item.padding_left,field:"title_padding_left"},
+              {padding_right:item.padding_right,field:"title_padding_right"},
+              {isMarginShowing:item.isMarginShowing},
+              {margin_top:item.margin_top,field:"title_margin_top"},
+              {margin_bottom:item.margin_bottom,field:"title_margin_bottom"},
+              {margin_left:item.margin_left,field:"title_margin_left"},
+              {margin_right:item.margin_right,field:"title_margin_right"},
+     
+              {border_top_left_radius:item.border_top_left_radius,field:"Image_border_top_left_radius"},
+              {border_top_right_radius:item.border_top_right_radius,field:"Image_border_top_right_radius"},
+              {border_bottom_right_radius:item.border_bottom_right_radius,field:"Image_border_bottom_right_radius"},
+              {border_bottom_left_radius:item.border_bottom_left_radius,field:"Image_border_bottom_left_radius"},
+
+              {border_card_top:item.border_card_top,field:"border_card_top"},
+              {border_card_bottom:item.border_card_bottom,field:"border_card_bottom"},
+              {border_card_left:item.border_card_left,field:"border_card_left"},
+              {border_card_right:item.border_card_right,field:"border_card_right"},
+
               
+              
+            
+          ] }
+          type={item.type}
+          id={itemParent.id}
+          typeThinks={"text"}
+          indexParent={indexParent}
+           onTitleSingleSubmit={handleSingleTitleSubmit} 
+           itemsData={itemsData}
+           characters={characters}
+           section_id={section_id}
+           history={history}
+      
+      />
+      
+           
+           </>}
                    {item.type==="image" && <>
 
                    <Tabs value={valueImage} onChange={handleChangeValueImage} aria-label="basic tabs example">
@@ -7020,294 +6885,55 @@ id={task.id}
           cropMinImageHeight: 128
         })}
       />
-                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02PR7PGXzvLMU3M8HJhtufoFjbpm44Jsk3zchP6rNHRSgWZeCUuATyuuAjvyTBDn8ul&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageContent")}
-        </FormHelperText>
-          </a> 
+               
                  
                    </div>
         </TabPanel>
         <TabPanel value={valueImage} index={1}  >
-        <Grid container spacing={2}>
-            <Grid item xs={2}>
-                <p>{t("borderRadius")}</p>        
-            </Grid>
-            {/* Border radius Top left Image Team */}
-            <Grid item xs={2}>
-            <p>{t("topLeft")}</p>  
-            <ComponentwithSelectAndInput 
-            value={item.border_top_left_radius}
-             onFormSubmit={handleFormSubmit}
-             field_name={"Image_border_top_left_radius"}
-            />
-       <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02wTYFtZxrEqVX1HS9AysgVmSjbXDX8vGpBCvbtjD2edg2NKhi94ZGU31NtoVwcjwKl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueBorderRadiusTopLeft")}
-        </FormHelperText>
-          </a> 
-
-            </Grid>
-
-              {/* Border radius top right Image Team */}
-              <Grid item xs={2}>
-            <p>{t("topRight")}</p>  
-            <ComponentwithSelectAndInput 
-            value={item.border_top_right_radius}
-             onFormSubmit={handleFormSubmit}
-             field_name={"Image_border_top_right_radius"}
-            />
-  <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0QcgKarfX8xu9eqTQnKm8hfLv1wRajQRSrSKMf1FM3N8jRpeqyJ9iHRx5spbcaiVhl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageBorderRadiusTopRight")}
-        </FormHelperText>
-          </a> 
-            </Grid>
-
-              {/* Border radius bottom right Image Team */}
-              <Grid item xs={2}>
-            <p>{t("bottomRight")}</p>  
-            <ComponentwithSelectAndInput 
-            value={item.border_bottom_right_radius}
-             onFormSubmit={handleFormSubmit}
-             field_name={"Image_border_bottom_right_radius"}
-            />
-            <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02XxVFfqUdRFC8wnRjrRqBCy93hULqtypjRqv7S6stk6jGryT6r6iJ5BRqURgJi1u4l&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageBorderRadiusBottomRight")}
-        </FormHelperText>
-          </a>
-
-            </Grid>
+       
+        <ImageSingleStyle 
+           data={
+            [
+              {border_top_left_radius:item.border_top_left_radius,field:"Image_border_top_left_radius"},
+             
+              {border_top_right_radius:item.border_top_right_radius,field:"Image_border_top_right_radius"},
+              
           
-              {/* Border radius bottom left Image Team */}
-              <Grid item xs={2}>
-            <p>{t("bottomLeft")}</p> 
-            <ComponentwithSelectAndInput 
-            value={item.border_bottom_left_radius}
-             onFormSubmit={handleFormSubmit}
-             field_name={"Image_border_bottom_left_radius"}
-            /> 
-   <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0WehPUQbCZbweXKxJ2LYFYdDYaNdri1nQpWH4MpzGSugazZWRPKLLPAh1TgZ8dLgYl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageBorderRasdiusBottomLeft")} 
-        </FormHelperText>
-          </a>
+              {border_bottom_right_radius:item.border_bottom_right_radius,field:"Image_border_bottom_right_radius"},
+             
+             
+              {border_bottom_left_radius:item.border_bottom_left_radius,field:"Image_border_bottom_left_radius"},
+              
+              {width:item.width,field:"Image_width"},
+              
+              {height:item.height,field:"Image_height"},
+        
+              {margin_top:item.margin_top,field:"title_margin_top"},
+              {margin_bottom:item.margin_bottom,field:"title_margin_bottom"},
+              {margin_left:item.margin_left,field:"title_margin_left"},
+              {margin_right:item.margin_right,field:"title_margin_right"},
+     
+              {background_img:item.background_img,field:"ImageBackground"},
+             
+              {widthBackground:item.widthBackground,field:"ImageBackgroundWidth"},
 
-            </Grid>
-
-
-
-        </Grid>       
-
-        <Grid container spacing={2}>
-
-  {/* Width  Image Team */}
-  <Grid item xs={6}>
-            <p>{t("width")}</p>  
-            <ComponentwithSelectAndInput 
-            value={item.width}
-             onFormSubmit={handleFormSubmit}
-             field_name={"Image_width"}
-            /> 
-             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0Gm46XKumys6okPvCDeE4MjMWX4FcdiDnLXDjxvmFmYPeXdCYMTxyaZ99pgUMegjrl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageWidth")}
-        </FormHelperText>
-          </a>
-            </Grid>          
- {/* Height  Image Team */}
- <Grid item xs={6}>
-            <p>{t("height")}</p>  
-            <ComponentwithSelectAndInput 
-            value={item.height}
-             onFormSubmit={handleFormSubmit}
-             field_name={"Image_height"}
-            /> 
-
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02SFULPYsjXp5BYsV6vxqJPg8A3coNozvei4eLQkadP3bohrZ3nY8taKPxwuK5cqcDl&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageHeight")}
-        </FormHelperText>
-          </a>
-            </Grid>  
-
-
-        </Grid>
-
- {/* Margin  Image Team */}
-        <Grid container spacing={2}>
-            <Grid item xs={2}>
-                <p>{t("margin")}</p>        
-            </Grid>
-            {/* margin Top  Image Team */}
-            <Grid item xs={2}>
-            <p>{t("top")} </p>  
-            <ComponentwithSelectAndInput 
-            value={item.margin_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_top"}
-            /> 
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02xqvDdjSyX2mzuzP6LHWX9qhmGqAYU8qCZGU6zEv3D6dLbFKdpp4UMfnX3Pb1gj7ul&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageMarginTop")} 
-        </FormHelperText>
-          </a>
-            </Grid>
-
-              {/* Margin Bottom Image Team */}
-              <Grid item xs={2}>
-            <p>{t("bottom")}</p>  
-            <ComponentwithSelectAndInput 
-            value={item.margin_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_bottom"}
-            /> 
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02vXGAdqrrqeaWaovopCzzCm6sXQtCBMXftUMEP8QcWU2cLVzLhM8PUg8iqq3bYz3zl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageMarginBottom")}
-        </FormHelperText>
-          </a>
-            </Grid>
-
-              {/* Margin Left Image Team */}
-              <Grid item xs={2}>
-            <p>{t("left")}</p>  
-            <ComponentwithSelectAndInput 
-            value={item.margin_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_left"}
-            /> 
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0JAR4iKBscnYD5pnJxLdP1rMnX13Wirqytd7Pd6soC1SiZm8Jy9q3Jr6HdX4FB3Jol&id=100081746135007"
-           target='_blank'rel="noreferrer" >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageMarginLeft")}
-        </FormHelperText>
-          </a>
-            </Grid>
-          
-              {/* Margin Right Image Team */}
-              <Grid item xs={2}>
-            <p>{t("right")}</p>  
-            <ComponentwithSelectAndInput 
-            value={item.margin_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_right"}
-            /> 
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02Vv729Nz2uamvXnRvrL4bqkVexrYBHmo5UifDFZtGBbPMEcYjvb8k1MVFshFav9Tgl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageMarginRight")}
-        </FormHelperText>
-          </a>
-            </Grid>
-
-
-
-        </Grid>
-        <Grid container spacing={2}>
-
-  {/* background color Image Team */}
-  <Grid item xs={4}
-  style={{marginTop:'2%'}}
-  >
-      <p>{t("backgroundColor")}</p>
-           
-           <InputElementTypeColor 
-       values={item.background_img}
-       onFormSubmit={handleFormSubmit}
-       field_name={"ImageBackground"}
+              {heightBackground:item.heightBackground,field:"ImageBackgroundHeight"}, 
+          ] }
+          type={item.type}
+          id={itemParent.id}
+          typeThinks={"text"}
+          indexParent={indexParent}
+           onTitleSingleSubmit={handleSingleTitleSubmit} 
+           itemsData={itemsData}
+           characters={characters}
+           section_id={section_id}
+           history={history}
+      
       />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02PGvKZLPphx7mALbES73DVBQHBNbMH7vfAcqww2tW9odboFm9dVpqP9GDa8MZf7Qkl&id=100081746135007"
-           target='_blank' rel="noreferrer">
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueImageBackgroundColor")}
-        </FormHelperText>
-          </a>
-            </Grid> 
-       {/* background color width Image Team */}
-  <Grid item xs={4}
-  style={{marginTop:'2%'}}
-  >
-      <p>{t("backgroundWidth")}</p>  
-     <ComponentwithSelectAndInput 
-            value={item.widthBackground}
-             onFormSubmit={handleFormSubmit}
-             field_name={"ImageBackgroundWidth"}
-            /> 
-    <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid034N82aih5fJd3puiozrFUGVHRP8rSTRyAMFNBow7HvKxMmqwzrpz97Ad9cM9bAKCCl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageBackgroundWidth")}
-        </FormHelperText>
-          </a>
-            </Grid>       
-
-
-{/* background color height Image Team */}
-<Grid item xs={4}
-  style={{marginTop:'2%'}}
-  >
-            <p>{t("backgroundHeight")}</p>
-           <ComponentwithSelectAndInput 
-            value={item.heightBackground}
-             onFormSubmit={handleFormSubmit}
-             field_name={"ImageBackgroundHeight"}
-            /> 
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02Q5t3bia1kDujtFTKwQohZVKo33AyexyBdjHTyxd66rFSZP8QoRiWwngys8pQnGJzl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueImageBackgroundHeight")}
-        </FormHelperText>
-          </a>
-            </Grid>
-
-        </Grid>
-
      
 
         </TabPanel>
  
-
-                 
-                   <div style={{display:"flex",justifyContent:"center"}}>
-                   <Button variant="contained"
-                    style={{marginTop:"2%"}}
-                    onClick = {() =>handleChangeData(item.type,itemParent.id,
-                      "text",indexParent
-                      
-                      )}
-                    >
-                     {t("edit")}
-                    </Button> 
-                   </div>
                     
                    
                    </>}   
@@ -7340,15 +6966,7 @@ id={task.id}
                   <MenuItem value={"Gmail"}>{t("gmail")}</MenuItem>
                   <MenuItem value={"goArrow"}>{t("goArrow")}</MenuItem>
                 </Select>
-                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02DxYnsmc4yUYkopJytN9Y9j6KHjBkaD1q9e5Ds7AmMPAZ1QRbMnSwAWLYX5xA2m4Yl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSocialMediaSelect")}
-        </FormHelperText>
-          </a>
+                
               </FormControl>
                    </Grid>
               
@@ -7363,15 +6981,7 @@ id={task.id}
                           onChange={e => setUrlSocialMediaAdder(e.target.value)}
               
                           variant="outlined" />  
-                       <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0k77Uzfvgh2tRYjTKykFVa179XRi7BbaMZ7tqk5duPiCJvrDWvs5FonYctYKMmc6ul&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSocialMediaUrl")}
-        </FormHelperText>
-          </a>            
+                            
                    </Grid>
               
               
@@ -7386,15 +6996,7 @@ id={task.id}
                       )}
                    
                     >{t("add")}</Button>
-                        <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02bb3Ziac7KJNqoQM3zqJAT3FRMUt4RzTzHAMYiZYW5Ywp9AHY3GjApY53hmifgtGDl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSocialMediaAdd")}
-        </FormHelperText>
-          </a>   
+                     
                     </div>
                     {item.social_media_data
                     .filter(el => el!=="")
@@ -7420,15 +7022,7 @@ id={task.id}
                         indexParent
                         )}
                       />
-                          <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid027HpMbxWBFacN8V5CJKK4xqENnh8qo6KyBtfAgTRwy7Ex88WdNeX4nofJZRnEG6rl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSocialMediaDelete")}
-        </FormHelperText>
-          </a>  
+                      
               <EditIcon
               onClick={() =>handleOpenContent (el.name,el.url,i,itemParent.id,
                 indexParent,el
@@ -7457,7 +7051,9 @@ id={task.id}
               
                ))}
                       
-                     
+               
+           
+            
                
                      
                        </Typography>
@@ -7490,15 +7086,7 @@ id={task.id}
               onChange={e => setHasSlider(e.target.checked)}
               name
               />} label={t("showSlider")} />
-                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02xH3byVdiEve5ePj5MRGSghfCqeZHLKNNrZBmuFKKG9essLfg18wdSWaqsEnoyiGMl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueShowSlider")}
-        </FormHelperText>
-          </a>
+               
             </Grid>
 
           {/* items Per 576 */}
@@ -7513,15 +7101,7 @@ id={task.id}
           onChange={e => setItem576(e.target.value)}
           />
 
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02JWHpuyeh9RcQ7Jk2GYeo4nhR1RNbx2f5izqJ9bzzhXMHFfxPULtMx41ASNQxfpyfl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSlider576Dimentional")}
-        </FormHelperText>
-          </a>
+
             </Grid>
           {/* items Per 768 */}
             <Grid item xs={4}>
@@ -7534,15 +7114,7 @@ id={task.id}
           value={item768}
           onChange={e => setItem768(e.target.value)}
           />
-          <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0gPe8ioqM2Aimc4vmLJFqYXj6M3YXZcmM2d9TkFS4b62n4x2tsu6UunKUJDuDpz5jl&id=100081746135007&__cft__[0]=AZWRkDgAaMJotF8jlg0qFvnAbTKV9IeF3h5x-4IUj4wiS49D1FoD0ZUY3D7pyuozvtpgwlWUxywzray_dfYlxsJzdZDt2yCBQsEsFVrmL9DhilO-P6QVIw_S2oGkiZV1XK7qzDA-lIdkkyO3AXdCM_-hf8Un4alD7pvYOFFmM4N15T0jmkLQB8zsHZhhRamVLcE&__tn__=%2CO%2CP-R"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSlider768Dimensional")}
-        </FormHelperText>
-          </a>
+        
             </Grid>
    {/* items Per 1200 */}
    <Grid item xs={4}>
@@ -7555,15 +7127,7 @@ id={task.id}
           value={item1200}
           onChange={e => setItem1200(e.target.value)}
           />
-           <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02bhGcY8dGEQrP764PnjpucEjbHo7Cp738PBT7k2KQ7yudzjHkNnjnuRuJT73YrFafl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSlider1200Dimensional")}
-        </FormHelperText>
-          </a>
+       
             </Grid>
             {/* auto play  */}
             <Grid item xs={3}>
@@ -7571,15 +7135,7 @@ id={task.id}
                  checked={autoplay}
                  onChange={e => setAutoPlay(e.target.checked)}
               />} label={t("autoPlay")} />
-                   <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02TtNk3fjtHXUfg2evvexEUe8XqdCDnLVYmzxs2jALCMUoPq36g3yFENQzX2CYKpeEl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSliderAutoPlay")}
-        </FormHelperText>
-          </a>
+             
             </Grid>
             {/* show dots  */}
             <Grid item xs={3}>
@@ -7588,15 +7144,7 @@ id={task.id}
               onChange={e => setShowDots(e.target.checked)}
               
               />} label={t("showDots")} />
-                     <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0AZXxL9Khni1FPsE1WWczfT1cF6v5q8H7VAh8C6f2nh74NZzoRkswVa2FGC66V8sYl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSliderShowDots")}
-        </FormHelperText>
-          </a>
+               
             </Grid>
           {/* show arrows  */}
            <Grid item xs={3}>
@@ -7604,15 +7152,7 @@ id={task.id}
                 checked={showArrows}
                 onChange={e => setShowArrows(e.target.checked)}
               />} label={t("showArrow")} />
-                    <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02ZKfZe1JLL2tBv6PsrCC2KQusiGJPfMPFmovwq9LyS61TPN59kEL8TtVxmRiXBiwdl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSliderShowArrow")}
-        </FormHelperText>
-          </a>
+               
             </Grid>
           {/* mouse dragged  */}
            <Grid item xs={3}>
@@ -7620,15 +7160,7 @@ id={task.id}
                  checked={mouseDrag}
                  onChange={e => setMouseDrag(e.target.checked)}
               />} label={t("mouseDragged")} />
-                     <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02GQ5tzRjz95TbdFRcD4mvdi42W8wVMfJFZH6uJcDBY4XV9XoqbgAWQs2EMfobCLR7l&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueSliderMouseDragged")}
-        </FormHelperText>
-          </a>
+                 
             </Grid>
 
 
@@ -7680,301 +7212,56 @@ id={task.id}
                 onFormSubmit={handleFormSubmit}
                 field_name={"title_text"}
           />         
-                  <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0L4ibM1UFGbB7489H3BejqGHH14w4EzX8dYAoUL1rUweeC1CiH52RFVBnPHwivNZYl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueTitleText")}
-        </FormHelperText>
-          </a>  
+             
  
       </TabPanel>
       <TabPanel value={valueTitleTap} index={1}  >
-      <Grid container spacing={2}>
-      <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>{t("titleColor")}</p> 
-      <InputElementTypeColor 
-       values={titleInOpen.color}
-       onFormSubmit={handleFormSubmit}
-       field_name={"title_color"}
-      />
-          <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02paV982AMyZQpDBpBYALaDn7DPKcYNoHkZnUvnkU2KuwJD4bAMpXYhpNNczvtJgLil&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueTitleColor")}
-        </FormHelperText>
-          </a>  
-      </Grid>
-
-      <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>{t("titleHoverColor")}</p> 
-      <InputElementTypeColor 
-       values={titleInOpen.hover_color}
-       onFormSubmit={handleFormSubmit}
-       field_name={"title_hover_color"}
-      />
-   <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02WoYQ1bpnL3sGc8egeJGDJ3oN87xgjrD3iuHRWCeAffWT1LAEmQD9k21KD3R6mzZYl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueTitleHoverColor")}
-        </FormHelperText>
-          </a>  
-      
-      </Grid>                      
-
-
-
-      </Grid>
-     
+      <TitleHeaderAllStyle 
+           data={
+            [
+              {color:titleInOpen.color,field:"title_color"},
+             
+              {hover_color:titleInOpen.hover_color,field:"title_hover_color"},
               
-                
-
-<Grid container spacing={2}>
-             {/* font family title  team style */} 
-          <Grid item xs={6}>
-          <p>{t("fontFamily")}</p>
-          <FontFamilySelect 
-           values={titleInOpen.font_family}
-           onFormSubmit={handleFormSubmit}
-           field_name={"title_font_family"}
-          />
-       <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid031inrZQgc4uo7jr7PcibvACxS2TkNJMzTsux3hXffNeLJLgMoyodzWuBzDtYGKJZ2l&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-            {t("reportIssueFontFamily")}
-        </FormHelperText>
-          </a>  
-          </Grid>
-         
-  {/* font size title team style */} 
-          <Grid item xs={6}>
-            <p>{t("fontSize")} </p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.font_size}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_font_size"}
-            />
-   <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0334f74gAp9z1qypPufjU7896PNyAKpBKX6GzbTtUXq1dfTVzGQJswQjVBPc44bZvil&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueFontSize")}
-        </FormHelperText>
-          </a> 
-            </Grid>        
-            </Grid>
-
-  {/* padding title team style */} 
-           <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("padding")}           
-            </Grid>
-             {/* padding top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.padding_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_top"}
-            />
-               <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid021LjQhh8Hy86U5G9uYyigm4YKWFcKti6mXmwqi1Qr7vEaKi5K8g8eCFSEcV5fuAZil&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingTop")}
-        </FormHelperText>
-          </a> 
-
-            </Grid> 
- {/* padding bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.padding_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_bottom"}
-            />
-     <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0m9PxJYYH9nZ6B19x1zLC7Eo2a8jt41BvSBnNp6EMV32mTWk4e64GLBMgQbY5kQFVl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingBottom")}
-        </FormHelperText>
-          </a> 
-            </Grid>                
- {/* padding left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.padding_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_left"}
-            />
- <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02hu7ksvUfDCsTptD55JWnbUp1HNq4pVi1FSbHHFrCWQvgekkjZ138MMYVtjNfadrpl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingLeft")}
-        </FormHelperText>
-          </a> 
-            </Grid>
-
-   {/* padding right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.padding_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_right"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02V7FdVCZcoC9JUo4Mernr7KS8aCaS8zhRQareaCz57vpmSarUkgABZ4MtpGn4emtal&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-            {t("reportIssuePaddingRight")}
-        </FormHelperText>
-          </a> 
-            </Grid>          
-
-           </Grid>
-
- {/* margin title team style */} 
- <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("margin")}           
-            </Grid>
-             {/* margin top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.margin_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_top"}
-            />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0XXNT6SndKqh5TNCTDXsJz5TrRTLEDW2pX3h7AkdXijnM9m5yvNF2j3T3KYWwyTnKl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueMarginTop")}
-        </FormHelperText>
-          </a> 
-            </Grid> 
- {/* margin bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.margin_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_bottom"}
-            />
-
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0MR8Zdm1XgKfj74FX8usTLc9xMdSP3y7kygssrfSKHyJBuAzfr4N5s31GbjN5aYZJl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueMarginBottom")}
-        </FormHelperText>
-          </a> 
-            </Grid>                
- {/* margin left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.margin_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_left"}
-            />
-            <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02Bfe4ZtTFJr83of94vDgDkU4b24GzDNM1xR4zdczZCCs6RPRPXY9dEr9p111dZYghl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueMarginLeft")}
-        </FormHelperText>
-          </a> 
-            </Grid>
-
-   {/* margin right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            <ComponentwithSelectAndInput 
-            value={titleInOpen.margin_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_right"}
-            />
-               <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0i2ysujibV9vTsr3KapQZhJUwcSaMGEC116j2GtG6Wzr6W6N2ChM4NbwWpjRV4tDEl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueMarginRight")}
-        </FormHelperText>
-          </a> 
-            </Grid>          
-
-           </Grid>
-           <Grid item xs={2}>
-           <p>{t("textAlign")}</p>
-           <AlignElement 
-             values={titleInOpen.text_align}
-            onFormSubmit={handleFormSubmit}
-            field_name={"text_align"}
-           /> 
-              <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0K1EUG9CESLZEs4pkCmj19qA5W2HpTQwyKihsTGmabFrRW4G62LEYARtv6MQPHfnDl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueTextAlign")}
-        </FormHelperText>
-          </a> 
-           </Grid>
-            
           
-           
-           
+              {font_family:titleInOpen.font_family,field:"title_font_family"},
+             
+             
+              {font_size:titleInOpen.font_size,field:"title_font_size"},
+              
+              {padding_top:titleInOpen.padding_top,field:"title_padding_top"},
+              
+              {padding_bottom:titleInOpen.padding_bottom,field:"title_padding_bottom"},
+        
+              {padding_left:titleInOpen.padding_left,field:"title_padding_left"},
+              
+              {padding_right:titleInOpen.padding_right,field:"title_padding_right"},
+             
+              {margin_top:titleInOpen.margin_top,field:"title_margin_top"},
+              
+              {margin_bottom:titleInOpen.margin_bottom,field:"title_margin_bottom"},
+     
+              {margin_left:titleInOpen.margin_left,field:"title_margin_left"},
+             
+              {margin_right:titleInOpen.margin_right,field:"title_margin_right"},
 
-
+              {text_align:titleInOpen.text_align,field:"text_align"}, 
+          ] }
+         
+          typeThinks={"text"}
+       
+           onTitleSingleSubmit={handleSingleTitleSubmit} 
+           itemsData={itemsData}
+           characters={characters}
+           section_id={section_id}
+           history={history}
+           hasSlider={hasSlider}
+      />
 
 
         </TabPanel>         
        
-          <div 
-             style={{display:"flex",justifyContent:"center",marginTop:"2%"}}
-          >
-<Button
-      onClick={() => updateTitleUnique()}
-      
-       variant="contained">{t("update")}</Button>
-          </div>
+        
           
         
         </AccordionDetails>
@@ -8025,283 +7312,50 @@ id={task.id}
       </TabPanel>
 
       <TabPanel value={valueTapDescription} index={1}  >
-      <Grid container spacing={2}>
-      <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>{t("descriptionColor")} </p>
-      <InputElementTypeColor 
-       values={ descriptionInOpen.color}
-       onFormSubmit={handleFormSubmit}
-       field_name={"title_color"}
-      />
-<a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0okKoLdapAHa7brZ2kSEqhRd1HRQVX9UaJaC7VRJMnZLarQf9gybDjuxTs2mbheLBl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueDescriptionColor")}
-        </FormHelperText>
-          </a> 
-      </Grid>
-
-      <Grid item xs={6}>
-      <p style={{textAlign:"left"}}>{t("descriptionHoverColor")} </p>
-      <InputElementTypeColor 
-       values={  descriptionInOpen.hover_color}
-       onFormSubmit={handleFormSubmit}
-       field_name={"title_hover_color"}
-      />
-      <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0MtynFSU4QorzJ8XWoQL96ySd92X7g7hsHENwovJMqvMxTaTfm9CvZoYWw2r2QKkwl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueDescriptionHoverColor")}
-        </FormHelperText>
-          </a> 
-      
-      </Grid>                      
-
-
-
-      </Grid>
-     
+      <DescriptionHeaderAllStyle 
+           data={
+            [
+              {color:descriptionInOpen.color,field:"title_color"},
+             
+              {hover_color:descriptionInOpen.hover_color,field:"title_hover_color"},
               
-                
-
-<Grid container spacing={2}>
-             {/* font family title  team style */} 
-          <Grid item xs={6}>
-          <p>{t("fontFamily")}</p>
-          <FontFamilySelect 
-           values={descriptionInOpen.font_family}
-           onFormSubmit={handleFormSubmit}
-           field_name={"title_font_family"}
-          />
- <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0GbE255z4Rey5Ddk7Fj9LvYodUj9zebSXaakKwHHhAzy4x7eumyiv4yGKWucBoBAHl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueFontFamily")}
-        </FormHelperText>
-          </a> 
+          
+              {font_family:descriptionInOpen.font_family,field:"title_font_family"},
+             
+             
+              {font_size:descriptionInOpen.font_size,field:"title_font_size"},
+              
+              {padding_top:descriptionInOpen.padding_top,field:"title_padding_top"},
+              
+              {padding_bottom:descriptionInOpen.padding_bottom,field:"title_padding_bottom"},
         
-          </Grid>
+              {padding_left:descriptionInOpen.padding_left,field:"title_padding_left"},
+              
+              {padding_right:descriptionInOpen.padding_right,field:"title_padding_right"},
+             
+              {margin_top:descriptionInOpen.margin_top,field:"title_margin_top"},
+              
+              {margin_bottom:descriptionInOpen.margin_bottom,field:"title_margin_bottom"},
+     
+              {margin_left:descriptionInOpen.margin_left,field:"title_margin_left"},
+             
+              {margin_right:descriptionInOpen.margin_right,field:"title_margin_right"},
+
+              {text_align:descriptionInOpen.text_align,field:"text_align"}, 
+          ] }
          
-  {/* font size title team style */} 
-          <Grid item xs={6}>
-            <p>{t("fontSize")} </p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.font_size}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_font_size"}
-            />
-             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0vRhA9VdR5tdbHnQeX9QgwxV5AuzbYqPzWymqgR49e5FVBP19k5rejCC9V6q5hKvml&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueFontSize")}
-        </FormHelperText>
-          </a> 
-            </Grid>        
-            </Grid>
+          typeThinks={"text"}
+       
+           onTitleSingleSubmit={handleSingleTitleSubmit} 
+           itemsData={itemsData}
+           characters={characters}
+           section_id={section_id}
+           history={history}
+           hasSlider={hasSlider}
+      />
 
-  {/* padding title team style */} 
-           <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("padding")}           
-            </Grid>
-             {/* padding top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.padding_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_top"}
-            />
-                 <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02B7CqJvwHRYzFvQvPPB1syS7B2yF2KBF4uCSzgcmwwdv4e62Qh4AX3L2f2iEUdMMsl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingTop")}
-        </FormHelperText>
-          </a> 
-            </Grid> 
- {/* padding bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.padding_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_bottom"}
-            />
-                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02FEbLywgAZx5a3AYQPCdmc1XnuHcu7R4Z4bGUovxVKp5wxgee3nk5ogtvxLXVzgMFl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingBottom")}
-        </FormHelperText>
-          </a> 
-            </Grid>                
- {/* padding left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.padding_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_left"}
-            />
-                  <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02Bc9PkdwZSUxD8ag51RCxATcWpJ5PbXLqcMrKhi1P2qFPCX4Ng86rT8VfawjRPZdql&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingLeft")}
-        </FormHelperText>
-          </a> 
-            </Grid>
-
-   {/* padding right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.padding_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_right"}
-            />
-                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02ePfAiMQXf6LBe6vcpgk1Jfs81frScoL4wegn29b1mkJiZvsDJckqmJBWdmfbnFcTl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssuePaddingRight")}
-        </FormHelperText>
-          </a> 
-            </Grid>          
-
-           </Grid>
-
- {/* margin title team style */} 
- <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("margin")}           
-            </Grid>
-             {/* margin top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.margin_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_top"}
-            />
-             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0wenjnfboJ5hdg6Lg2ZE5b6twNsRpBGfhABQQqtCeDtUKx4VMYkcahT8hh96GZdMFl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueDescriptionMarginTop")}
-        </FormHelperText>
-          </a> 
-            </Grid> 
- {/* margin bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.margin_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_bottom"}
-            />
-        <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02QFi6cirdTevg6yEqCYuFKc2UpejZJP8fQkDujJ8QceZQX5kvgKnQXLqUem42ydJil&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueDescriptionMarginBottom")}
-        </FormHelperText>
-          </a> 
-            </Grid>                
- {/* margin left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.margin_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_left"}
-            />
-             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ZBhCjCTr9YEGD2jVGCRy9nFKVfEJnJeu59GFBAKNVw6EuTAeZqCPsYyxrrwMtaNRl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueDescriptionMarginLeft")}
-        </FormHelperText>
-          </a> 
-            </Grid>
-
-   {/* margin right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            <ComponentwithSelectAndInput 
-            value={descriptionInOpen.margin_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_right"}
-            />
-              <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02chv56xvEmYnB5i9CBLZTE9yAaBHjpssR3DzR7nKiDDaMB9KVNm2VdTPsP3v5kzWjl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueDescriptionMarginRight")}
-        </FormHelperText>
-          </a> 
-            </Grid>          
-         
-           </Grid>
-           <Grid item xs={2}>
-           <p>{t("textAlign")}</p>
-           <AlignElement 
-             values={descriptionInOpen.text_align}
-            onFormSubmit={handleFormSubmit}
-            field_name={"text_align"}
-           /> 
-              <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02YfswBtAK7NaSYbu5k52RRfQpduFjEJbyeXfdpzPTPm84N4LHhvsRNyfPKXPnYNJJl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueDescriptionTextAlign")}
-        </FormHelperText>
-          </a> 
-           </Grid>
         </TabPanel>  
 
-      
-          <div 
-             style={{display:"flex",justifyContent:"center",marginTop:"2%"}}
-          >
-<Button
-      onClick={() =>   updateDescriptionUnique()}
-      
-       variant="contained">{t("update")}</Button>
-          </div>
-          
-        
         </AccordionDetails>
       </Accordion>
 
@@ -8649,7 +7703,7 @@ id={task.id}
       <div 
        style={{maxHeight:"400px",overflowY:"auto"}}
       >
-    {/* accordion for title global  style */}
+    {/* accordion for title global  style global_style[0] */}
     <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -8660,295 +7714,47 @@ id={task.id}
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          <Grid container spacing={2}>
-      <Grid item xs={6}>
-     
-        <p>{t("titleColor")}</p>
-        <InputElementTypeColor 
-       values={global_style[0].color }
-       onFormSubmit={handleFormSubmit}
-       field_name={"title_color"}
-      /> 
-      <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid033FMraY8j8z1gqHi5wwH7Jb53dqxmptgZ8YjQZuqLMbL9tw2i2sGhri8zc4qdU8i2l&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueTitleColor")}
-        </FormHelperText>
-          </a> 
-
-      </Grid>
-
-      <Grid item xs={6}>
-        <p>{t("titleHoverColor")}</p>
-        <InputElementTypeColor 
-       values={global_style[0].hover_color }
-       onFormSubmit={handleFormSubmit}
-       field_name={"title_hover_color"}
-      />  
- <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02NEdrFTnEFHnFYa4Rvy5gF8goM8KUNaoZDmr4292Qm5vEak2So1GofjNCvyXSQDhXl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-          {t("reportIssueTitleHoverColor")}
-        </FormHelperText>
-          </a> 
-      
-      </Grid>                      
-
-
-
-      </Grid>
-     
+          <TitleAllStyle 
+           data={
+            [
+              {color:global_style[0].color,field:"title_color"},
+             
+              {hover_color:global_style[0].hover_color,field:"title_hover_color"},
               
-                
-
-<Grid container spacing={2}>
-             {/* font family title  team style */} 
-          <Grid item xs={6}>
-          <p>{t("fontFamily")}</p>
-          <FontFamilySelect 
-           values={global_style[0].font_family}
-           onFormSubmit={handleFormSubmit}
-           field_name={"title_font_family"}
-          />
- <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02hxwUiFXsYSJdMqGJy4kCiA5gTtCJoN22qgkSnqhwhKuLYHYxMhgqLW1kDTqJ5ic7l&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-          {t("reportIssueFontFamily")}
-        </FormHelperText>
-          </a> 
-        
-          </Grid>
-         
-  {/* font size title team style */} 
-          <Grid item xs={6}>
-            <p>{t("fontSize")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].font_size}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_font_size"}
-            />
-          <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02ZkZjUyjr9zeqaNz17KkfE488EJq5b2zWKQre4VMwduKty2ArdcSxL9QY66KkUnjml&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-          {t("reportIssueFontSize")}
-        </FormHelperText>
-          </a>
-            </Grid>        
-            </Grid>
-
-  {/* padding title team style */} 
-           <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("padding")}           
-            </Grid>
-             {/* padding top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].padding_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_top"}
-            />
-          <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02v8Kxp3j63TVh5Hi12cPoRV4y2HJyUZCCJVTaLiBZPfxuXcr2KwWRKFnjUQgxs2wgl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-          {t("reportIssuePaddingTop")}
-        </FormHelperText>
-          </a>
-         
-            </Grid> 
- {/* padding bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].padding_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_bottom"}
-            />
-          <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02drCvTz3SHbUTLvoV3yurAd2KJ4ksniqCA4BCbBUakDj7Fny3QK34GEhpPntH5SgNl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-          {t("reportIssuePaddingBottom")}
-        </FormHelperText>
-          </a>
-            </Grid>                
- {/* padding left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].padding_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_left"}
-            />
-            <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid028RoG9JJtWi6RpmQuxfA6Lj265S3rtAMJV1AJpJtHC45c2vsr8prun2Mu7iAucg45l&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-          {t("reportIssuePaddingLeft")}
-        </FormHelperText>
-          </a>
-            </Grid>
-
-   {/* padding right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].padding_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_padding_right"}
-            />
-             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0PhPEmxMW6WeSnAgAoEpZet2pdgDEcfxY483mdWsiP4f9CqAuHr7HdYsv8TZAk8HYl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-          {t("reportIssuePaddingRight")}
-        </FormHelperText>
-          </a>
-            </Grid>          
-
-           </Grid>
-
- {/* margin title team style */} 
- <Grid container spacing={2}>
-            <Grid item xs={2}>
-                 {t("margin")}           
-            </Grid>
-             {/* margin top title team style */} 
-            <Grid item xs={2}>
-            <p>{t("top")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].margin_top}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_top"}
-            />
-               <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02ZViHRR6VtyRe4oQJtwjD3BsA47xcfZGnM6MyexRpBSqbM1TdfWN6CZEjmtpVmELCl&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-          {t("reportIssueMarginTop")}
-        </FormHelperText>
-          </a>
-            </Grid> 
- {/* margin bottom title team style */} 
-            <Grid item xs={2}>
-            <p>{t("bottom")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].margin_bottom}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_bottom"}
-            />
-              <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid026CvwsPMvsrZ8GVy5UWGhW89xqySTd1VTHe7871fEtSGMA1fgg8CEqUZgA7Ps5Bk3l&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueMarginBottom")}
-        </FormHelperText>
-          </a>
-            </Grid>                
- {/* margin left title team style */} 
- <Grid item xs={2}>
-            <p>{t("left")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].margin_left}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_left"}
-            />
-                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02dzWKZPQJqt3Q881KCo3ejuJaWCpRZTHEgRdj2RW2n5z9gyXZoHaG9n2xAHVRoPqcl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                 {t("reportIssueMarginLeft")}
-        </FormHelperText>
-          </a>
-
-            </Grid>
-
-   {/* margin right title team style */} 
- <Grid item xs={2}>
-            <p>{t("right")}</p>
-            <ComponentwithSelectAndInput 
-            value={global_style[0].margin_right}
-             onFormSubmit={handleFormSubmit}
-             field_name={"title_margin_right"}
-            />
-               <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02sxdLe1fbKzSKtRssCbCrkbv4DVwKapjd2q8B21c4sPwUMSpE7kMDUoT3QmsrJViDl&id=100081746135007"
-           target='_blank' 
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueMarginRight")}
-        </FormHelperText>
-          </a>
-            </Grid>          
-
-           </Grid>
-
-           <Grid container spacing={2} 
-           style={{marginTop:"2%"}}
-           >
-           <Grid item xs={2}>
-           <p>{t("textAlign")}</p>
-           </Grid>
-           <Grid item xs={6}>
-           <AlignElement 
-             values={global_style[0].text_align}
-            onFormSubmit={handleFormSubmit}
-            field_name={"text_align"}
-           /> 
-               <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02mviahRrazVayKC1KP6pQGcaGjtZoLpiceTispPSqMWaJsmDmRLaSqhEzcDF6yUYil&id=100081746135007"
-           target='_blank'
-           rel="noreferrer"
-           >
-          <FormHelperText id="component-helper-text">
-                 <ReportIcon color="error"/>
-                {t("reportIssueTextAlign")}
-        </FormHelperText>
-          </a>
-           </Grid>
-           </Grid>
-           
-           
-
-
-
-          <div 
-             style={{display:"flex",justifyContent:"center"}}
-          >
-<Button
-      onClick={() => updateGlobalStyle("title")}
-       variant="contained">{t("update")}</Button>
-          </div>
           
+              {font_family:global_style[0].font_family,field:"title_font_family"},
+             
+             
+              {font_size:global_style[0].font_size,field:"title_font_size"},
+              
+              {padding_top:global_style[0].padding_top,field:"title_padding_top"},
+              
+              {padding_bottom:global_style[0].padding_bottom,field:"title_padding_bottom"},
+        
+              {padding_left:global_style[0].padding_left,field:"title_padding_left"},
+              
+              {padding_right:global_style[0].padding_right,field:"title_padding_right"},
+             
+              {margin_top:global_style[0].margin_top,field:"title_margin_top"},
+              
+              {margin_bottom:global_style[0].margin_bottom,field:"title_margin_bottom"},
+     
+              {margin_left:global_style[0].margin_left,field:"title_margin_left"},
+             
+              {margin_right:global_style[0].margin_right,field:"title_margin_right"},
 
+              {text_align:global_style[0].text_align,field:"text_align"}, 
+          ] }
+         
+          typeThinks={"text"}
+       
+           onTitleSingleSubmit={handleSingleTitleSubmit} 
+           itemsData={itemsData}
+           characters={characters}
+           section_id={section_id}
+           history={history}
+           hasSlider={hasSlider}
+      />
           </Typography>
         </AccordionDetails>
       </Accordion>

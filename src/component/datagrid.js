@@ -230,6 +230,9 @@ function replaceAll(inputString ) {
     '&euml;': 'ë',
     '&ocirc;': 'ô',
     '&ecirc;': 'ê',
+    "&deg;":"°",
+    "&hellip;":"…"
+   
   };
   
   for (var key in replacements) {
@@ -238,6 +241,7 @@ function replaceAll(inputString ) {
           inputString = inputString.replace(regex, replacements[key]);
       }
   }
+  console.log(inputString)
   return inputString;
 }
 function removeSpacesAndNewlinesOutsideTags(inputString) {
@@ -257,7 +261,7 @@ function removeSpacesAndNewlinesOutsideTags(inputString) {
         let file_name = rows[r].file.split(".")[0] + "auto"
         let file_direction = rows[r].file.split(".")[0] +language
         orginal_html[0][name] = replaceAll( orginal_html[0][name])
-      
+        
   
         var expectedSubstring = rows[r][file_name];
  
@@ -266,6 +270,7 @@ function removeSpacesAndNewlinesOutsideTags(inputString) {
 
 
  expectedSubstring = expectedSubstring.replace(/\s/g, '')
+
         orginal_html[0][name] = orginal_html[0][name].replaceAll(expectedSubstring,rows[r][file_direction])
       }
       return orginal_html[0][name]
@@ -291,12 +296,12 @@ function removeSpacesAndNewlinesOutsideTags(inputString) {
               return '>' + cleanedText + '<';
             });
             orginal_html[f][String(files_name[f])]  = modifiedHtml 
-         
+            console.log(modifiedHtml)
            if(rows !=[] && orginal_html.length !=0 ){
             
 
             let replacer = replacer_html(rows,orginal_html,languages[i].label,files_name[f])
-       
+            
             
             component.file(files_name[f], replacer);
            }

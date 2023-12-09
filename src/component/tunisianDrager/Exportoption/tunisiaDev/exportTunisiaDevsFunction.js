@@ -1,7 +1,5 @@
-import bcrypt from "bcryptjs-react";
+import axios from "axios"
 import LZString from 'lz-string'
-import {Templates} from "../../templates"
-import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -20,10 +18,10 @@ const Encrypt = (salt, text) => {
     return encoded.match(/.{1,2}/g).map((hex) => parseInt(hex, 16)).map(applySaltToChar).map((charCode) => String.fromCharCode(charCode)).join("");
   };
 
-export const tunisiaDevsString = (data,password,component_name) =>{
-    var salt = bcrypt.genSaltSync(10);
-    var newPassword = bcrypt.hashSync(password, salt);
-    
+export const tunisiaDevsString = async(data,password,component_name) =>{
+    const responseHash = await axios.post("http://62.72.36.199:5000/api/hash-password",{
+        password
+      })
    
 
     // To create a cipher
@@ -38,7 +36,7 @@ export const tunisiaDevsString = (data,password,component_name) =>{
 
     let compresse_string = LZString.compressToUTF16(encryption_with_password)
    
-    let final_compressed = newPassword + compresse_string
+    let final_compressed = responseHash?.passworHash + compresse_string
  
 
     return final_compressed
@@ -50,10 +48,12 @@ export const tunisiaDevsString = (data,password,component_name) =>{
 //60
 
 export const checkIfPasswordIsCorrect =async (passwordReserved,passwordEntered) =>{
-
-    var checker_password = await  bcrypt.compareSync(passwordEntered,passwordReserved);
-
-    return checker_password
+    const responseHash = await axios.post("http://62.72.36.199:5000/api/comparing-password",{
+        passwordReserved,passwordEntered
+      })
+   
+ 
+    return responseHash?.comparing
 
 }
 

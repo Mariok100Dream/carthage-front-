@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 
 import ReactCodeSinppet from 'react-code-snippet'
 import TextField from '@mui/material/TextField';
-
+import axios from "axios"
 import {
     indexHtml,
     callJquey,
@@ -17,7 +17,7 @@ import {
     appJSCall
 } from "./initialReactProject/initialReactProject"
 import { Templates } from "../../templates";
-import  htmlToJsx from "html-to-jsx";
+
 import Button from '@mui/material/Button';
 import JSZip from "jszip"
 import  FileSaver from 'file-saver' 
@@ -39,7 +39,7 @@ const ReactExport = (props) =>{
     },[])
 
 
-    let  handleChangeComponentName = (e) =>{
+    let  handleChangeComponentName = async(e) =>{
         setComponentName(e.target.value)
         if(hasSlider){
                 
@@ -88,14 +88,19 @@ const ReactExport = (props) =>{
             setBase64Rapido(base64data)
             setBase64Table(result)
            
-            setComponentCodeSnippet(htmlToJsx(ch_html))
+            setComponentCodeSnippet(await htmltoJsx(ch_html))
             setCssData(resultTemplate.section_css)
 
           
         }
 
     }
-
+    const htmltoJsx = async(test) =>{
+        const response =  await axios.post("http://62.72.36.199:5000/api/html-jsx",{
+          text_without_html_comment:test
+        }) 
+        return response?.htmljsx
+  }
     let downloadComponent = () =>{
         let zip = new JSZip();
         let ch_imports_images = ""

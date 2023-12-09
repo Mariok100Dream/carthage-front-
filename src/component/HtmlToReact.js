@@ -6,12 +6,12 @@ import { FileUploader } from "react-drag-drop-files";
 
 import Button from '@mui/material/Button'
 
-
+import axios from "axios"
 import Box from '@mui/material/Box';
 
 
 import {ToastContainer,toast} from "react-toastify"
-import  htmlToJsx from "html-to-jsx";
+
 
 //banded column 
 import Footer from "../pages/footer"
@@ -379,7 +379,12 @@ let [all_errors_captured,setAllErrorsCaptured] = useState(["hello"])
 
 
 
-
+  const htmltoJsx = async(test) =>{
+        const response =  await axios.post("http://62.72.36.199:5000/api/html-jsx",{
+          text_without_html_comment:test
+        }) 
+        return response?.htmljsx
+  }
   function find_duplicate_in_array(arra1) {
     var object = {};
     var result = [];
@@ -9786,9 +9791,8 @@ describe('AppComponent', () => {
         for (let i=0;i<component_unique_data.length;i++){
           pageImport+=`import ${component_unique_data[i].component_name} from "../components/${component_unique_data[i].component_name}"`+ "\n"
         }
-        let text = htmlToJsx(text_without_html_comment.replace(/<style>(.*?)</gs,'').replaceAll("/style>","").
-        replace(/<link[^>]*[^>]*>/gi,'')).replace(/<meta>(.*?)</gs,'')
-      
+     
+        let text =  await  htmltoJsx(text_without_html_comment)
         //get all pages svg content 
        //for svg 
         let new_data = text.match(/<svg\b[^>]*?(?:viewBox=\"(\b[^"]*)\")?>([\s\S]*?)<\/svg>/gmi)
@@ -9804,7 +9808,7 @@ describe('AppComponent', () => {
       const ${fileName} = () =>{
         return (
           <>
-          ${htmlToJsx(text)}
+          ${await htmltoJsx(text)}
           </> 
         )
     
@@ -9964,7 +9968,7 @@ it('should create', () => {
           const ${components_data[cf].component_name} = () =>{
             return (
               <>
-              ${htmlToJsx(components_data[cf].conmponent_value.replace(/<style>(.*?)</gs,'').replaceAll("/style>","").
+              ${await htmltoJsx(components_data[cf].conmponent_value.replace(/<style>(.*?)</gs,'').replaceAll("/style>","").
               replace(/<link[^>]*[^>]*>/gi,''))}
               </>
             )
@@ -10274,7 +10278,7 @@ it('should create', () => {
         }
 
         
-        let text = htmlToJsx(begin_body.replace(/<style>(.*?)</gs,'').replaceAll("/style>","").
+        let text = await htmltoJsx(begin_body.replace(/<style>(.*?)</gs,'').replaceAll("/style>","").
         replace(/<link[^>]*[^>]*>/gi,'')).replace(/<meta>(.*?)</gs,'')
         let fileName = data[e].file_name.split(".")[0] .replace("@",""). // @operation
         replace(/\s+/g, "")
@@ -10437,7 +10441,7 @@ it('should create', () => {
         const ${components_data[cf].component_name} = () =>{
           return (
             <>
-            ${htmlToJsx(components_data[cf].conmponent_value)}
+            ${await htmltoJsx(components_data[cf].conmponent_value)}
             </>
           )
         }
@@ -10455,7 +10459,7 @@ it('should create', () => {
           const ${components_data[cf].component_name} = () =>{
             return (
               <>
-              ${htmlToJsx(components_data[cf].conmponent_value.replace(/<style>(.*?)</gs,'').replaceAll("/style>","").
+              ${await htmltoJsx(components_data[cf].conmponent_value.replace(/<style>(.*?)</gs,'').replaceAll("/style>","").
               replace(/<link[^>]*[^>]*>/gi,''))}
               </>
             )

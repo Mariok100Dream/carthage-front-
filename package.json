@@ -17,9 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@uiw/react-codemirror": "^4.12.4",
     "aos": "^2.3.4",
-    "bcryptjs-react": "^2.4.6",
-    "devextreme": "^22.2.3",
-    "devextreme-react": "^22.2.3",
+    "devextreme": "^23.1.6",
     "file-saver": "^2.0.5",
     "filepond": "^4.30.4",
     "filepond-plugin-image-edit": "^1.6.3",
@@ -27,7 +25,6 @@
     "filepond-plugin-image-preview": "^4.6.11",
     "filepond-plugin-image-resize": "^2.0.10",
     "filepond-plugin-image-transform": "^3.8.7",
-    "html-to-jsx": "^0.0.4",
     "html2canvas": "^1.4.1",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
@@ -64,7 +61,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "react-scripts start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
@@ -86,18 +83,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "assert": "^2.1.0",
-    "buffer": "^6.0.3",
-    "crypto-browserify": "^3.12.0",
-    "devextreme-themebuilder": "^22.2.3",
-    "https-browserify": "^1.0.0",
-    "os-browserify": "^0.3.0",
-    "process": "^0.11.10",
-    "react-app-rewired": "^2.2.1",
-    "stream-browserify": "^3.0.0",
-    "stream-http": "^3.2.0",
-    "url": "^0.11.3"
   }
 }
